@@ -1,0 +1,153 @@
+/* Global Reset */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f4f4f4; /* Light gray background for better contrast */
+  color: #333; /* Dark text for better readability */
+}
+
+/* Fullscreen Container */
+.page-container,
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('/bg.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Auth Box Styling */
+.login-box,
+.auth-box {
+  background: rgba(255, 255, 255, 0.9); /* Slightly translucent white */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.login-box:hover,
+.auth-box:hover {
+  transform: translateY(-5px); /* Slight elevation on hover for interactivity */
+}
+
+/* Header Styling */
+.login-box h1,
+.auth-box h1 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.login-box p,
+.auth-box p {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* Input Field Styling */
+.input-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 5px 0;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: black; /* Blue border on focus */
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Options Links */
+.options {
+  font-size: 0.9rem;
+  color: black;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  display: block;
+  text-align: right;
+}
+
+.options:hover {
+  text-decoration: underline;
+}
+
+/* Button Styling */
+.auth-button,
+.login-button {
+  background-color: black; /* Bright blue button */
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover,
+.login-button:hover {
+  background-color: #112f4f; /* Darker blue on hover */
+}
+
+/* Divider and Google Login Section */
+.divider {
+  margin: 1.5rem 0;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.divider span {
+  margin: 0 10px;
+  padding: 0 10px;
+  position: relative;
+  top: -5px;
+  background-color: #fff;
+}
+
+.google-login-button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .login-box,
+  .auth-box {
+    padding: 1.5rem;
+    width: 90%;
+  }
+  
+  .login-box h1,
+  .auth-box h1 {
+    font-size: 1.4rem;
+  }
+
+  .auth-button,
+  .login-button {
+    padding: 0.9rem;
+  }
+}
