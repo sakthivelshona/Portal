@@ -1,4 +1,5 @@
 git add.
 git commit -m "commmit msg"
+git checkout -b main
 git push origin main
 https://github.bitsathy.ac.in/S8_Projects/PS_S8_179
