@@ -1,0 +1,258 @@
+
+/* Style to center the text */
+.centered-text {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-top: 50px;
+  }
+  
+  /* Style for the form container */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+  
+  /* Style for each form group */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+  }
+  
+  /* Skills input container */
+  .skills-input-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .skills-input-container input {
+    padding: 10px;
+    width: 80%;
+    font-size: 1rem;
+  }
+  
+  .skills-input-container button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .skills-input-container button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Skills list */
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .skill-item button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .skill-item button:hover {
+    background-color: darkred;
+  }
+  
+  /* Post Button */
+  .post-button {
+    padding: 12px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .post-button:hover {
+    background-color: #45a049;
+  }
+  
+
+/* SuccessPage.css */
+
+/* General container for the success message */
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f4f9;
+  min-height: 100vh;
+}
+
+.success-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4CAF50; /* Green color for success */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Container for the posted jobs section */
+.posted-jobs-container {
+  width: 80%;
+  max-width: 1200px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.posted-jobs-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.job-item {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.job-item p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.job-item p strong {
+  color: #333;
+}
+
+/* Styling for 'Recently Posted Jobs' and 'Already Posted Jobs' */
+.recently-posted {
+  background-color: #e0f7fa; /* Light Cyan for recently posted */
+  border-left: 5px solid #00bcd4; /* Teal border */
+  padding-left: 10px;
+}
+
+.already-posted {
+  background-color: #fff3e0; /* Light Orange for already posted */
+  border-left: 5px solid #ff9800; /* Orange border */
+  padding-left: 10px;
+}
+
+/* Styles for empty state */
+.empty-state {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 50px;
+}
+
+.empty-state p {
+  color: #777;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+.job-application {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.job-summary, .job-details {
+  padding: 10px;
+}
+
+.job-summary h3,
+.job-details h3 {
+  margin: 0;
+}
+
+.job-summary h4,
+.job-details h4 {
+  margin: 5px 0;
+}
+
+.job-summary button,
+.job-details button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.job-details {
+  background-color: #f8f9fa;
+}
+
+.job-details p {
+  margin: 5px 0;
+}
+
+.job-detail-page {
+  padding: 20px;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .posted-jobs-container {
+    width: 90%;
+  }
+  .job-item {
+    padding: 10px;
+  }
+  .job-item p {
+    font-size: 1rem;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Student/Style.css'; // Importing the CSS file for styling
+import '../Student/new.css'; // Importing the CSS file for styling
 import Sidebar from '../Student/Sidebar'; // Import Sidebar component
 import { Link } from 'react-router-dom'; // Import Link for routing
 

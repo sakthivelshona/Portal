@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css'; // Use shared styles
 import { Link, useNavigate } from 'react-router-dom';
-import { GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
 import data from './data.json'; // Importing the data from the json file
 
 const Login = () => {
@@ -83,16 +81,7 @@ const Login = () => {
             <div className="divider"> -----------or----------</div>
 
             {/* Google sign-in */}
-            <GoogleLogin
-              onSuccess={(credentialResponse) => {
-                const credentialResponseDetail = jwtDecode(credentialResponse.credential);
-                console.log(credentialResponseDetail);
-              }}
-              onError={() => {
-                console.log('Login Failed');
-              }}
-              className="google-login-button"
-            />
+
           </form>
         </div>
       </div>

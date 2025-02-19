@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Student/Style.css'; // Importing the CSS file for styling
+import '../Student/new.css'; // Importing the CSS file for styling
 import Sidebar from '../Student/Sidebar'; // Import Sidebar component
 
 function RejectedJobs() {
