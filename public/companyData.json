@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "company": "Zoho",
+      "role": "Software Developer",
+      "ctc": "₹10 LPA",
+      "deadline": "March 1, 2025",
+      "skills": ["JavaScript", "React", "Node.js"],
+      "description": "Full-stack developer role for mission-critical systems.",
+      "requirements": "3+ years experience",
+      "benefits": ["Health insurance", "paid leave"],
+      "about": "Zoho is a leading software company known for its comprehensive suite of business applications."
+    },
+    {
+      "id": 2,
+      "company": "Amazon",
+      "role": "IT Support Associate II",
+      "ctc": "₹12 LPA",
+      "deadline": "April 1, 2025",
+      "skills": ["Windows", "Mac", "Linux OS support"],
+      "description": "Support for integrated computer systems.",
+      "requirements": "3+ years experience",
+      "benefits": ["Paid leave", "career development opportunities"],
+      "about": "Amazon is a global leader in e-commerce and cloud computing, known for its customer-centric approach."
+    },
+    {
+      "id": 3,
+      "company": "Juspay",
+      "role": "Product Designer",
+      "ctc": "₹10 LPA",
+      "deadline": "March 1, 2025",
+      "skills": ["UI/UX design", "prototyping tools"],
+      "description": "Designing high-fidelity interactive prototypes.",
+      "requirements": "2-6 years design experience",
+      "benefits": ["Health insurance", "paid leave"],
+      "about": "Juspay is a leading payment infrastructure company in India, processing millions of transactions daily."
+    },
+    {
+      "id": 4,
+      "company": "PhonePe",
+      "role": "Customer Care Executive",
+      "ctc": "₹8 LPA",
+      "deadline": "March 1, 2025",
+      "skills": ["Customer service", "problem-solving"],
+      "description": "Handling customer queries via phone, chat, email, and Alexa.",
+      "requirements": "1+ year experience",
+      "benefits": ["Paid leave", "career advancement opportunities"],
+      "about": "PhonePe is a leading digital payments company in India, part of the Flipkart group."
+    },
+    {
+      "id": 5,
+      "company": "Soliton",
+      "role": "Data Scientist",
+      "ctc": "₹12 LPA",
+      "deadline": "April 1, 2025",
+      "skills": ["Python", "R", "SQL", "Machine Learning"],
+      "description": "Analyzing large datasets to derive insights.",
+      "requirements": "3+ years experience",
+      "benefits": ["Health insurance", "paid leave"],
+      "about": "Soliton is a technology company specializing in data analytics and machine learning solutions."
+    },
+    {
+      "id": 6,
+      "company": "PhonePe",
+      "role": "Customer Care Executive",
+      "ctc": "₹8 LPA",
+      "deadline": "March 1, 2025",
+      "skills": ["Customer service", "problem-solving"],
+      "description": "Handling customer queries via phone, chat, email, and Alexa.",
+      "requirements": "1+ year experience",
+      "benefits": ["Paid leave", "career advancement opportunities"],
+      "about": "PhonePe is a leading digital payments company in India, part of the Flipkart group."
+    }
+  ]
+  

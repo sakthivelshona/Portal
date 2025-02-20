@@ -1,5 +1,5 @@
 git add.
 git commit -m "Frontend files are added"
-git checkout -b main
-git push origin main
+git checkout -b new-feature
+git push origin new-feature
 https://github.bitsathy.ac.in/S8_Projects/PS_S8_179
