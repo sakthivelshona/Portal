@@ -1,167 +1,130 @@
-import React, { useState } from 'react';
-import '../Student/new.css'; // Importing the CSS file for styling
-import Sidebar from '../Student/Sidebar'; // Import Sidebar component
-import { Link } from 'react-router-dom'; // Import Link for routing
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Sidebar from '../Student/Sidebar';
 
-function JobApplication() {
-
-  const jobs = [
-    {
-      company: 'XYZ Corp',
-      location: 'New York',
-      role: 'Software Engineer',
-      ctc: '$120,000',
-      skills: ['JavaScript', 'React', 'Node.js'],
-      description: 'We are looking for a software engineer with a strong foundation in JavaScript and React.',
-      deadline: '31st Dec 2025',
-      applyLink: 'https://example.com',
-    },
-    {
-      company: 'ABC Tech',
-      location: 'San Francisco',
-      role: 'Data Scientist',
-      ctc: '$130,000',
-      skills: ['Python', 'Machine Learning', 'TensorFlow'],
-      description: 'Join our team to work on cutting-edge AI models and machine learning algorithms.',
-      deadline: '15th Jan 2025',
-      applyLink: 'https://example.com',
-    },
-    {
-      company: 'XYZ Corp',
-      location: 'New York',
-      role: 'Software Engineer',
-      ctc: '$120,000',
-      skills: ['JavaScript', 'React', 'Node.js'],
-      description: 'We are looking for a software engineer with a strong foundation in JavaScript and React.',
-      deadline: '31st Dec 2025',
-      applyLink: 'https://example.com',
-    },
-    {
-      company: 'Innovate Solutions',
-      location: 'Chicago',
-      role: 'UI/UX Designer',
-      ctc: '$100,000',
-      skills: ['Figma', 'UI Design', 'User Research'],
-      description: 'We need a creative UI/UX designer who can create intuitive and beautiful user interfaces.',
-      deadline: '28th Feb 2025',
-      applyLink: 'https://example.com',
-    },
-    {
-      company: 'ABC Tech',
-      location: 'San Francisco',
-      role: 'Data Scientist',
-      ctc: '$130,000',
-      skills: ['Python', 'Machine Learning', 'TensorFlow'],
-      description: 'Join our team to work on cutting-edge AI models and machine learning algorithms.',
-      deadline: '15th Jan 2025',
-      applyLink: 'https://example.com',
-    },
-  ];
-
-  const [filteredJobs, setFilteredJobs] = useState(jobs);
-  const [roleSearch, setRoleSearch] = useState('');
-  const [skillsSearch, setSkillsSearch] = useState('');
-  const [locationSearch, setLocationSearch] = useState('');
-
-  // Function to handle Apply button click
-  const handleApplyClick = (job) => {
-    console.log(`Applied for ${job.role} at ${job.company}`);
-    window.open(job.applyLink, '_blank');
-  };
-
-  // Function to handle Reject button click
-  // const handleRejectClick = (job) => {
-  //   console.log(`Rejected the ${job.role} role at ${job.company}`);
-  // };
-
-  // Search logic
-  const handleSearch = () => {
-    setFilteredJobs(
-      jobs.filter(
-        (job) =>
-          job.role.toLowerCase().includes(roleSearch.toLowerCase()) &&
-          job.skills.some((skill) =>
-            skill.toLowerCase().includes(skillsSearch.toLowerCase())
-          ) &&
-          job.location.toLowerCase().includes(locationSearch.toLowerCase())
-      )
-    );
-  };
+// Job Application Component
+const JobApplication = ({ job }) => {
+  // Split skills by comma and join them to make a comma-separated string
+  const skillsList = Array.isArray(job.skills) ? job.skills : job.skills.split(',');
 
   return (
-    <div className="app-container">
-      <Sidebar />
-      <div className="main-content">
-        <div className="new-job-updates">
-          <h1>Jobs</h1>
-          <div className="applyjobs-container">
-            <div className="job-box-container">
-              <div className="links-container">
-                <p><Link to="/applyjobs">All</Link></p>
-                <p><Link to="/appliedjobs">Applied</Link></p>
-                <p><Link to="/rejectedjobs">Rejected</Link></p>
-              </div>
-              {filteredJobs.map((job, index) => (
-                <div className="job-box" key={index}>
-                  <div className="job-header">
-                    <h3>{job.company} - {job.role}</h3>
-                    <p>{job.location}</p>
-                  </div>
-                  <div className="job-details">
-                    <p className="ctc">CTC: {job.ctc}</p>
-                    <div className="skills-container">
-                      {job.skills.map((skill, idx) => (
-                        <span key={idx} className="skill">{skill}</span>
-                      ))}
-                    </div>
-                    <p className="description">{job.description}</p>
-                    <p className="deadline">Deadline: {job.deadline}</p>
-                    <div className="job-actions">
-                      <button className="btn apply-btn"onClick={() => handleApplyClick(job)}>View job brochure</button>
-                      {/* <button className="btn apply-btn"onClick={() => handleRejectClick(job)}>Apply</button> */}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="filter-box">
-              <h1>Filters</h1>
-              <div className="filter-section">
-                <h3>Role</h3>
-                <input
-                  type="text"
-                  placeholder="Search by Role"
-                  value={roleSearch}
-                  onChange={(e) => setRoleSearch(e.target.value)}
-                  onKeyUp={handleSearch}
-                />
-              </div>
-              <div className="filter-section">
-                <h3>Skills</h3>
-                <input
-                  type="text"
-                  placeholder="Search by Skills"
-                  value={skillsSearch}
-                  onChange={(e) => setSkillsSearch(e.target.value)}
-                  onKeyUp={handleSearch}
-                />
-              </div>
-              <div className="filter-section">
-                <h3>Location</h3>
-                <input
-                  type="text"
-                  placeholder="Search by Location"
-                  value={locationSearch}
-                  onChange={(e) => setLocationSearch(e.target.value)}
-                  onKeyUp={handleSearch}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="job-application-card">
+      <div className="job-details-card">
+        <h3>{job.company}</h3>
+        <h4>{job.role}</h4>
+        <p><strong>CTC:</strong> {job.ctc}</p>
+        <p><strong>Location:</strong> {job.location}</p>
+        <p><strong>Deadline:</strong> {job.deadline}</p>
+        <p><strong>Skills:</strong> {skillsList.join(', ')}</p>
+        <p><strong>Description:</strong> {job.description}</p>
+        {/* Pass the job id to the link */}
+        <Link to={`/job/${job.id}`}><button>View</button></Link>
       </div>
     </div>
   );
-}
+};
 
-export default JobApplication;
+// Job Application List Component
+const Applications = () => {
+  const [jobApplications, setJobApplications] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const [filters, setFilters] = useState({
+    role: '',
+    skill: '',
+    location: ''
+  });
+
+  // Fetch job applications data from companyData.json
+  useEffect(() => {
+    const url = '/companyData.json'; // JSON file in the public folder
+    fetch(url)
+      .then(response => response.json()) // Fetch the JSON data
+      .then(data => {
+        setJobApplications(data); // Update state with the fetched data
+        setFilteredJobs(data); // Initially, show all jobs
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setLoading(false); // Set loading to false if fetch fails
+      });
+  }, []);
+
+  // Handle filter changes
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters(prevFilters => {
+      const updatedFilters = { ...prevFilters, [name]: value };
+      applyFilters(updatedFilters);
+      return updatedFilters;
+    });
+  };
+
+  // Apply filters to job applications
+const applyFilters = (filters) => {
+  let filtered = jobApplications;
+
+  if (filters.role) {
+    filtered = filtered.filter(job => job.role.toLowerCase().includes(filters.role.toLowerCase()));
+  }
+
+  if (filters.skill) {
+    filtered = filtered.filter(job => {
+      // Ensure job.skills is treated as a string (join array if necessary)
+      const skills = Array.isArray(job.skills) ? job.skills.join(', ') : job.skills;
+      return skills.toLowerCase().includes(filters.skill.toLowerCase());
+    });
+  }
+
+  if (filters.location) {
+    filtered = filtered.filter(job => job.location.toLowerCase().includes(filters.location.toLowerCase()));
+  }
+
+  setFilteredJobs(filtered);
+};
+
+
+  return (
+    <div className="job-applications-list">
+      <Sidebar />
+      
+      {/* Filters Section */}
+      <div className="filters">
+        <label htmlFor="">Search by filter</label>
+        <input
+          type="text"
+          name="role"
+          placeholder="Filter by Role"
+          value={filters.role}
+          onChange={handleFilterChange}
+        />
+        <input
+          type="text"
+          name="skill"
+          placeholder="Filter by Skill"
+          value={filters.skill}
+          onChange={handleFilterChange}
+        />
+        <input
+          type="text"
+          name="location"
+          placeholder="Filter by Location"
+          value={filters.location}
+          onChange={handleFilterChange}
+        />
+      </div>
+
+      {loading ? (
+        <div className="loading-indicator">Loading...</div>  // Loading indicator
+      ) : (
+        filteredJobs.map((job) => (
+          <JobApplication key={job.id} job={job} />
+        ))
+      )}
+    </div>
+  );
+};
+
+export default Applications;

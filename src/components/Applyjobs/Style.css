@@ -1,0 +1,104 @@
+
+
+.job-application-card {
+  background: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-details-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-details-card h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.job-details-card h4 {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.job-details-card p {
+  font-size: 1rem;
+  margin: 8px 0;
+  color: #666;
+}
+
+.job-details-card button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.job-details-card button:hover {
+  background-color: #0056b3;
+}
+
+.loading-indicator {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+
+/* Button styling */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+label{
+  margin-top: 15px;
+  padding-right: 10px;
+}
+
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 2px solid #eee;
+}
+
+.filters input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.filters input::placeholder {
+  color: #888;
+}
+
+.filters input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+
+  .job-item {
+    padding: 10px;
+  }
+  .job-item p {
+    font-size: 1rem;
+  }
+}
