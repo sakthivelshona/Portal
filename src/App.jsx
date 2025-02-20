@@ -13,6 +13,7 @@ import Jobposting from './components/Recruiter/Jobposting';
 import Applications from './components/Recruiter/Applications';
 import JobPosted from './components/Recruiter/SuccessPage';
 import JobDetail from './components/Recruiter/JobDetail'; // Detailed job view
+import FAQ from './components/Student/FAQ';
 
 
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/student" element={<Student />} />
+        <Route path="/faq" element={<FAQ/>} />
+
         <Route path="/applyjobs" element={<JobApplication />} />
         <Route path="/appliedjobs" element={<AppliedJobs />} />
         <Route path="/rejectedjobs" element={<RejectedJobs />} />
