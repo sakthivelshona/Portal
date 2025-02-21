@@ -26,17 +26,19 @@ function ReceivedJobs() {
 
   // Function to handle delete job
   const deleteJob = (jobId) => {
-    // Ensure jobId is not undefined before calling the delete request
     if (jobId) {
-      fetch(`http://localhost:3000/deletejob/${jobId}`, {
+      const jobIdStr = String(jobId);  // Ensure jobId is a string for comparison with the backend
+  
+      console.log('Deleting job with ID:', jobIdStr);  // Log the ID to ensure correct value
+  
+      fetch(`http://localhost:3000/deletejob/${jobIdStr}`, {
         method: 'DELETE',
       })
         .then((response) => {
           if (!response.ok) {
             throw new Error('Failed to delete job');
           }
-          // Remove the job from the state after deletion
-          setAllJobs(allJobs.filter((job) => job.id !== jobId));
+          setAllJobs(allJobs.filter((job) => String(job.id) !== jobIdStr));
           console.log('Job deleted successfully');
         })
         .catch((error) => {
@@ -46,6 +48,8 @@ function ReceivedJobs() {
       console.error('Job ID is undefined');
     }
   };
+  
+  
 
   return (
     <div className="success-container">

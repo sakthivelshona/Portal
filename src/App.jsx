@@ -28,8 +28,8 @@ const App = () => {
         <Route path="/faq" element={<FAQ/>} />
         <Route path="/applyjobs" element={<JobApplication />} />
         <Route path="/resume" element={<Mainpage/>}/>
-        <Route path="/template2" element={<TempleateNew/>} />
         <Route path="/template1" element={<ResumeBuilder/>} />
+        <Route path="/template2" element={<TempleateNew/>} />
         
         <Route path="/recruiter" element={<HomePage/>} />
         <Route path="/jobpost" element={<Jobposting/>} />

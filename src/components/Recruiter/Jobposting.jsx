@@ -16,7 +16,7 @@ function Jobposting() {
     ctc: "",
     jobResponsibility: "",
     jobRequirement: "",
-    jobBenefit: "",
+    jobDescription: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
@@ -104,6 +104,20 @@ function Jobposting() {
               onChange={handleChange}
               required
             />
+
+            {/* Job Description */}
+          <div className="form-group">
+            <textarea
+              id="jobDescription"
+              rows="4"
+              placeholder="Enter Job Description"
+              value={formData.jobDescription}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+
+
             <input
               type="text"
               id="workplaceType"
@@ -170,18 +184,7 @@ function Jobposting() {
             ></textarea>
           </div>
 
-          {/* Job Benefits */}
-          <div className="form-group">
-            <textarea
-              id="jobBenefit"
-              rows="4"
-              placeholder="Enter Job Benefits"
-              value={formData.jobBenefit}
-              onChange={handleChange}
-              required
-            ></textarea>
-          </div>
-
+          
           {/* Skills */}
           <div className="form-group">
             <div className="skills-input-container">
