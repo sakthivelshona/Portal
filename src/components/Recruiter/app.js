@@ -42,22 +42,20 @@ app.get('/getjobs', (req, res) => {
 
 
 
-// DELETE route to delete a job post by id
-app.delete('/deletejob/:id', (req, res) => {
-  const jobId = req.params.id;  // jobId is a string now
-  
-  console.log('Received jobId for deletion:', jobId);  // Log jobId to verify
+// Assuming you're using Express for your server
 
-  // Find the job post with the matching id and remove it
-  const jobIndex = jobPosts.findIndex((job) => String(job.id) === jobId);  // Ensure comparison is between strings
-  if (jobIndex === -1) {
-    return res.status(404).json({ error: 'Job not found' });
-  }
+app.post('/deletedjobs', (req, res) => {
+  const job = req.body;
 
-  jobPosts.splice(jobIndex, 1); // Remove the job from the array
-  res.status(200).json({ message: 'Job deleted successfully' });
+  // Logic to save the deleted job in another database or collection
+  // For example, if using MongoDB:
+  DeletedJobModel.create(job)
+    .then(() => res.status(201).send('Job stored in deleted jobs DB'))
+    .catch((error) => {
+      console.error('Error storing job in deleted jobs DB:', error);
+      res.status(500).send('Failed to store job in deleted jobs DB');
+    });
 });
-
 
 
 
