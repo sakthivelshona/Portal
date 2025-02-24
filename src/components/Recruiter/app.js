@@ -12,12 +12,9 @@ let jobPosts = []; // In-memory array to hold job posts (replace with a database
 // POST route to create a new job post
 app.post('/jobpost', (req, res) => {
   const jobData = req.body;
-  const number = 1;
 
-  // Assuming you're using a database with an auto-increment field for jobId
-  // Example using a simple in-memory object (replace with DB query)
-  const jobId = generateUniqueJobId(); // Generate or get unique job ID
-  jobData.id = jobId;
+  jobData.id = Date.now(); // Unique ID (this could be handled by a database)
+
 
   // Save the job data (this would be a DB save in a real app)
   jobPosts.push(jobData); // or DB insert jobData
@@ -26,10 +23,6 @@ app.post('/jobpost', (req, res) => {
   // Respond with the job data including the job ID
   res.json({ jobData });
 });
-
-function generateUniqueJobId() {
-  return Math.floor(Math.random() * 1000000); // Random 6-digit ID for demo purposes
-}
 
 
 

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './components/Login/Login';
 import ForgotPassword from './components/Login/ForgotPassword';
 import Student from './components/Student/Student';
-import JobApplication from './components/Applyjobs/JobApplication';
+import JobApplication from './components/ApplyjobsStudents/JobApplication';
 import TempleateNew from './components/ResumeBuilder/TempleateNew';
 import Mainpage from './components/ResumeBuilder/Mainpage';
 import ResumeBuilder from './components/ResumeBuilder/ResumeBuider';
@@ -11,9 +11,10 @@ import Jobposting from './components/Recruiter/Jobposting';
 import JobPosted from './components/Recruiter/SuccessPage';
 import FAQ from './components/Student/FAQ';
 import HomepageStaff from './components/Staff/HomepageStaff';
-import JobDetail from './components/Applyjobs/JobDetail';
+import JobDetail from './components/ApplyjobsStudents/JobDetail';
 import UserAccount from './components/Staff/UserAccount';
 import ReceivedJobs from './components/Staff/ReceivedJobs';
+import AccountStudent from './components/Student/AccountStudent';
 
 
 const App = () => {
@@ -30,6 +31,8 @@ const App = () => {
         <Route path="/resume" element={<Mainpage/>}/>
         <Route path="/template1" element={<ResumeBuilder/>} />
         <Route path="/template2" element={<TempleateNew/>} />
+        <Route path="/studentaccount" element={<AccountStudent/>}/>
+
         
         <Route path="/recruiter" element={<HomePage/>} />
         <Route path="/jobpost" element={<Jobposting/>} />

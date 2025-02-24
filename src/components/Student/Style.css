@@ -139,6 +139,10 @@ h1, h2, h3 {
   padding-left: 10px;
 }
 
+.student-details{
+  display: flex;
+  padding: 20px 30px;
+}
 
 
 /* Responsive Adjustments */

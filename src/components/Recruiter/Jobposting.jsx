@@ -7,9 +7,8 @@ function Jobposting() {
   const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState("");
   const [formData, setFormData] = useState({
-    jobTitle: "",
     company: "",
-    workplaceType: "",
+    jobTitle: "",
     location: "",
     jobType: "",
     website: "",
@@ -17,6 +16,7 @@ function Jobposting() {
     jobResponsibility: "",
     jobRequirement: "",
     jobDescription: "",
+    deadline : ""
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
@@ -88,15 +88,7 @@ function Jobposting() {
         <div className="form-container">
           {/* Job Title, Company, Workplace Type */}
           <div className="form-group">
-            <input
-              type="text"
-              id="jobTitle"
-              placeholder="Enter Job Title"
-              value={formData.jobTitle}
-              onChange={handleChange}
-              required
-            />
-            <input
+          <input
               type="text"
               id="company"
               placeholder="Enter Company Name"
@@ -105,6 +97,15 @@ function Jobposting() {
               required
             />
 
+            <input
+              type="text"
+              id="jobTitle"
+              placeholder="Enter Job Title"
+              value={formData.jobTitle}
+              onChange={handleChange}
+              required
+            />
+            
             {/* Job Description */}
           <div className="form-group">
             <textarea
@@ -116,16 +117,7 @@ function Jobposting() {
               required
             ></textarea>
           </div>
-
-
-            <input
-              type="text"
-              id="workplaceType"
-              placeholder="Enter Workplace Type"
-              value={formData.workplaceType}
-              onChange={handleChange}
-              required
-            />
+      
             <input
               type="text"
               id="location"
@@ -151,7 +143,7 @@ function Jobposting() {
               required
             />
             <input
-              type="text"
+              type="number"
               id="ctc"
               placeholder="Enter CTC"
               value={formData.ctc}
@@ -206,8 +198,18 @@ function Jobposting() {
                 </div>
               ))}
             </div>
+            <input
+              type="date"
+              id="deadline"
+              placeholder="Enter Deadline date"
+              value={formData.deadline}
+              onChange={handleChange}
+              required
+            />
+
           </div>
 
+       
           {/* Post Button */}
           <button
             className="post-button"

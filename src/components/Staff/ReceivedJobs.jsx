@@ -85,12 +85,13 @@ function ReceivedJobs() {
             <div key={job.id} className="job-item">
               <p><strong>Job Title:</strong> {job.jobTitle}</p>
               <p><strong>Company:</strong> {job.company}</p>
-              <p><strong>Location:</strong> {job.workplaceType}</p>
-              <p><strong>Job Type:</strong> {job.jobType}</p>
+              <p><strong>Location:</strong> {job.location}</p>
               <p><strong>CTC:</strong> {job.ctc}</p>
               <p><strong>Job Responsibility:</strong> {job.jobResponsibility}</p>
-              <p><strong>Job Benefit:</strong> {job.jobBenefit}</p>
+              <p><strong>Job Description:</strong> {job.jobDescription}</p>
               <p><strong>Skills:</strong> {job.skills.join(', ')}</p>
+              <p><strong>Deadline:</strong> {job.deadline}</p>
+
               <button onClick={() => deleteJob(job.id)} className="delete-btn">
                 Delete Job
               </button>

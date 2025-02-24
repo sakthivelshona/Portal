@@ -13,8 +13,8 @@ const JobDetail = () => {
   useEffect(() => {
     setLoading(true);  // Set loading state to true while fetching
 
-    const url = '/companyData.json'; // JSON file in the public folder
-    fetch(url)
+    fetch('http://localhost:3000/getjobs')
+
       .then(response => response.json()) // Fetch the JSON data
       .then(data => {
         // Ensure type consistency between URL id and data id
@@ -43,15 +43,14 @@ const JobDetail = () => {
 
   return (
     <div className="job-detail-page">
-      <h3>{job.company} - {job.role}</h3>
+      <h3>{job.company} - {job.jobTitle}</h3>
       <p><strong>CTC:</strong> {job.ctc}</p>
-      <p><strong>Deadline:</strong> {job.deadline}</p>
       <p><strong>Skills:</strong> {job.skills}</p>
       <p><strong>Location:</strong> {job.location}</p>
-      <p><strong>Description:</strong> {job.description}</p>
-      <p><strong>Requirements:</strong> {job.requirements}</p>
-      <p><strong>Benefits:</strong> {job.benefits}</p>
-      <p><strong>About:</strong> {job.about}</p>
+      <p><strong>Description:</strong> {job.jobDescription}</p>
+      <p><strong>Requirements:</strong> {job.jobRequirement}</p>
+      <p><strong>Deadline:</strong> {job.deadline}</p>
+
     </div>
   );
 };

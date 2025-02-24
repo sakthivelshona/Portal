@@ -11,12 +11,14 @@ const JobApplication = ({ job }) => {
     <div className="job-application-card">
       <div className="job-details-card">
         <h3>{job.company}</h3>
-        <h4>{job.role}</h4>
+        <h4>{job.jobTitle}</h4>
         <p><strong>CTC:</strong> {job.ctc}</p>
-        <p><strong>Location:</strong> {job.location}</p>
+        <p><strong>Location:</strong> {job.jobType}</p>
         <p><strong>Deadline:</strong> {job.deadline}</p>
         <p><strong>Skills:</strong> {skillsList.join(', ')}</p>
-        <p><strong>Description:</strong> {job.description}</p>
+        <p><strong>Description:</strong> {job.jobDescription}</p>
+        <p><strong>Deadline:</strong> {job.deadline}</p>
+
         {/* Pass the job id to the link */}
         <Link to={`/job/${job.id}`}><button>View</button></Link>
       </div>
@@ -31,15 +33,15 @@ const Applications = () => {
   const [loading, setLoading] = useState(true);
   
   const [filters, setFilters] = useState({
-    role: '',
+    jobTitle: '',
     skill: '',
     location: ''
   });
 
   // Fetch job applications data from companyData.json
   useEffect(() => {
-    const url = '/companyData.json'; // JSON file in the public folder
-    fetch(url)
+    //const url = '/companyData.json'; // JSON file in the public folder
+    fetch('http://localhost:3000/getjobs')
       .then(response => response.json()) // Fetch the JSON data
       .then(data => {
         setJobApplications(data); // Update state with the fetched data
@@ -52,6 +54,19 @@ const Applications = () => {
       });
   }, []);
 
+  // Add logic to re-fetch job data after a job has been posted
+const refetchJobs = () => {
+  fetch('http://localhost:3000/getjobs')
+    .then(response => response.json())
+    .then(data => {
+      setJobApplications(data);
+      setFilteredJobs(data);
+    })
+    .catch(error => console.error('Error refetching jobs:', error));
+};
+
+
+
   // Handle filter changes
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -63,27 +78,31 @@ const Applications = () => {
   };
 
   // Apply filters to job applications
-const applyFilters = (filters) => {
-  let filtered = jobApplications;
-
-  if (filters.role) {
-    filtered = filtered.filter(job => job.role.toLowerCase().includes(filters.role.toLowerCase()));
-  }
-
-  if (filters.skill) {
-    filtered = filtered.filter(job => {
-      // Ensure job.skills is treated as a string (join array if necessary)
-      const skills = Array.isArray(job.skills) ? job.skills.join(', ') : job.skills;
-      return skills.toLowerCase().includes(filters.skill.toLowerCase());
-    });
-  }
-
-  if (filters.location) {
-    filtered = filtered.filter(job => job.location.toLowerCase().includes(filters.location.toLowerCase()));
-  }
-
-  setFilteredJobs(filtered);
-};
+  const applyFilters = (filters) => {
+    let filtered = jobApplications;
+  
+    if (filters.jobTitle) {
+      filtered = filtered.filter(job => 
+        job.jobTitle?.toLowerCase().includes(filters.jobTitle.toLowerCase())
+      );
+    }
+  
+    if (filters.skill) {
+      filtered = filtered.filter(job => {
+        const skills = Array.isArray(job.skills) ? job.skills.join(', ') : job.skills || '';
+        return skills.toLowerCase().includes(filters.skill.toLowerCase());
+      });
+    }
+  
+    if (filters.location) {
+      filtered = filtered.filter(job => 
+        job.location?.toLowerCase().includes(filters.location.toLowerCase())
+      );
+    }
+  
+    setFilteredJobs(filtered);
+  };
+  
 
 
   return (
@@ -95,9 +114,9 @@ const applyFilters = (filters) => {
         <label htmlFor="">Search by filter</label>
         <input
           type="text"
-          name="role"
+          name="jobTitle"
           placeholder="Filter by Role"
-          value={filters.role}
+          value={filters.jobTitle}
           onChange={handleFilterChange}
         />
         <input

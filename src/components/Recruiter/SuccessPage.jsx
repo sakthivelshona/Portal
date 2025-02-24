@@ -43,6 +43,8 @@ function SuccessPage() {
               <p><strong>Job Responsibility:</strong> {job.jobResponsibility}</p>
               <p><strong>Job Benefit:</strong> {job.jobBenefit}</p>
               <p><strong>Skills:</strong> {job.skills.join(', ')}</p>
+              <p><strong>Deadline:</strong>{job.deadline}</p>
+
             </div>
           ))
         )}
