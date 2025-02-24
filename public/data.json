@@ -2,16 +2,16 @@
   "students": [
     {
       "name": "Shona",
-      "rollno" : "7376212AD197",
-      "email" : "d.ad21@bitsathy.ac.in",
-      "department" : "AI & DS",
-      "batch" : "2025",
-      "pic" : "https://www.vecteezy.com/vector-art/27137889-monogram-nw-logo-with-diamond-rhombus-style-luxury-modern-logo-design",
-      "attendace" :[
+      "rollno": "7376212AD197",
+      "email": "shona.ad21@bitsathy.ac.in",
+      "department": "AI & DS",
+      "batch": "2025",
+      "pic": "https://www.vecteezy.com/vector-art/27137889-monogram-nw-logo-with-diamond-rhombus-style-luxury-modern-logo-design",
+      "attendace": [
         {
-          "totalDays" :60,
-          "presentDays" :56,
-          "absentDays" :4
+          "totalDays": 60,
+          "presentDays": 56,
+          "absentDays": 4
         }
       ],
       "dailyScores": [
@@ -25,16 +25,16 @@
     },
     {
       "name": "Sheela",
-      "rollno" : "7376212AD197",
-      "email" : "sheela.ad21@bitsathy.ac.in",
-      "department" : "AI & DS",
-      "batch" : "2025",
-      "pic" : "",
-      "attendace" :[
+      "rollno": "7376212AD197",
+      "email": "sheela.ad21@bitsathy.ac.in",
+      "department": "AI & DS",
+      "batch": "2025",
+      "pic": "",
+      "attendace": [
         {
-          "totalDays" :60,
-          "presentDays" :58,
-          "absentDays" :2
+          "totalDays": 60,
+          "presentDays": 58,
+          "absentDays": 2
         }
       ],
       "dailyScores": [
@@ -48,16 +48,16 @@
     },
     {
       "name": "Shithu",
-      "rollno" : "7376212AD197",
-      "email" : "shithu.ad21@bitsathy.ac.in",
-      "department" : "AI & DS",
-      "batch" : "2025",
-      "pic" : "",
-      "attendace" :[
+      "rollno": "7376212AD197",
+      "email": "shithu.ad21@bitsathy.ac.in",
+      "department": "AI & DS",
+      "batch": "2025",
+      "pic": "",
+      "attendace": [
         {
-          "totalDays" :60,
-          "presentDays" :58,
-          "absentDays" :2
+          "totalDays": 60,
+          "presentDays": 58,
+          "absentDays": 2
         }
       ],
       "dailyScores": [
@@ -69,5 +69,23 @@
         {"day": "Saturday", "score": 93}
       ]
     }
+  ],
+  "staff": [
+    {
+      "email": "staffplacement@bitsathy.ac.in"
+    }
+  ],
+  "recruiters": [
+    {
+      "companyname": "Zoho",
+      "email": "zoho+recruiter@bitsathy.ac.in"
+    },
+    {
+      "companyname": "Soliton",
+      "email": "soliton+recruiter@bitsathy.ac.in"
+    }
+    
   ]
 }
+
+

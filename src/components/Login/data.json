@@ -69,5 +69,10 @@
         {"day": "Saturday", "score": 93}
       ]
     }
+  ],
+  "staff" :[
+{
+  "email" : "staffplacement@bitsathy.ac.in"
+}
   ]
 }

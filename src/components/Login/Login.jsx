@@ -1,49 +1,72 @@
 import React, { useState } from 'react';
-import './Login.css'; // Use shared styles
+import './Login.css'; 
 import { Link, useNavigate } from 'react-router-dom';
-import data from './data.json'; // Importing the data from the json file
+import data from './data.json'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // State for error messages
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    
     // Clear previous errors
     setError('');
+    
+    const validPassword = '12'; 
 
-    // Simple password validation (hardcoded for demonstration)
-    const validPassword = '12'; // This can be replaced with an API call to check password
-
-    // Check if email matches any student email and if password is correct
+    // Check if email and password are provided
     if (email === '' || password === '') {
       setError('Please enter both email and password.');
       return;
     }
 
-    // Find student by email
-    const student = data.students.find(student => student.email === email);
+    // Clean the email input (trim and remove extra spaces)
+    const cleanedEmail = email.trim();
 
-    if (student) {
+    // Ensure data arrays exist before using them
+    const students = Array.isArray(data.students) ? data.students : [];
+    const recruiters = Array.isArray(data.recruiters) ? data.recruiters : [];
+    const staff = Array.isArray(data.staff) ? data.staff : [];
+
+    // Debugging: Log the entered email and recruiter data
+    console.log('Entered Email:', cleanedEmail);
+    console.log('Recruiters Data:', recruiters);
+
+    // Check if the email belongs to a student, recruiter, or staff
+    const student = students.find(student => student.email.trim() === cleanedEmail);
+    const recruiter = recruiters.find(recruiter => recruiter.email.trim() === cleanedEmail);
+    const staffMember = staff.find(staff => staff.email.trim() === cleanedEmail);
+
+    // Debugging: Log the results of each search
+    console.log('Found Student:', student);
+    console.log('Found Recruiter:', recruiter);
+    console.log('Found Staff:', staffMember);
+
+    // Check if user exists
+    if (student || recruiter || staffMember) {
       // Password check
       if (password === validPassword) {
-        // Redirect to student dashboard or home page
-        navigate('/student');
-        //navigate(`/student/${student.rollno}`);
-
+        if (staffMember) {
+          navigate('/staff');
+        } else if (recruiter) {
+          navigate('/recruiter');
+        } else if (student) {
+          navigate('/student');
+        }
       } else {
         setError('Invalid password');
       }
-    } 
-    
-    else {
+    } else {
       setError('Email not found');
     }
+};
 
-  };
+
+
+  
 
   return (
     <div className="page-container">
@@ -77,10 +100,6 @@ const Login = () => {
               <Link to="/forgotpassword">Forgot Password?</Link>
             </div>
             <button type="submit" className="login-button">Login</button>
-
-            <div className="divider"> -----------or----------</div>
-
-            {/* Google sign-in */}
 
           </form>
         </div>

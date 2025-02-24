@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Style.css';
+import Sidebar from './Sidebar';
+
 
 function ReceivedJobs() {
   const [allJobs, setAllJobs] = useState([]);
@@ -75,31 +77,34 @@ function ReceivedJobs() {
   };
 
   return (
-    <div className="success-container">
-      <div className="posted-jobs-container">
-        <h2>All Posted Jobs:</h2>
-        {sortedJobs.length === 0 ? (
-          <p className="empty-state">No jobs posted yet.</p>
-        ) : (
-          sortedJobs.map((job) => (
-            <div key={job.id} className="job-item">
-              <p><strong>Job Title:</strong> {job.jobTitle}</p>
-              <p><strong>Company:</strong> {job.company}</p>
-              <p><strong>Location:</strong> {job.location}</p>
-              <p><strong>CTC:</strong> {job.ctc}</p>
-              <p><strong>Job Responsibility:</strong> {job.jobResponsibility}</p>
-              <p><strong>Job Description:</strong> {job.jobDescription}</p>
-              <p><strong>Skills:</strong> {job.skills.join(', ')}</p>
-              <p><strong>Deadline:</strong> {job.deadline}</p>
+    <>      <Sidebar />
 
-              <button onClick={() => deleteJob(job.id)} className="delete-btn">
-                Delete Job
-              </button>
-            </div>
-          ))
-        )}
+      <div className="success-container">
+        <div className="posted-jobs-container">
+          <h2>All Posted Jobs:</h2>
+          {sortedJobs.length === 0 ? (
+            <p className="empty-state">No jobs posted yet.</p>
+          ) : (
+            sortedJobs.map((job) => (
+              <div key={job.id} className="job-item">
+                <p><strong>Job Title:</strong> {job.jobTitle}</p>
+                <p><strong>Company:</strong> {job.company}</p>
+                <p><strong>Location:</strong> {job.location}</p>
+                <p><strong>CTC:</strong> {job.ctc}</p>
+                <p><strong>Job Responsibility:</strong> {job.jobResponsibility}</p>
+                <p><strong>Job Description:</strong> {job.jobDescription}</p>
+                <p><strong>Skills:</strong> {job.skills.join(', ')}</p>
+                <p><strong>Deadline:</strong> {job.deadline}</p>
+
+                <button onClick={() => deleteJob(job.id)} className="delete-btn">
+                  Delete Job
+                </button>
+              </div>
+            ))
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

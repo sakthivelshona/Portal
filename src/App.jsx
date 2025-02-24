@@ -15,33 +15,38 @@ import JobDetail from './components/ApplyjobsStudents/JobDetail';
 import UserAccount from './components/Staff/UserAccount';
 import ReceivedJobs from './components/Staff/ReceivedJobs';
 import AccountStudent from './components/Student/AccountStudent';
+import Resumeuploaded from './components/ApplyjobsStudents/Resumeuploaded';
+import ApplicationStaff from './components/Staff/ApplicationStaff';
 
 
 const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path="*" element={<Navigate to="/" />} />
+
         <Route path="/" element={<Login />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
 
         <Route path="/student" element={<Student />} />
-        <Route path="/faq" element={<FAQ/>} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/applyjobs" element={<JobApplication />} />
-        <Route path="/resume" element={<Mainpage/>}/>
-        <Route path="/template1" element={<ResumeBuilder/>} />
-        <Route path="/template2" element={<TempleateNew/>} />
-        <Route path="/studentaccount" element={<AccountStudent/>}/>
-
-        
-        <Route path="/recruiter" element={<HomePage/>} />
-        <Route path="/jobpost" element={<Jobposting/>} />
         <Route path="/job/:id" element={<JobDetail />} />
-        <Route path="/success" element={<JobPosted/>} />
+        <Route path="/resume" element={<Mainpage />} />
+        <Route path="/template1" element={<ResumeBuilder />} />
+        <Route path="/template2" element={<TempleateNew />} />
+        <Route path="/studentaccount" element={<AccountStudent />} />
+        <Route path="/application-success" element={<Resumeuploaded />} />
 
-        <Route path="/staff" element={<HomepageStaff/>} />
-        <Route path="/receivedjobs" element={<ReceivedJobs/>} />
-        <Route path="/useraccount" element={<UserAccount/>} />
+
+        <Route path="/recruiter" element={<HomePage />} />
+        <Route path="/jobpost" element={<Jobposting />} />
+        <Route path="/success" element={<JobPosted />} />
+
+
+        <Route path="/staff" element={<HomepageStaff />} />
+        <Route path="/receivedjobs" element={<ReceivedJobs />} />
+        <Route path="/useraccount" element={<UserAccount />} />
+        <Route path="/studentApplicationStaff" element={<ApplicationStaff />} />
 
 
 

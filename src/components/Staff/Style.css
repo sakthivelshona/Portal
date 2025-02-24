@@ -1,32 +1,362 @@
-
-.addnewusers{
-    padding: 40px;
+/* Main Content Styling */
+.addnewusers {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
 }
-.column-add-acc{
-    display: flex;
+
+.column-add-acc {
+    margin-bottom: 25px;
+
+}
+
+.column-add-acc label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-top: 15px;
+    color: #555;
+}
+
+.column-add-acc input,
+.column-add-acc select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Ensures padding doesn’t affect element width */
+}
+
+.column-add-acc input:focus,
+.column-add-acc select:focus {
+    outline: none;
+    border-color: #0066cc;
 }
 
 .generate-password-admin {
-    color: blue;
+    display: inline-block;
+    margin-top: 10px;
+    color: #0066cc;
     cursor: pointer;
-    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 600;
 }
 
-.generate-password-admin:hover {
-    color: darkblue;
+.new-account-create {
+    padding: 12px 20px;
+    background-color: #0066cc;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.delete-btn {
-    background-color: #ff4d4d;
+.new-account-create:hover {
+    background-color: #005bb5;
+}
+
+.new-account-create:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.main-content {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.centered-text {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #444;
+}
+
+/* Analytics box styles */
+.analytics-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    background-color: white;
+}
+
+.circle-box {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.circle {
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+h2{
+    font-size: 17px;
+    text-transform: uppercase;
+
+
+}
+
+.circle h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.circle p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.circle1 {
+    background-color: #efbbac; /* New Job Post - Red */
+}
+
+.circle2 {
+    background-color: #a5f5a9; /* Ongoing Recruitment - Green */
+}
+
+.circle3 {
+    background-color: #8ec9f9; /* Students Applied - Blue */
+}
+
+.circle:hover {
+    transform: scale(1.05);
+}
+
+.two-boxes {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px; /* Adds spacing between the two boxes */
+}
+
+.upcoming-events {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
+}
+
+.upcoming-events h3,h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #42a5f5;
+}
+
+.event-details span {
+    font-size: 16px;
+    color: #333;
+}
+
+.analysis-box {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
+}
+
+.analysis-box h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.chart-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #e0e0e0;
+    text-align: center;
+    line-height: 200px;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.analysis-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+
+/* Job Posted */
+.delete-btn{
+    background-color: red;
+color: white;
+}
+.delete-btn:hover {
+    background-color: #d32f2f;
+  }
+
+
+/* Application */
+.application-staff-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f4f4f4; /* Added a soft background color */
+}
+
+h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Dark color for better readability */
+    text-align: center;
+}
+
+.job-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background for job items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Full width of the container */
+    margin: 10px auto; /* Center the job cards */
+}
+
+.job-container p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.job-container p strong {
+    color: black; /* Color for labels like "Name", "Email", etc. */
+}
+
+.delete-button-student-appli {
+    padding: 10px 15px;
+    background-color: #f44336;
     color: white;
     border: none;
-    padding: 8px 16px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
-  }
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Align the delete button to the right */
+}
+
+.delete-button-student-appli:hover {
+    background-color: #d32f2f; /* Darken the button color on hover */
+}
+
+/* Add spacing between buttons if needed */
+.delete-button-container {
+    display: flex;
+    justify-content: flex-end; /* Ensure buttons align to the right */
+    width: 100%; /* Full width */
+    margin-top: 15px;
+}
+
+/* No student data available message */
+.application-staff-container p {
+    text-align: center;
+    font-size: 18px;
+    color: #666; /* Light gray color for empty state */
+}
+
   
-  .delete-btn:hover {
-    background-color: #e60000;
-  }
-  
+/* Responsive Design */
+@media (max-width: 768px) {
+    .two-boxes {
+        flex-direction: column;
+    }
+
+    .circle-box {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .circle {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .addnewusers {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .column-add-acc input,
+    .column-add-acc select {
+        font-size: 14px;
+    }
+
+    .generate-password-admin {
+        font-size: 12px;
+    }
+
+    .new-account-create {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .addnewusers {
+        padding: 15px;
+    }
+
+    .column-add-acc input,
+    .column-add-acc select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .generate-password-admin {
+        font-size: 12px;
+    }
+
+    .new-account-create {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

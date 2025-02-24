@@ -10,6 +10,7 @@ body {
   background-color: #f0f0f0;
 }
 
+/* Sidebar Styles */
 .sidebar {
   background-color: #ffffff;
   color: black;
@@ -23,6 +24,7 @@ body {
   z-index: 1000;
   position: sticky;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
 }
 
 .logo {
@@ -139,57 +141,147 @@ h1, h2, h3 {
   padding-left: 10px;
 }
 
-.student-details{
-  display: flex;
-  padding: 20px 30px;
+/* Account Student Styles */
+.student-account-container {
+  margin: 40px auto;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.student-account-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center;
+}
+
+.student-details {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.student-details label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.student-details input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.student-details input:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+.student-details input[readonly] {
+  background-color: #e9e9e9;
+}
+
+.save-detail-student {
+  padding: 12px 20px;
+  background-color: #0066cc;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.save-detail-student:hover {
+  background-color: #005bb5;
+}
+
+.save-detail-student:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 
 /* Responsive Adjustments */
+
+/* Sidebar */
 @media (max-width: 768px) {
   .sidebar {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    height: auto; /* Allow height to adjust */
     padding: 10px;
-    justify-content: flex-start; /* Aligns logo and links to the left on smaller screens */
   }
 
   .sections-side {
-    gap: 20px; /* Reduce gap between links on smaller screens */
+    gap: 20px; /* Reduce gap between links */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .sections-side p {
+    padding-right: 10px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem;
   }
 
   .main-content {
-    padding: 15px;
+    padding: 20px;
   }
 
   .dashboard-content {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
   }
 }
 
+/* Further adjustments for mobile screens */
 @media (max-width: 480px) {
   .sidebar {
-    flex-direction: column; /* Stack items vertically on mobile */
+    flex-direction: column;
     align-items: flex-start;
     padding: 10px 15px;
   }
 
+  .student-account-container {
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%; /* Ensure it's fully responsive */
+  }
+
+  .student-details input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .save-detail-student {
+    font-size: 14px;
+    padding: 10px;
+  }
+
   .main-content {
-    margin-top: 60px; /* Adjust margin for smaller screens */
+    padding: 10px;
   }
 
   .dashboard-content {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
   }
 
   .sections-side {
-    flex-direction: column; /* Stack the links vertically on mobile */
+    flex-direction: column; /* Stack links vertically */
     align-items: flex-start;
     gap: 10px;
   }
-
-  .sections-side p {
-    padding: 10px;
-    font-size: 1rem;
-  }
 }
+

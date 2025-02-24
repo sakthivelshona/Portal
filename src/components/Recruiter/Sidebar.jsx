@@ -13,8 +13,7 @@ const Sidebar = () => {
         <p><NavLink to="/recruiter" className={({ isActive }) => (isActive ? 'active-link' : '')}>Home</NavLink></p> 
         <p><NavLink to="/jobpost" className={({ isActive }) => (isActive ? 'active-link' : '')}>Post Jobs</NavLink></p> 
         <p><NavLink to="/applications" className={({ isActive }) => (isActive ? 'active-link' : '')}>Applications</NavLink></p> 
-
-        <p>About</p>
+        <p><NavLink to="https://www.bitsathy.ac.in/#" className={({ isActive }) => (isActive ? 'active-link' : '')}>About</NavLink></p> 
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ function Jobposting() {
     company: "",
     jobTitle: "",
     location: "",
-    jobType: "",
     website: "",
     ctc: "",
     jobResponsibility: "",
@@ -44,6 +43,7 @@ function Jobposting() {
   };
 
   const handlePostJob = () => {
+
     const jobData = {
       ...formData,
       skills,  // Include the skills array
@@ -123,14 +123,6 @@ function Jobposting() {
               id="location"
               placeholder="Enter Job Location"
               value={formData.location}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              id="jobType"
-              placeholder="Enter Job Type"
-              value={formData.jobType}
               onChange={handleChange}
               required
             />

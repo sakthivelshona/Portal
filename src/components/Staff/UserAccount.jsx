@@ -54,7 +54,7 @@ function UserAccount() {
         alert('An error occurred while creating the account.');
       }
     } else {
-      alert('Please fill in all fields (email, password, and designation).');
+      alert('Please fill in all fields');
     }
   };
 
@@ -102,6 +102,8 @@ function UserAccount() {
             Generate password
           </span>
         </div>
+
+        
 
         <button className="new-account-create" onClick={createAccount}>
           Create Account

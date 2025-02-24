@@ -1,47 +1,77 @@
 import express from 'express';
 import cors from 'cors';
+import multer from 'multer';
 
 const app = express();
 const port = 3000;
 
-app.use(express.json()); // Middleware to parse JSON data
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(express.json()); 
+app.use(cors()); 
 
-let jobPosts = []; // In-memory array to hold job posts (replace with a database in real apps)
 
-// POST route to create a new job post
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Make sure this folder exists
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname); // Unique filename
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype !== 'application/pdf') {
+      return cb(new Error('Only PDF files are allowed.'));
+    }
+    cb(null, true);
+  }
+});
+
+
+
+
+app.post('/applyJob', upload.single('resume'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ message: 'No file uploaded.' });
+  }
+
+  const { jobTitle, jobName } = req.body;
+  const resume = req.file; // This is where the file is being saved by multer
+
+  // Process the data (save to database, etc.)
+  return res.json({ message: 'Application submitted successfully!' });
+});
+
+
+
+
+
+
+
+//The jobs posted by Recruiter
+let jobPosts = []; 
 app.post('/jobpost', (req, res) => {
   const jobData = req.body;
 
-  jobData.id = Date.now(); // Unique ID (this could be handled by a database)
-
-
-  // Save the job data (this would be a DB save in a real app)
-  jobPosts.push(jobData); // or DB insert jobData
+  jobData.id = Date.now(); // Unique ID 
+  jobPosts.push(jobData);
   console.log("Jobdata : ",jobData)
-
-  // Respond with the job data including the job ID
   res.json({ jobData });
 });
 
 
 
-// GET route to fetch all posted jobs
+// Get/Display the jobs posted by recruiter
 app.get('/getjobs', (req, res) => {
-
   console.log('GET /getjobs route hit');
-  res.status(200).json(jobPosts); // Send the array of job posts as JSON
+  res.status(200).json(jobPosts); // Send the array as JSON
 });
 
 
-
-// Assuming you're using Express for your server
-
+//The posted jobs rejected by Staff
 app.post('/deletedjobs', (req, res) => {
   const job = req.body;
-
-  // Logic to save the deleted job in another database or collection
-  // For example, if using MongoDB:
   DeletedJobModel.create(job)
     .then(() => res.status(201).send('Job stored in deleted jobs DB'))
     .catch((error) => {
@@ -51,13 +81,11 @@ app.post('/deletedjobs', (req, res) => {
 });
 
 
-
-// Account creation route 
+//Account created for individuals
 let userdata = [];
-
 app.post('/createAccount', (req, res) => {
   const Data = req.body;
-  userdata.push(Data); // Save the user data
+  userdata.push(Data); 
   console.log(userdata);
 
   res.status(201).json({
@@ -65,6 +93,9 @@ app.post('/createAccount', (req, res) => {
     Data,
   });
 });
+
+
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

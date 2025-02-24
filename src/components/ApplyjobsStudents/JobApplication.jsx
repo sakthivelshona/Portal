@@ -6,18 +6,25 @@ import Sidebar from '../Student/Sidebar';
 const JobApplication = ({ job }) => {
   // Split skills by comma and join them to make a comma-separated string
   const skillsList = Array.isArray(job.skills) ? job.skills : job.skills.split(',');
-
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');  // Day: Add leading zero if single digit
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Month: Add leading zero if single digit
+    const year = date.getFullYear();  // Year (4 digits)
+    
+    return `${day}/${month}/${year}`;
+  };
   return (
     <div className="job-application-card">
       <div className="job-details-card">
         <h3>{job.company}</h3>
         <h4>{job.jobTitle}</h4>
-        <p><strong>CTC:</strong> {job.ctc}</p>
-        <p><strong>Location:</strong> {job.jobType}</p>
-        <p><strong>Deadline:</strong> {job.deadline}</p>
-        <p><strong>Skills:</strong> {skillsList.join(', ')}</p>
         <p><strong>Description:</strong> {job.jobDescription}</p>
-        <p><strong>Deadline:</strong> {job.deadline}</p>
+        <p><strong>Location:</strong> {job.jobType}</p>
+        <p><strong>CTC:</strong> {job.ctc}</p>
+        <p><strong>Skills:</strong> {skillsList.join(', ')}</p>
+        <p><strong>Deadline:</strong> {formatDate(job.deadline)}</p>      
+
 
         {/* Pass the job id to the link */}
         <Link to={`/job/${job.id}`}><button>View</button></Link>
