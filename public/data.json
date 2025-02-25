@@ -15,13 +15,58 @@
         }
       ],
       "dailyScores": [
-        {"day": "Monday", "score": 85},
-        {"day": "Tuesday", "score": 90},
-        {"day": "Wednesday", "score": 78},
-        {"day": "Thursday", "score": 92},
-        {"day": "Friday", "score": 88},
-        {"day": "Saturday", "score": 75}
-      ]
+        {
+          "day": "Monday",
+          "score": 85
+        },
+        {
+          "day": "Tuesday",
+          "score": 90
+        },
+        {
+          "day": "Wednesday",
+          "score": 78
+        },
+        {
+          "day": "Thursday",
+          "score": 92
+        },
+        {
+          "day": "Friday",
+          "score": 88
+        },
+        {
+          "day": "Saturday",
+          "score": 75
+        }
+      ],
+      "jobOpportunities": [
+        {
+          "title": "Internship at Zoho",
+          "company": "Zoho",
+          "status": "Available"
+        },
+        {
+          "title": "Software Developer at Soliton",
+          "company": "Soliton",
+          "status": "Closed"
+        }
+      ],
+      "skillDevelopment": [
+        {
+          "title": "Machine Learning Certification",
+          "certificationLink": "https://www.coursera.org/certificates/machine-learning"
+        },
+        {
+          "title": "Web Development Bootcamp",
+          "certificationLink": "https://www.udemy.com/course/the-web-developer-bootcamp/"
+        }
+      ],
+      "jobApplicationAnalytics": {
+        "appliedJobs": 5,
+        "resultsAwaiting": 2,
+        "attendedJobs": 3
+      }
     },
     {
       "name": "Sheela",
@@ -38,12 +83,30 @@
         }
       ],
       "dailyScores": [
-        {"day": "Monday", "score": 90},
-        {"day": "Tuesday", "score": 96},
-        {"day": "Wednesday", "score": 34},
-        {"day": "Thursday", "score": 98},
-        {"day": "Friday", "score": 56},
-        {"day": "Saturday", "score": 93}
+        {
+          "day": "Monday",
+          "score": 90
+        },
+        {
+          "day": "Tuesday",
+          "score": 96
+        },
+        {
+          "day": "Wednesday",
+          "score": 34
+        },
+        {
+          "day": "Thursday",
+          "score": 98
+        },
+        {
+          "day": "Friday",
+          "score": 56
+        },
+        {
+          "day": "Saturday",
+          "score": 93
+        }
       ]
     },
     {
@@ -61,12 +124,30 @@
         }
       ],
       "dailyScores": [
-        {"day": "Monday", "score": 90},
-        {"day": "Tuesday", "score": 96},
-        {"day": "Wednesday", "score": 34},
-        {"day": "Thursday", "score": 98},
-        {"day": "Friday", "score": 56},
-        {"day": "Saturday", "score": 93}
+        {
+          "day": "Monday",
+          "score": 90
+        },
+        {
+          "day": "Tuesday",
+          "score": 96
+        },
+        {
+          "day": "Wednesday",
+          "score": 34
+        },
+        {
+          "day": "Thursday",
+          "score": 98
+        },
+        {
+          "day": "Friday",
+          "score": 56
+        },
+        {
+          "day": "Saturday",
+          "score": 93
+        }
       ]
     }
   ],
@@ -84,8 +165,5 @@
       "companyname": "Soliton",
       "email": "soliton+recruiter@bitsathy.ac.in"
     }
-    
   ]
 }
-
-

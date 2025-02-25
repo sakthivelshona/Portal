@@ -61,17 +61,17 @@ function Jobposting() {
       .then(response => response.json())
       .then((data) => {
         console.log('Job posted successfully:', data);  // Log the entire response
-
-        if (data && data.jobData && data.jobData.id) {
+        if (data && data.jobData && data.jobData.job_id) {
           alert('Job posted successfully!');
-          console.log('Received Job ID:', data.jobData.id);
-          
-          // Now, navigate to success page with the job data (including the ID)
-          navigate('/success', { state: { jobData: data.jobData } });  
+          console.log('Received Job ID:', data.jobData.job_id);
+      
+          // Navigate to success page with job data (including the ID)
+          navigate('/success', { state: { jobData: data.jobData } });
         } else {
           console.error('No Job ID received from the backend.');
         }
       })
+      
       .catch(error => {
         console.error('Error posting job:', error);
         alert('Error posting job');

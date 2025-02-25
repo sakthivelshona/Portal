@@ -27,7 +27,7 @@ const JobApplication = ({ job }) => {
 
 
         {/* Pass the job id to the link */}
-        <Link to={`/job/${job.id}`}><button>View</button></Link>
+        <Link to={`/job/${job.job_id}`}><button>View</button></Link>
       </div>
     </div>
   );
@@ -143,11 +143,16 @@ const refetchJobs = () => {
       </div>
 
       {loading ? (
-        <div className="loading-indicator">Loading...</div>  // Loading indicator
+        <div className="loading-indicator">Loading...</div>
+         // Loading indicator
       ) : (
-        filteredJobs.map((job) => (
-          <JobApplication key={job.id} job={job} />
-        ))
+        filteredJobs.length === 0 ? (
+          <h4>No jobs available</h4>
+        ) : (
+          filteredJobs.map((job) => (
+            <JobApplication key={job.id} job={job} />
+          ))
+        )
       )}
     </div>
   );

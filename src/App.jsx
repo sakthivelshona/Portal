@@ -17,6 +17,7 @@ import ReceivedJobs from './components/Staff/ReceivedJobs';
 import AccountStudent from './components/Student/AccountStudent';
 import Resumeuploaded from './components/ApplyjobsStudents/Resumeuploaded';
 import ApplicationStaff from './components/Staff/ApplicationStaff';
+import ApplicationRecruit from './components/Recruiter/ApplicationRecruit';
 
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
         <Route path="/student" element={<Student />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/applyjobs" element={<JobApplication />} />
-        <Route path="/job/:id" element={<JobDetail />} />
+        <Route path="/job/:job_id" element={<JobDetail />} />
         <Route path="/resume" element={<Mainpage />} />
         <Route path="/template1" element={<ResumeBuilder />} />
         <Route path="/template2" element={<TempleateNew />} />
@@ -41,6 +42,8 @@ const App = () => {
         <Route path="/recruiter" element={<HomePage />} />
         <Route path="/jobpost" element={<Jobposting />} />
         <Route path="/success" element={<JobPosted />} />
+        <Route path="/recruiterApplication" element={<ApplicationRecruit/>} />
+
 
 
         <Route path="/staff" element={<HomepageStaff />} />

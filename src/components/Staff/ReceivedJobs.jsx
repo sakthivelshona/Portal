@@ -76,6 +76,17 @@ function ReceivedJobs() {
     }
   };
 
+  //Date Format
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');  // Day: Add leading zero if single digit
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Month: Add leading zero if single digit
+    const year = date.getFullYear();  // Year (4 digits)
+    
+    return `${day}/${month}/${year}`;
+  };
+
+
   return (
     <>      <Sidebar />
 
@@ -94,7 +105,8 @@ function ReceivedJobs() {
                 <p><strong>Job Responsibility:</strong> {job.jobResponsibility}</p>
                 <p><strong>Job Description:</strong> {job.jobDescription}</p>
                 <p><strong>Skills:</strong> {job.skills.join(', ')}</p>
-                <p><strong>Deadline:</strong> {job.deadline}</p>
+                <p><strong>Deadline:</strong> {formatDate(job.deadline)}</p>      
+
 
                 <button onClick={() => deleteJob(job.id)} className="delete-btn">
                   Delete Job
