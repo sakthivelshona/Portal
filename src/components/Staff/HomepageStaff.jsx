@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Style.css'; // Extracted CSS for the sidebar
 import Sidebar from './Sidebar';
 import { FaCalendarAlt } from 'react-icons/fa'; // For Calendar icons
@@ -37,6 +37,22 @@ const HomepageStaff = () => {
     ],
   };
 
+  // State for filtering by skill
+  const [filterSkill, setFilterSkill] = useState('');
+
+  // Example list of students for demonstration
+  const students = [
+    { name: 'Shona', rollno: 'AD197', skills: 'C, React, Networking', attendance: { presentDays: 20 } },
+    { name: 'Shitharthan', rollno: '195', skills: 'Python, SQL, Machine Learning', attendance: { presentDays: 22 } },
+    { name: 'Sheela', rollno: '194', skills: 'Python, Django, Data Science', attendance: { presentDays: 18 } },
+    // Add more students as needed
+  ];
+
+  // Filtering students based on skills
+  const filteredStudents = students.filter(student =>
+    student.skills.toLowerCase().includes(filterSkill.toLowerCase())
+  );
+
   return (
     <div className="homepage-container">
       <Sidebar />
@@ -61,9 +77,47 @@ const HomepageStaff = () => {
           </div>
         </div>
 
-        {/* Two Boxes Section */}
+        {/* Filter and Student Details Section */}
+        <div className="filter-and-student-section">
+          <div className="filter-container">
+            <label htmlFor="skills-filter">Filter by Skills: </label>
+            <input
+              type="text"
+              id="skills-filter"
+              value={filterSkill}
+              onChange={(e) => setFilterSkill(e.target.value)}
+              placeholder="Enter skill to filter"
+            />
+          </div>
+
+          {/* Student Details Table */}
+          <div className="student-details-container">
+            <table className="student-details-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Roll No</th>
+                  <th>Skills</th>
+                  <th>Present Days</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredStudents.map((student) => (
+                  <tr key={student.rollno}>
+                    <td>{student.name}</td>
+                    <td>{student.rollno}</td>
+                    <td>{student.skills}</td>
+                    <td>{student.attendance.presentDays}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Upcoming Drives & Line Chart Section */}
         <div className="two-boxes">
-          {/* Box 1 - Upcoming Events */}
+          {/* Upcoming Drives */}
           <div className="upcoming-events">
             <h3>Upcoming Drives</h3>
             <h4>Placement Upcoming:</h4>
@@ -87,7 +141,7 @@ const HomepageStaff = () => {
             </div>
           </div>
 
-          {/* Box 2 - Line Chart */}
+          {/* Line Chart */}
           <div className="analysis-box">
             <h3>Student Analysis</h3>
             <div className="chart-placeholder">
@@ -95,6 +149,7 @@ const HomepageStaff = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

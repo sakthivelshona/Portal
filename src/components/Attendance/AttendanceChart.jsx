@@ -5,7 +5,7 @@ import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
 
 const AttendanceChart = ({ studentData }) => {
-  const attendanceData = studentData.attendace[0];
+  const attendanceData = studentData.attendance[0];
   const presentPercentage = (attendanceData.presentDays / attendanceData.totalDays) * 100;
   const absentPercentage = 100 - presentPercentage;
 
@@ -22,20 +22,18 @@ const AttendanceChart = ({ studentData }) => {
   };
 
   return (
-    <>
-        <div style={styles.container}>
-      <h3 style={styles.title}>{studentData.name}'s Attendance</h3>
+    <div style={styles.container}>
+      <h3 style={styles.title}>Attendance Data</h3>
       <div style={styles.stats}>
-        <p style={styles.statText}>Total Placements Registered: <span style={styles.statValue}>{attendanceData.totalDays}</span></p>
-        <p style={styles.statText}>Placements Attended: <span style={styles.statValue}>{attendanceData.presentDays}</span></p>
-        <p style={styles.statText}>Placements Missed: <span style={styles.statValue}>{attendanceData.absentDays}</span></p>
+        <p style={styles.statText}>Total Placements Conducted: <span style={styles.statValue}>{attendanceData.totalDays}</span></p>
+        <p style={styles.statText}>No of days Present: <span style={styles.statValue}>{attendanceData.presentDays}</span></p>
+        <p style={styles.statText}> No of days Absent: <span style={styles.statValue}>{attendanceData.absentDays}</span></p>
       </div>
 
       <div style={styles.chartContainer}>
         <Pie data={data} options={chartOptions} />
       </div>
 
-      {/* Displaying the label */}
       <div style={styles.labelContainer}>
         <div style={styles.label}>
           <span style={styles.labelColor('#4caf50')} /> Present: {presentPercentage.toFixed(2)}%
@@ -45,12 +43,10 @@ const AttendanceChart = ({ studentData }) => {
         </div>
       </div>
     </div>
-    </>
-
   );
 };
 
-// Chart options for better customization
+// Chart options for better customization (Donut chart)
 const chartOptions = {
   responsive: true,
   plugins: {
@@ -66,33 +62,42 @@ const chartOptions = {
       },
     },
   },
-  maintainAspectRatio: false,
+  maintainAspectRatio: true, // Ensures aspect ratio is maintained within container
   layout: {
     padding: 20,
   },
+  // Add this property to turn the Pie chart into a Donut chart
+  cutout: '70%', // This creates the hole in the center (adjust as needed)
 };
 
 const styles = {
   container: {
     width: '100%',
-    maxWidth: '500px',
-    margin: 'auto',
-    textAlign: 'center',
-    padding: '20px',
-    backgroundColor: '#f4f4f9',
+    height: '100%', // Make sure it fills the box height
+    padding: '10px', // Reduced padding to fit better
+    backgroundColor: '#ffff',
     borderRadius: '8px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   title: {
-    fontSize: '24px',
-    marginBottom: '15px',
+    fontSize: '18px', // Adjusted font size for title
+    marginBottom: '10px',
     color: '#333',
+    fontWeight: 'bold',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden', // To ensure long titles don't overflow
   },
   stats: {
-    marginBottom: '20px',
+    marginBottom: '-15px', // Adjust margin for better fit
+    fontSize: '14px',
+    lineHeight: '1.5',
+    padding: '10px', // Reduced padding to fit better
   },
   statText: {
-    fontSize: '16px',
+    fontSize: '14px',
     color: '#555',
     margin: '5px 0',
   },
@@ -102,24 +107,26 @@ const styles = {
   },
   chartContainer: {
     position: 'relative',
-    height: '250px', // Adjust the height as per your need
-    marginBottom: '20px',
+    height: '150px', // Adjusted height of the chart container to fit within the box
+    marginBottom: '15px', // Adjust margin to fit more content
+    display: 'flex',
+    justifyContent: 'center',
   },
   labelContainer: {
     display: 'flex',
     justifyContent: 'center',
-    marginTop: '10px',
+    marginTop: '5px',
   },
   label: {
-    marginRight: '20px',
-    fontSize: '14px',
+    marginRight: '15px',
+    fontSize: '12px', // Smaller font for labels to fit better
     fontWeight: '500',
     display: 'flex',
     alignItems: 'center',
   },
   labelColor: (color) => ({
-    width: '12px',
-    height: '12px',
+    width: '10px',
+    height: '10px',
     borderRadius: '50%',
     backgroundColor: color,
     marginRight: '8px',

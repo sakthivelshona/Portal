@@ -73,7 +73,7 @@ const Login = () => {
       <div className="login-container">
         <div className="login-box">
           <h1>Login to Your Account</h1>
-          <p>Welcome back!</p>
+          <p>Enter your credentials</p>
           <form onSubmit={handleLogin}>
             <div className="input-group">
               <input

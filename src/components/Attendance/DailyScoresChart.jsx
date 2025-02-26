@@ -1,4 +1,3 @@
-// DailyScoresChart.js
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, CategoryScale, LinearScale, BarElement } from 'chart.js';
@@ -14,7 +13,7 @@ const DailyScoresChart = ({ studentData }) => {
     labels: labels,
     datasets: [
       {
-        label: `${studentData.name} - Daily Scores`,
+        label: ` Daily Scores`,
         data: scores,
         backgroundColor: '#42a5f5',
         borderColor: '#1e88e5',
@@ -25,10 +24,21 @@ const DailyScoresChart = ({ studentData }) => {
 
   return (
     <div>
-      <h3>{studentData.name} - Daily Scores</h3>
+      <h3 style={styles.title}>Daily Scores</h3>
       <Bar data={data} />
     </div>
   );
+};
+
+// Inline styles for the title
+const styles = {
+  title: {
+    textAlign: 'center',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: '20px',
+  },
 };
 
 export default DailyScoresChart;

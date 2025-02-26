@@ -1,3 +1,171 @@
+.main-content{
+    padding: 30px;
+}
+/* Centered Heading */
+.centered-text {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #444;
+}
+
+/* Analytics box styles */
+.analytics-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    background-color: white;
+}
+.dashboard{
+    background-color: rgb(245, 245, 245);
+}
+.circle-box {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.circle {
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.circle h2 {
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.circle p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.circle1 { background-color: #efbbac; }
+.circle2 { background-color: #a5f5a9; }
+.circle3 { background-color: #8ec9f9; }
+
+.circle:hover {
+    transform: scale(1.05);
+}
+
+/* Filter and Student Details Section */
+.filter-and-student-section {
+    margin-bottom: 40px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-container input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    background-color: #f9f9f9;
+}
+
+.student-details-container {
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.student-details-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.student-details-table th, .student-details-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.student-details-table th {
+    background-color: #f4f4f4;
+}
+
+/* Two Boxes Section - Drives and Chart */
+.two-boxes {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.upcoming-events {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
+}
+
+.upcoming-events h3, .upcoming-events h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #42a5f5;
+}
+
+.event-details span {
+    font-size: 16px;
+    color: #333;
+}
+
+.analysis-box {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
+}
+
+.analysis-box h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.chart-placeholder {
+    height: 200px;
+    background-color: #ffff;
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    padding-left: 140px;
+}
+
+.analysis-box p {
+    font-size: 16px;
+    color: #555;
+}
+
 /* Main Content Styling */
 .addnewusers {
     max-width: 800px;
@@ -72,149 +240,6 @@
     cursor: not-allowed;
 }
 
-.main-content {
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-}
-
-.centered-text {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #444;
-}
-
-/* Analytics box styles */
-.analytics-box {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    background-color: white;
-}
-
-.circle-box {
-    display: flex;
-    justify-content: space-around;
-    width: 70%;
-}
-
-.circle {
-    background-color: #f3f4f6;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-h2{
-    font-size: 17px;
-    text-transform: uppercase;
-
-
-}
-
-.circle h3 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-
-.circle p {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.circle1 {
-    background-color: #efbbac; /* New Job Post - Red */
-}
-
-.circle2 {
-    background-color: #a5f5a9; /* Ongoing Recruitment - Green */
-}
-
-.circle3 {
-    background-color: #8ec9f9; /* Students Applied - Blue */
-}
-
-.circle:hover {
-    transform: scale(1.05);
-}
-
-.two-boxes {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px; /* Adds spacing between the two boxes */
-}
-
-.upcoming-events {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
-}
-
-.upcoming-events h3,h4 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.event {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.calendar-icon {
-    margin-right: 10px;
-    font-size: 20px;
-    color: #42a5f5;
-}
-
-.event-details span {
-    font-size: 16px;
-    color: #333;
-}
-
-.analysis-box {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
-}
-
-.analysis-box h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.chart-placeholder {
-    width: 100%;
-    height: 200px;
-    background-color: #e0e0e0;
-    text-align: center;
-    line-height: 200px;
-    font-size: 18px;
-    color: #888;
-    margin-bottom: 20px;
-    position: relative;
-    border-radius: 8px;
-}
-
-.analysis-box p {
-    font-size: 16px;
-    color: #555;
-}
-
 
 /* Job Posted */
 .delete-btn{
@@ -254,6 +279,7 @@ h3 {
     width: 100%; /* Full width of the container */
     margin: 10px auto; /* Center the job cards */
 }
+
 
 .job-container p {
     margin: 5px 0;
@@ -296,11 +322,17 @@ h3 {
     color: #666; /* Light gray color for empty state */
 }
 
-  
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .two-boxes {
         flex-direction: column;
+    }
+
+    .filter-container input {
+        width: 90%;
     }
 
     .circle-box {
@@ -316,47 +348,5 @@ h3 {
 
     .main-content {
         margin-left: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .addnewusers {
-        padding: 20px;
-        max-width: 100%;
-    }
-
-    .column-add-acc input,
-    .column-add-acc select {
-        font-size: 14px;
-    }
-
-    .generate-password-admin {
-        font-size: 12px;
-    }
-
-    .new-account-create {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .addnewusers {
-        padding: 15px;
-    }
-
-    .column-add-acc input,
-    .column-add-acc select {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .generate-password-admin {
-        font-size: 12px;
-    }
-
-    .new-account-create {
-        font-size: 14px;
-        padding: 10px;
     }
 }

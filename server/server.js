@@ -147,6 +147,18 @@ app.get('/getjobs', (req, res) => {
 });
 
 
+//Account created for individuals
+let userdata = [];
+app.post('/createAccount', (req, res) => {
+  const DataAccount = req.body;
+  userdata.push(DataAccount); 
+  console.log(userdata);
+
+  res.status(201).json({
+    message: 'Account created successfully',
+    DataAccount,
+  });
+});
 
 
 

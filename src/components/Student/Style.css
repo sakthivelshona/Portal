@@ -61,38 +61,138 @@ body {
 
 
 /* Main Content Styles */
-.main-content {
-  padding: 30px;
-  flex-grow: 1;
+
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+}
+
+/* Dashboard Container */
+.dashboard {
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Title Styling */
 .dashboard h1 {
-  font-size: 32px;
+  text-align: center;
+  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-.dashboard-content {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
 
-h1, h2, h3 {
-  font-family: "Encode Sans Condensed", serif;
-}
-
-/* Flowchart */
-.flowchart {
-  flex: 1;
-  background-color: #f3f3f3;
-  padding: 20px;
+/* Student Info, Attendance Chart, and Daily Scores Chart (Container 1) */
+.box {
+  background-color: #fff;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
 }
 
-/* Job Updates Section */
-.new-job-updates {
-  margin-top: 30px;
+.box:hover {
+  transform: translateY(-5px);
 }
+
+/* Student Info Section Styling */
+.student-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px;
+  
+}
+
+.student-pic-container {
+  flex: 0 0 120px;
+}
+
+.student-pic {
+  width: 100%;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.student-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.student-details p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.additional-details p {
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: left;
+  padding-left: 20px;
+}
+
+
+
+/* Attendance Chart and Daily Scores Chart (Container 1) */
+.box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* Container 2 (Placement and Grades Section) */
+.container-2 {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: space-around;
+}
+
+/* Grades and Other Details Section Styling */
+.details-student h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.details-student h4 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.details-student p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container-2 {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .box {
+    flex: 1 1 100%;
+  }
+
+  .container-2 .box {
+    flex: 1 1 100%;
+  }
+}
+
 
 
 /* FAQ */
@@ -284,89 +384,6 @@ h1, h2, h3 {
     gap: 10px;
   }
 }
-/* Job Opportunities and Certifications List */
-.job-opportunities ul, .certifications ul {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0; /* Remove default margin */
-}
-
-.job-opportunities li, .certifications li {
-  display: flex; 
-  align-items: center; /* Align the icon and text vertically */
-  gap: 15px; /* Add space between icon and text */
-  padding: 12px 20px; /* Padding around the content */
-  background-color: #f9f9f9; /* Light background color for list items */
-  margin-bottom: 15px; /* Space between list items */
-  border-radius: 12px; /* Rounded corners for a softer look */
-  font-size: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth hover effect */
-}
-
-.job-opportunities li:hover, .certifications li:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
-}
-
-/* Icon Styling */
-.job-opportunities li i, .certifications li i {
-  font-size: 20px; /* Icon size */
-  color: #007BFF; /* Icon color */
-  margin-right: 15px; /* Space between the icon and the text */
-}
-
-/* Job Opportunities and Certifications Links */
-.job-opportunities a, .certifications a {
-  text-decoration: none;
-  color: #3c27df; /* Link color */
-  font-weight: 500;
-  flex-grow: 1; /* Ensure the link takes up remaining space */
-}
-
-.job-opportunities a:hover, .certifications a:hover {
-  text-decoration: underline;
-}
-
-/* Optional: Adjust font-weight for active links or emphasis */
-.job-opportunities .active-link, .certifications .active-link {
-  font-weight: bold;
-  color: #ff5722; /* Active link color */
-}
-
-/* Skills Section */
-.skills-container {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;
-}
-
-.skills-container h2 {
-  font-size: 24px;
-  color: #3c27df;
-  margin-bottom: 15px;
-}
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.skills-list .skill-item {
-  background-color: #f9f9f9;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.skills-list .skill-item:hover {
-  background-color: #ccd3f9;
-}
-
 /* Account Student Styles */
 .student-account-container {
   margin: 40px auto;
@@ -400,6 +417,7 @@ h1, h2, h3 {
 
 .student-details input {
   padding: 12px;
+  width: 100%;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -442,4 +460,55 @@ h1, h2, h3 {
 .divides{
   display: flex;
   justify-content: space-around;
+}
+
+.user-student-detail{
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.subcontainer{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+
+}
+
+.second-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 120px;
+  padding: 20px;
+  margin-left: 150px;
+}
+
+.subcontainer-second{
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  height: 340px;
+}
+.subcontainer-second-p{
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 800px;
+
+}
+
+
+.subcontainer-second h2{
+  font-size: 20px;
+  text-decoration: underline;
 }

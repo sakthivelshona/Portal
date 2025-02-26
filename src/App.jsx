@@ -18,7 +18,7 @@ import AccountStudent from './components/Student/AccountStudent';
 import Resumeuploaded from './components/ApplyjobsStudents/Resumeuploaded';
 import ApplicationStaff from './components/Staff/ApplicationStaff';
 import ApplicationRecruit from './components/Recruiter/ApplicationRecruit';
-
+import './App.css';
 
 const App = () => {
   return (

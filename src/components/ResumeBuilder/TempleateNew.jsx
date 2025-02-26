@@ -664,7 +664,7 @@ const TempleateNew = () => {
 
         <div className="resume-preview" id="resume-preview">
           <div className="heading-preview1">
-            <h1 className="resume-name">{name}</h1>
+            <h1 className="resume-name-newone">{name}</h1>
             <p className="resume-name-branch">{branch}</p>
 
             <p className="resume-contact1">

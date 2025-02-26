@@ -1,13 +1,17 @@
 {
   "students": [
     {
-      "name": "Shona",
+      "name": "Shona S",
       "rollno": "7376212AD197",
       "email": "shona.ad21@bitsathy.ac.in",
-      "department": "AI & DS",
-      "batch": "2025",
-      "pic": "https://www.vecteezy.com/vector-art/27137889-monogram-nw-logo-with-diamond-rhombus-style-luxury-modern-logo-design",
-      "attendace": [
+      "department": "Artificial Intelligence and Data Science",
+      "batch": "2021 - 2025",
+      "skills": "JavaScript, React, Node.js",
+      "pic": "bg.jpeg",
+      "boarding" : "Self",
+      "mentor": "Gopalakrishnan B ( AD1131 ) ",
+      "speciallab": "Artificial Intelligence | Hari Priya R",
+      "attendance": [
         {
           "totalDays": 60,
           "presentDays": 56,
@@ -72,10 +76,11 @@
       "name": "Sheela",
       "rollno": "7376212AD197",
       "email": "sheela.ad21@bitsathy.ac.in",
+      "skills": "Python, Machine Learning, Data Science",
       "department": "AI & DS",
       "batch": "2025",
       "pic": "",
-      "attendace": [
+      "attendance": [
         {
           "totalDays": 60,
           "presentDays": 58,
@@ -115,8 +120,9 @@
       "email": "shithu.ad21@bitsathy.ac.in",
       "department": "AI & DS",
       "batch": "2025",
+      "skills": "Python, SQL, Node",
       "pic": "",
-      "attendace": [
+      "attendance": [
         {
           "totalDays": 60,
           "presentDays": 58,
