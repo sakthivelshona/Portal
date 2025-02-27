@@ -20,65 +20,73 @@ const Student = () => {
   return (
     <>
       <Sidebar />
+      <div className="student-board">
+        <h1>Welcome back !</h1>
 
-      <div className="container">
-        {/* Student Info Section */}
-        <div className="subcontainer">
-          <div className="student-info">
-            <div className="student-pic-container">
-              <img src={studentData.pic} alt="Student Pic" className="student-pic" />
+        <div className="container">
+          {/* Student Info Section */}
+          <div className="subcontainer">
+            <h2>PROFILE</h2>
+            <div className="student-info">
+              <div className="student-pic-container">
+                <img src={studentData.pic} alt="Student Pic" className="student-pic" />
+              </div>
+              <div className="student-details-personal">
+                <h4>{studentData.name}</h4>
+                <p>{studentData.rollno}</p>
+                <p>{studentData.email}</p>
+
+              </div>
             </div>
-            <div className="student-details">
-              <h2>{studentData.name}</h2>
-              <p>{studentData.rollno}</p>
-              <p>{studentData.email}</p>
-              <p>{studentData.batch}</p>
 
+            <div className="additional-details">
+              <div className="batch">
+                <h4>Batch</h4>
+                <p>{studentData.batch}</p>
+              </div>
+              <div className="year">
+                <h4>Year</h4>
+                <p>{studentData.year}</p>
+              </div>
+              <div className="depart">
+                <h4>Department</h4>
+                <p>{studentData.department}</p>
+              </div>
             </div>
-
           </div>
 
-          <div className="additional-details">
-            <p>{studentData.department}</p>
-            <p><b>Mentor: </b>{studentData.mentor}</p>
-            <p><b>Special Lab: </b>{studentData.speciallab}</p>
-            <p><b>Boarding: </b>{studentData.boarding}</p>
 
-          </div>
+          {/* Attendance Chart Section */}
+
+          < div className="subcontainer" >
+            <AttendanceChart studentData={studentData} />
+          </div >
+
+          {/* Daily Scores Chart Section */}
+          < div className="subcontainer" >
+            <Placementcount studentData={studentData} />
+          </div >
         </div>
 
 
-        {/* Attendance Chart Section */}
 
-        < div className="subcontainer" >
-          <AttendanceChart studentData={studentData} />
-        </div >
-
-        {/* Daily Scores Chart Section */}
-        < div className="subcontainer" >
-          <DailyScoresChart studentData={studentData} />
-        </div >
-      </div>
-
-
-
-      <div className="second-container">
-        {/* Placement Count Section */}
-        <div className="subcontainer-second-p">
-          <Placementcount studentData={studentData} />
-        </div>
-        <div className="subcontainer-second">
-
-          <div className="details-student">
-            <h2>GRADE</h2>
-            <h4>Cumulative Grade Point Average (CGPA)</h4>
-            <p>8.73</p>
+        <div className="second-container">
+          {/* Placement Count Section */}
+          <div className="box">
+            <h4>CGPA</h4>
+            <p>{studentData.cgpa}</p>
+          </div>
+          <div className="box">
+            <h4>Arrear</h4>
+            <p>{studentData.arrear}</p>
+          </div>
+          <div className="box">
             <h4>Placement FA %</h4>
-            <p>70.6</p>
-            <h4>Full Stack Rank</h4>
-            <p>24</p>
+            <p>{studentData.placement[0].fa}</p>
+          </div>
+          <div className="box">
             <h4>Full Stack Point</h4>
-            <p>1342</p>
+            <p>{studentData.placement[0].fullstackpoint} (Rank {studentData.placement[0].rank})</p>
           </div>
         </div>
       </div>
@@ -86,12 +94,5 @@ const Student = () => {
   );
 };
 
-const TopNavbar = () => {
-  return (
-    <div className="top-navbar">
-      <h1>Top Navbar</h1>
-    </div>
-  );
-};
 
 export default Student;

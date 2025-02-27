@@ -59,6 +59,7 @@
     font-size: 23px;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #201979;
   }
   
   .input-group-detail {
@@ -208,6 +209,7 @@
     font-weight: bold;
     margin-top: 10px;
     text-align: justify;
+    color:#201979;
 
   }
   .resume-name-newone h1{
@@ -220,16 +222,17 @@
     gap: 10px;
   }
   
-  h4 {
-    margin: 0;
-    font-size: 15px;
-  }
-  
+
   .side-add-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+  }
+  .formn-new-change {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equal-width columns */
+    gap: 20px; /* Add space between the columns */
   }
   
   .input-field {
@@ -391,8 +394,7 @@
     width: 98%;
   }
   
-  h4 {
-    font-size: 1rem;
+ .section-title h4 {
     font-weight: bold;
     margin-top: 10px;
   }
@@ -401,8 +403,9 @@
     font-size: 0.9rem;
   }
   
-
-
+.sideheading-title{
+  font-size: 16px;
+}
 .content-main {
   flex: 1;
   border-radius: 8px;
@@ -471,6 +474,16 @@
 .template-caption a:hover {
   text-decoration: underline;
 }
+
+
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 equal-width columns */
+  gap: 20px; /* Add space between the columns */
+}
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

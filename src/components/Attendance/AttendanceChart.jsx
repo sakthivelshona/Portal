@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 
@@ -13,68 +13,52 @@ const AttendanceChart = ({ studentData }) => {
     datasets: [
       {
         data: [presentPercentage, absentPercentage],
-        backgroundColor: ['#4caf50', '#f44336'],
-        borderColor: ['#4caf50', '#f44336'],
+        backgroundColor: ['#16D5A8', '#B44E94'],
+        borderColor: ['#16D5A8', '#B44E94'],
         borderWidth: 1,
       },
     ],
     labels: ['Present', 'Absent'],
   };
 
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    maintainAspectRatio: true,
+    cutout: '70%', // Adjust the donut hole size (make hole smaller)
+  };
+
+
   return (
     <div style={styles.container}>
-      <h3 style={styles.title}>Attendance Data</h3>
-      <div style={styles.stats}>
-        <p style={styles.statText}>Total Placements Conducted: <span style={styles.statValue}>{attendanceData.totalDays}</span></p>
-        <p style={styles.statText}>No of days Present: <span style={styles.statValue}>{attendanceData.presentDays}</span></p>
-        <p style={styles.statText}> No of days Absent: <span style={styles.statValue}>{attendanceData.absentDays}</span></p>
-      </div>
-
+      <h3 style={styles.title}>Attendance %</h3>
       <div style={styles.chartContainer}>
         <Pie data={data} options={chartOptions} />
       </div>
-
+      <p style={styles.attendancePercentageText}>{presentPercentage.toFixed(2)}%</p>
       <div style={styles.labelContainer}>
         <div style={styles.label}>
-          <span style={styles.labelColor('#4caf50')} /> Present: {presentPercentage.toFixed(2)}%
+          <span style={styles.labelColor('#16D5A8')} /> Present
         </div>
         <div style={styles.label}>
-          <span style={styles.labelColor('#f44336')} /> Absent: {absentPercentage.toFixed(2)}%
+          <span style={styles.labelColor('#B44E94')} /> Absent
         </div>
       </div>
+
+
     </div>
   );
-};
-
-// Chart options for better customization (Donut chart)
-const chartOptions = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: false, // Hides the legend in the chart to avoid redundancy
-    },
-    tooltip: {
-      callbacks: {
-        label: (context) => {
-          let percentage = context.raw;
-          return `${context.label}: ${percentage.toFixed(2)}%`;
-        },
-      },
-    },
-  },
-  maintainAspectRatio: true, // Ensures aspect ratio is maintained within container
-  layout: {
-    padding: 20,
-  },
-  // Add this property to turn the Pie chart into a Donut chart
-  cutout: '70%', // This creates the hole in the center (adjust as needed)
 };
 
 const styles = {
   container: {
     width: '100%',
-    height: '100%', // Make sure it fills the box height
-    padding: '10px', // Reduced padding to fit better
+    height: '100%',
+    padding: '10px',
     backgroundColor: '#ffff',
     borderRadius: '8px',
     display: 'flex',
@@ -82,33 +66,16 @@ const styles = {
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: '18px', // Adjusted font size for title
+    fontSize: '18px',
     marginBottom: '10px',
-    color: '#333',
     fontWeight: 'bold',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden', // To ensure long titles don't overflow
-  },
-  stats: {
-    marginBottom: '-15px', // Adjust margin for better fit
-    fontSize: '14px',
-    lineHeight: '1.5',
-    padding: '10px', // Reduced padding to fit better
-  },
-  statText: {
-    fontSize: '14px',
-    color: '#555',
-    margin: '5px 0',
-  },
-  statValue: {
-    fontWeight: 'bold',
-    color: '#333',
+    color: '#3674B5', 
+    textDecoration: 'none', 
   },
   chartContainer: {
     position: 'relative',
-    height: '150px', // Adjusted height of the chart container to fit within the box
-    marginBottom: '15px', // Adjust margin to fit more content
+    height: '150px',
+    marginBottom: '15px',
     display: 'flex',
     justifyContent: 'center',
   },
@@ -119,7 +86,7 @@ const styles = {
   },
   label: {
     marginRight: '15px',
-    fontSize: '12px', // Smaller font for labels to fit better
+    fontSize: '12px',
     fontWeight: '500',
     display: 'flex',
     alignItems: 'center',
@@ -131,6 +98,18 @@ const styles = {
     backgroundColor: color,
     marginRight: '8px',
   }),
+  attendancePercentageText: {
+    fontSize: '16px',
+    color: '#333',
+    textAlign: 'center',
+    marginBottom : '10px'
+  },
+  presentPercentage: {
+    textAlign: 'center',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#333',
+  },
 };
 
 export default AttendanceChart;

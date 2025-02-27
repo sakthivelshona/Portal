@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./ResumeBuilder.css";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { TbBrandLeetcode } from "react-icons/tb";
+import html2pdf from 'html2pdf.js';
 
 
 const TempleateNew = () => {
@@ -21,9 +20,9 @@ const TempleateNew = () => {
   const [education, setEducation] = useState([{ title: "Bannari Amman Institute of Technology", description: "B.Tech Artificial Intelligence and Data Science CGPA - 8.74", startDate: "2022-11-04", endDate: "2024-11-04" }]);
   const [projectList, setProjectList] = useState([{ title: "Handwritten Text Recognition App for old Documents", description: "Build a Handwritten Text Recognition System using TensorFlow.Developed a distinct decoder model to extract the text. Developed a user interface Web app with user friendly functionalities" }]);
   const [achievementList, setAchievementList] = useState([{ title: "Winner - INFOCRUISE'22", description: "Kongu Engineering College, Erode   - APRIL 2022" }]);
-  const [internshipList, setInternshipList] = useState([{ title: "HYPERVERGE ", description: "Worked as an Integration Engineer Intern,  managing 20+ client accounts and delivering KYC solutions. Provided technical support and resolved integration-related queries, ensuring seamless implementation and client satisfaction ", startDate: "2023/08/07", endDate: "2023/09/07" }]);
+  const [internshipList, setInternshipList] = useState([{ title: "HyperVerge ", description: "Worked as an Integration Engineer Intern,  managing 20+ client accounts and delivering KYC solutions. Provided technical support and resolved integration-related queries, ensuring seamless implementation and client satisfaction ", startDate: "2023/08/07", endDate: "2023/09/07" }]);
   const [volunteerList, setVolunteerList] = useState([{ title: "Machine Learning Workshop Coordinator ", description: " Conducted extensive machine learning workshops for 400+ students, delivering in-depth instruction on diverse ML basics and techniques." }]);
-  const [coCurricularList, setCoCurricularList] = useState([{ title: "PRODUCT :  Development of Person Identification Using Deepface ", description: "AI Product Development Lab           |   MAY 2023" }]);
+  const [coCurricularList, setCoCurricularList] = useState([{ title: "Product :  Development of Person Identification Using Deepface ", description: "AI Product Development Lab           |   MAY 2023" }]);
 
 
 
@@ -680,13 +679,13 @@ const TempleateNew = () => {
 
           <div className="section-grid-template">
             <div>
-              <h3 className="section-title-new underline">CAREER OBJECTIVE</h3>
+              <h3 className="section-title-new underline ">CAREER OBJECTIVE</h3>
               <p>{summary}</p>
 
               <h3 className="section-title-new underline">Education</h3>
               {education.map((edu, index) => (
                 <div key={index}>
-                  <h4>{edu.title}</h4>
+                  <h4 className="sideheading-title">{edu.title}</h4>
                   <p>{edu.description} : From {formatDate(edu.startDate)} to {formatDate(edu.endDate)}</p>
 
                 </div>
@@ -711,7 +710,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Projects</h3>
               {projectList.map((project, index) => (
                 <div key={index}>
-                  <h4>{project.title}</h4>
+                   <h4 className="sideheading-title">{project.title}</h4>
                   <p>{project.description}</p>
                 </div>
               ))}
@@ -719,7 +718,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Achievements</h3>
               {achievementList.map((achievement, index) => (
                 <div key={index}>
-                  <h4>{achievement.title}</h4>
+                   <h4 className="sideheading-title">{achievement.title}</h4>
                   <p>{achievement.description}</p>
                 </div>
               ))}
@@ -727,7 +726,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Internship</h3>
               {internshipList.map((internship, index) => (
                 <div key={index}>
-                  <h4>{internship.title}</h4>
+                   <h4 className="sideheading-title">{internship.title}</h4>
                   <p>{internship.description}</p>
                   <p>- From {formatDate(internship.startDate)} to {formatDate(internship.endDate)}</p>
                 </div>
@@ -740,7 +739,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Volunteer Activity</h3>
                {volunteerList.map((volunteer, index) => (
                 <div key={index}>
-                  <h4>{volunteer.title}</h4>
+                   <h4 className="sideheading-title">{volunteer.title}</h4>
                   <p>{volunteer.description}</p>
                 </div>
               ))}

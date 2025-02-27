@@ -9,10 +9,9 @@ const Placementcount = ({ studentData }) => {
   const jobApplicationAnalytics = studentData.jobApplicationAnalytics;
 
   // Data preparation for chart
-  const labels = ['Applied Jobs', 'Results Awaiting', 'Attended Jobs'];
+  const labels = ['Applied Jobs', 'Attended Jobs'];
   const values = [
     jobApplicationAnalytics.appliedJobs,
-    jobApplicationAnalytics.resultsAwaiting,
     jobApplicationAnalytics.attendedJobs,
   ];
 
@@ -22,8 +21,7 @@ const Placementcount = ({ studentData }) => {
       {
         label: 'Job Application Analytics',
         data: values,
-        backgroundColor: '#66bb6a', // Green color for bars
-        borderColor: '#388e3c', // Darker green for borders
+        backgroundColor: ['#3674B5', '#16D5A8'], // Different colors for each item
         borderWidth: 1,
       },
     ],
@@ -38,6 +36,13 @@ const Placementcount = ({ studentData }) => {
       },
     },
     scales: {
+      x: {
+        ticks: {
+          display: true, // Show x-axis labels
+        },
+        // Decrease the width of bars
+        barThickness: 20, // Adjust this value to change the bar width
+      },
       y: {
         ticks: {
           // Force Y-axis to show integer values only
@@ -65,8 +70,9 @@ const styles = {
     textAlign: 'center',
     fontSize: '18px',
     fontWeight: 'bold',
-    color: '#333',
+    color: '#3674B5', 
     marginBottom: '20px',
+    textDecoration: 'none', 
   },
 };
 

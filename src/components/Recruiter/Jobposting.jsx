@@ -15,7 +15,7 @@ function Jobposting() {
     jobResponsibility: "",
     jobRequirement: "",
     jobDescription: "",
-    deadline : ""
+    deadline: ""
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function Jobposting() {
     console.log('Job Data:', jobData); // Log the job data before posting
 
     // Post data to the backend
-    fetch('http://localhost:3000/jobpost', { 
+    fetch('http://localhost:3000/jobpost', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,14 +64,14 @@ function Jobposting() {
         if (data && data.jobData && data.jobData.job_id) {
           alert('Job posted successfully!');
           console.log('Received Job ID:', data.jobData.job_id);
-      
+
           // Navigate to success page with job data (including the ID)
           navigate('/success', { state: { jobData: data.jobData } });
         } else {
           console.error('No Job ID received from the backend.');
         }
       })
-      
+
       .catch(error => {
         console.error('Error posting job:', error);
         alert('Error posting job');
@@ -88,25 +88,54 @@ function Jobposting() {
         <div className="form-container">
           {/* Job Title, Company, Workplace Type */}
           <div className="form-group">
-          <input
-              type="text"
-              id="company"
-              placeholder="Enter Company Name"
-              value={formData.company}
-              onChange={handleChange}
-              required
-            />
+            <div className="formn-new-change">
+              <input
+                type="text"
+                id="company"
+                placeholder="Enter Company Name"
+                value={formData.company}
+                onChange={handleChange}
+                required
+              />
 
-            <input
-              type="text"
-              id="jobTitle"
-              placeholder="Enter Job Title"
-              value={formData.jobTitle}
-              onChange={handleChange}
-              required
-            />
-            
-            {/* Job Description */}
+              <input
+                type="text"
+                id="jobTitle"
+                placeholder="Enter Job Title"
+                value={formData.jobTitle}
+                onChange={handleChange}
+                required
+              />
+
+
+
+              <input
+                type="text"
+                id="location"
+                placeholder="Enter Job Location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                id="website"
+                placeholder="Enter Website URL"
+                value={formData.website}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="number"
+                id="ctc"
+                placeholder="Enter CTC"
+                value={formData.ctc}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+          {/* Job Description */}
           <div className="form-group">
             <textarea
               id="jobDescription"
@@ -117,33 +146,6 @@ function Jobposting() {
               required
             ></textarea>
           </div>
-      
-            <input
-              type="text"
-              id="location"
-              placeholder="Enter Job Location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              id="website"
-              placeholder="Enter Website URL"
-              value={formData.website}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="number"
-              id="ctc"
-              placeholder="Enter CTC"
-              value={formData.ctc}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
           {/* Job Responsibilities */}
           <div className="form-group">
             <textarea
@@ -168,7 +170,7 @@ function Jobposting() {
             ></textarea>
           </div>
 
-          
+
           {/* Skills */}
           <div className="form-group">
             <div className="skills-input-container">
@@ -201,7 +203,7 @@ function Jobposting() {
 
           </div>
 
-       
+
           {/* Post Button */}
           <button
             className="post-button"

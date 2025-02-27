@@ -1,4 +1,3 @@
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,8 +11,7 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-  background-color: #ffffff;
-  color: black;
+  background-color:#3674B5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +21,6 @@ body {
   left: 0;
   z-index: 1000;
   position: sticky;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
 }
 
@@ -39,18 +36,18 @@ body {
 
 .sections-side {
   display: flex;
-  gap: 30px; /* Space between items */
+  gap: 30px;
 }
 
 .sections-side p {
   padding-right: 25px;
   font-size: 1rem;
-  color: black;
+  color: white;
 }
 
 .sections-side p a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 /* Styles for the active link */
@@ -60,56 +57,22 @@ body {
 }
 
 
-/* Main Content Styles */
-
-/* Basic reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f7fc;
-  color: #333;
-}
-
-/* Dashboard Container */
-.dashboard {
+.student-board{
   padding: 20px;
-  margin: 0 auto;
 }
+.student-board h1{
+  color: #3674B5;
 
-/* Title Styling */
-.dashboard h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
 }
 
 
-/* Student Info, Attendance Chart, and Daily Scores Chart (Container 1) */
-.box {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  transition: transform 0.3s ease;
-}
 
-.box:hover {
-  transform: translateY(-5px);
-}
-
-/* Student Info Section Styling */
+/* Student Account*/
 .student-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding: 20px;
-  
+  justify-content: space-around;
+  padding: 30px;
 }
 
 .student-pic-container {
@@ -123,9 +86,8 @@ body {
   object-fit: cover;
 }
 
-.student-details h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.student-details h4 {
+  font-size: 1.3rem;
 }
 
 .student-details p {
@@ -133,20 +95,26 @@ body {
   color: #555;
 }
 
-.additional-details p {
-  font-size: 1rem;
-  margin: 10px 0;
-  text-align: left;
-  padding-left: 20px;
+
+.additional-details{
+  display: flex;
+  justify-content: space-evenly;
+}
+.box{
+  border: 1px solid #3674B5;
+  width: 200px;
+  background-color:  #3674B5;
+  padding: 25px;
+  text-align: center;
+  border-radius: 5px;
+
+}
+.box h4, .box p{
+  text-align: center;
+  color: white;
 }
 
 
-
-/* Attendance Chart and Daily Scores Chart (Container 1) */
-.box h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
 
 /* Container 2 (Placement and Grades Section) */
 .container-2 {
@@ -156,42 +124,7 @@ body {
   justify-content: space-around;
 }
 
-/* Grades and Other Details Section Styling */
-.details-student h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
 
-.details-student h4 {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.details-student p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .container-2 {
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .box {
-    flex: 1 1 100%;
-  }
-
-  .container-2 .box {
-    flex: 1 1 100%;
-  }
-}
 
 
 
@@ -260,10 +193,8 @@ body {
   text-align: center;
 }
 
-.student-details {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+.student-details-personal {
+  margin-top: 5%;
 }
 
 .student-details label {
@@ -315,9 +246,128 @@ body {
   cursor: not-allowed;
 }
 
-/* Responsive Adjustments */
 
-/* Sidebar */
+
+
+
+/* Account Student Styles */
+.student-account-container {
+  margin: 40px auto;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.student-account-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #3674B5;
+  text-align: center;
+}
+
+.student-details {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.student-details label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.student-details input {
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.student-details input:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+.student-details input[readonly] {
+  background-color: #e9e9e9;
+}
+
+.save-detail-student {
+  padding: 12px 20px;
+  background-color: #3674B5;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.save-detail-student:hover {
+  background-color: #005bb5;
+}
+
+.save-detail-student:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.divides{
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-student-detail{
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.subcontainer{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 20px;
+
+}
+.subcontainer h2{
+text-align: center;
+color: #3674B5;
+font-size: 18px;
+padding-top: 20px;
+}
+
+.second-container {
+  display: flex;
+  padding: 50px;
+  justify-content: space-around;
+}
+
+
+
+
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .sidebar {
     flex-direction: column; /* Stack items vertically on smaller screens */
@@ -385,131 +435,20 @@ body {
     gap: 10px;
   }
 }
-/* Account Student Styles */
-.student-account-container {
-  margin: 40px auto;
-  max-width: 800px;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container-2 {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .box {
+    flex: 1 1 100%;
+  }
 }
 
-.student-account-container h1 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #3c27df; /* Green color for heading */
-  text-align: center;
-}
-
-.student-details {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.student-details label {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #555;
-}
-
-.student-details input {
-  padding: 12px;
-  width: 100%;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  color: #333;
-  transition: border-color 0.3s ease;
-}
-
-.student-details input:focus {
-  outline: none;
-  border-color: #0066cc;
-}
-
-.student-details input[readonly] {
-  background-color: #e9e9e9;
-}
-
-.save-detail-student {
-  padding: 12px 20px;
-  background-color: #0066cc;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.save-detail-student:hover {
-  background-color: #005bb5;
-}
-
-.save-detail-student:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-.divides{
-  display: flex;
-  justify-content: space-around;
-}
-
-.user-student-detail{
-  display: flex;
-  justify-content: space-around;
-}
-
-.dashboard {
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
-  margin-top: 20px;
-}
-.subcontainer{
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: white;
-
-}
-
-.second-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 120px;
-  padding: 20px;
-  margin-left: 150px;
-}
-
-.subcontainer-second{
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 500px;
-  height: 340px;
-}
-.subcontainer-second-p{
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 600px;
-
-}
-
-
-.subcontainer-second h2{
-  font-size: 20px;
-  text-decoration: underline;
-}

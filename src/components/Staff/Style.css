@@ -1,5 +1,6 @@
 .main-content{
     padding: 30px;
+    background-color: white;
 }
 /* Centered Heading */
 .centered-text {
@@ -9,162 +10,169 @@
     color: #444;
 }
 
-/* Analytics box styles */
-.analytics-box {
+
+.analytics-box{
     display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    background-color: white;
+    justify-content: space-around;
+    padding: 20px;
 }
-.dashboard{
-    background-color: rgb(245, 245, 245);
-}
+
+/* CircleBox.css */
 .circle-box {
     display: flex;
     justify-content: space-around;
-    width: 70%;
-}
-
-.circle {
-    background-color: #f3f4f6;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgb(198, 196, 196);
+  }
+  
+  .circle-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 50px;
+  }
+  
+  .circle {
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+    border: 15px solid #3498db; /* Increased border thickness */
+    display: flex;
+    padding: 30px;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.circle h2 {
-    font-size: 17px;
-    text-transform: uppercase;
-}
-
-.circle p {
-    font-size: 20px;
+  }
+  
+  .circle p {
+    font-size: 24px;
     font-weight: bold;
-}
+    margin: 0;
+    color: black;
+  }
+  
+  h2 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .circle1 {
+    border-color: #F5AD48;
+  }
+  
+  .circle2 {
+    border-color: #B44E94;
+  }
+  
+  .circle3 {
+    border-color: #16D5A8;
+  }
+  
 
-.circle1 { background-color: #efbbac; }
-.circle2 { background-color: #a5f5a9; }
-.circle3 { background-color: #8ec9f9; }
-
-.circle:hover {
-    transform: scale(1.05);
-}
-
-/* Filter and Student Details Section */
-.filter-and-student-section {
-    margin-bottom: 40px;
-}
-
-.filter-container {
+  .calendar-box {
+    padding: 20px;
+    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgb(198, 196, 196);
+  }
+  
+  .calendar-box h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color:  #3674B5;
+  }
+  
+  .event {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  .event:last-child {
+    border-bottom: none;
+  }
+  
+  .calendar-icon {
+    margin-right: 15px;
+    font-size: 24px;
+    color: #477eb8;
+  }
+  
 
-.filter-container input {
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 300px;
-    background-color: #f9f9f9;
-}
-
-.student-details-container {
-    margin-bottom: 20px;
-    overflow-x: auto;
-}
-
-.student-details-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.student-details-table th, .student-details-table td {
-    padding: 12px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
-.student-details-table th {
-    background-color: #f4f4f4;
-}
-
-/* Two Boxes Section - Drives and Chart */
+/* Container for the overall section */
 .two-boxes {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     gap: 20px;
-}
+    padding: 20px;  
 
-.upcoming-events {
-    flex: 1;
-    background-color: white;
+  }
+  
+  /* Analysis Box Styles */
+  .analysis-box {
+    background-color: #ffffff;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
-}
-
-.upcoming-events h3, .upcoming-events h4 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.event {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.calendar-icon {
-    margin-right: 10px;
-    font-size: 20px;
-    color: #42a5f5;
-}
-
-.event-details span {
-    font-size: 16px;
-    color: #333;
-}
-
-.analysis-box {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
-}
-
-.analysis-box h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.chart-placeholder {
-    height: 200px;
-    background-color: #ffff;
-    text-align: center;
-    font-size: 18px;
-    color: #888;
     margin-bottom: 20px;
-    border-radius: 8px;
-    padding-left: 140px;
+    width: 100%;   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: 1px solid rgb(198, 196, 196); 
+    
+  }
+  
+  .analysis-box h3 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Placeholder for the chart */
+  .chart-placeholder {
+    width: 100%;
+    height: 400px;  /* Set height for the chart */
+    position: relative;
+    margin-top: 20px;  /* Add some space between the chart and the rest of the content */
+  }
+  
+
+  
+
+.event{
+    display: flex;
 }
 
-.analysis-box p {
-    font-size: 16px;
-    color: #555;
-}
+  .event-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .event-detail h4 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .event-detail p {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    color: #777;
+  }
+  
+
 
 /* Main Content Styling */
 .addnewusers {
@@ -323,7 +331,106 @@ h3 {
 }
 
 
+/* Overall container for the Filter and Student Section */
+.filter-and-student-section {
+    padding: 20px;
+    background-color: #ffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgb(198, 196, 196); 
+    padding: 30px;
 
+  }
+  
+  /* Title */
+  .filter-and-student-section h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3674B5;
+    text-align: left;
+  }
+  
+  /* Filter Container */
+  .filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-container label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .filter-container input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 300px;
+    box-sizing: border-box;
+  }
+  
+  .filter-container input:focus {
+    border-color: #42a5f5;
+    outline: none;
+  }
+  
+  /* Student Details Table Container */
+  .student-details-container {
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Table Styles */
+  .student-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .student-details-table th,
+  .student-details-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid rgb(162, 161, 161);
+  }
+  
+  .student-details-table th {
+    background-color:  #3674B5;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  
+  .student-details-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .student-details-table td {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .filter-container input {
+      width: 200px; /* Reduce the width of the filter input */
+    }
+  
+    .student-details-table {
+      font-size: 14px;
+    }
+  
+    .student-details-table th, .student-details-table td {
+      padding: 10px;
+    }
+  }
+  
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -350,3 +457,28 @@ h3 {
         margin-left: 0;
     }
 }
+  /* Responsive Design for Chart */
+  @media (max-width: 768px) {
+    .chart-placeholder {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chart-placeholder {
+      height: 250px;
+    }
+  }
+    /* Responsive Design for Chart */
+    @media (max-width: 768px) {
+        .chart-placeholder {
+          height: 300px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .chart-placeholder {
+          height: 250px;
+        }
+      }
+      

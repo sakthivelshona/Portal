@@ -4,8 +4,11 @@
       "name": "Shona S",
       "rollno": "7376212AD197",
       "email": "shona.ad21@bitsathy.ac.in",
-      "department": "Artificial Intelligence and Data Science",
-      "batch": "2021 - 2025",
+      "department": "AI & DS",
+      "batch": " 2025",
+      "year" : "IV",
+      "cgpa" : "8.73",
+      "arrear" : 0,
       "skills": "JavaScript, React, Node.js",
       "pic": "bg.jpeg",
       "boarding" : "Self",
@@ -13,62 +16,20 @@
       "speciallab": "Artificial Intelligence | Hari Priya R",
       "attendance": [
         {
-          "totalDays": 60,
-          "presentDays": 56,
-          "absentDays": 4
+          "totalDays": 30,
+          "presentDays": 25,
+          "absentDays": 5
         }
       ],
-      "dailyScores": [
+      "placement": [
         {
-          "day": "Monday",
-          "score": 85
-        },
-        {
-          "day": "Tuesday",
-          "score": 90
-        },
-        {
-          "day": "Wednesday",
-          "score": 78
-        },
-        {
-          "day": "Thursday",
-          "score": 92
-        },
-        {
-          "day": "Friday",
-          "score": 88
-        },
-        {
-          "day": "Saturday",
-          "score": 75
-        }
-      ],
-      "jobOpportunities": [
-        {
-          "title": "Internship at Zoho",
-          "company": "Zoho",
-          "status": "Available"
-        },
-        {
-          "title": "Software Developer at Soliton",
-          "company": "Soliton",
-          "status": "Closed"
-        }
-      ],
-      "skillDevelopment": [
-        {
-          "title": "Machine Learning Certification",
-          "certificationLink": "https://www.coursera.org/certificates/machine-learning"
-        },
-        {
-          "title": "Web Development Bootcamp",
-          "certificationLink": "https://www.udemy.com/course/the-web-developer-bootcamp/"
+          "fa":91,
+          "fullstackpoint" : 1342,
+          "rank" : 1342
         }
       ],
       "jobApplicationAnalytics": {
         "appliedJobs": 5,
-        "resultsAwaiting": 2,
         "attendedJobs": 3
       }
     },
