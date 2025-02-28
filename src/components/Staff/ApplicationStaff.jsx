@@ -7,13 +7,14 @@ function ApplicationStaff() {
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [skillsFilter, setSkillsFilter] = useState('');
   const [roleFilter, setRoleFilter] = useState('');
+  const [selectedJob, setSelectedJob] = useState(null); // For pop-up
 
   useEffect(() => {
     fetch('http://localhost:3000/getStudentApplications')
       .then((response) => response.json())
       .then((data) => {
         setStudentAppliedJobs(data.applications || []);
-        setFilteredJobs(data.applications || []); // Initialize filteredJobs
+        setFilteredJobs(data.applications || []);
       })
       .catch((error) => {
         console.error('Error fetching applications:', error);
@@ -21,7 +22,6 @@ function ApplicationStaff() {
   }, []);
 
   useEffect(() => {
-    // Filter jobs based on skillsFilter and roleFilter
     const filtered = studentAppliedJobs.filter((job) => {
       const matchesSkills = skillsFilter ? job.studentskills.toLowerCase().includes(skillsFilter.toLowerCase()) : true;
       const matchesRole = roleFilter ? job.jobTitle.toLowerCase().includes(roleFilter.toLowerCase()) : true;
@@ -31,20 +31,16 @@ function ApplicationStaff() {
   }, [skillsFilter, roleFilter, studentAppliedJobs]);
 
   const handleDelete = (job_id) => {
-    console.log('Job ID to delete:', job_id); // Debugging line
     if (!job_id) {
       console.error('No job_id provided');
       return;
     }
 
-    // Optimistically remove the job from the UI
     const updatedJobs = filteredJobs.filter(job => job.job_id !== job_id);
     setFilteredJobs(updatedJobs);
 
-    // Show alert immediately, after optimistic update
     alert(`Job with id ${job_id} is deleted`);
 
-    // Send the delete request to the server
     fetch(`http://localhost:3000/deleteApplication/${job_id}`, { method: 'DELETE' })
       .then(response => {
         if (!response.ok) {
@@ -54,13 +50,9 @@ function ApplicationStaff() {
       })
       .then(data => {
         console.log('Successfully deleted on server:', data);
-        // Optionally handle success data here if needed
       })
       .catch(error => {
         console.error('Error deleting application:', error);
-        // Revert the optimistic UI update in case of an error
-        // For example, you might call a function to re-fetch data here: 
-        // fetchApplications();
       });
   };
 
@@ -95,34 +87,76 @@ function ApplicationStaff() {
         </div>
 
         {filteredJobs.length > 0 ? (
-          filteredJobs.map((job, index) => (
-            <div key={index} className="job-container">
-              <p><strong>Name:</strong> {job.studentName}</p>
-              <p><strong>Email:</strong> {job.studentEmail}</p>
-              <p><strong>Skills:</strong> {job.studentskills}</p>
-              <p><strong>Company:</strong> {job.jobName}</p>
-              <p><strong>Role:</strong> {job.jobTitle}</p>
-              <p><strong>Timestamp:</strong> {job.timestamp}</p>
-              <p><strong>Job Id:</strong> {job.job_id}</p>
-              <p><strong>Resume URL:</strong>
-                <a href={job.resume.startsWith('http') ? job.resume : `http://localhost:3000/uploads/${job.resume}`}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  {job.resume}
-                </a>
-              </p>
-              <div className="feedback">
-              <p><strong>Feedback : </strong> </p>
-
-                <input type="text" />
-                <button className="recruiter-application-delete" onClick={() => handleDelete(job.job_id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))
+          <table className="jobs-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Skills</th>
+                <th>Resume</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredJobs.map((job, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td> {/* Serial Number */}
+                  <td>{job.studentName}</td>
+                  <td>{job.studentEmail}</td>
+                  <td>{job.studentskills}</td>
+                  <td>
+                    <a
+                      href={job.resume.startsWith("http") ? job.resume : `http://localhost:3000/uploads/${job.resume}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Link
+                    </a>
+                  </td>
+                  <td>
+                    <button className="view-button" onClick={() => setSelectedJob(job)}>
+                      Status
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         ) : (
           <p>No student data available.</p>
+        )}
+
+        {/* Pop-up for viewing full details */}
+        {selectedJob && (
+          <div className="popup-overlay">
+            <div className="popup">
+              <div className="popup-content">
+                <h4></h4>
+                <p><strong>Name:</strong> {selectedJob.studentName}</p>
+                <p><strong>Email:</strong> {selectedJob.studentEmail}</p>
+                <p><strong>Skills:</strong> {selectedJob.studentskills}</p>
+                <p>
+                  <strong>Resume: </strong> 
+                  <a
+                    href={selectedJob.resume.startsWith("http") ? selectedJob.resume : `http://localhost:3000/uploads/${selectedJob.resume}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                     View Resume
+                  </a>
+                </p>
+                <label>Feedback:</label>
+                <input type="text" placeholder="Enter feedback" required/>
+
+                <div className="popup-buttons">
+                <button className="decline-button" onClick={() => handleDelete(job.job_id)}>Decline</button>
+                  <button className="approve-button">Approve</button>
+                  <button className="close-button" onClick={() => setSelectedJob(null)}>✕</button>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </>

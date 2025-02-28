@@ -21,7 +21,7 @@ const Student = () => {
     <>
       <Sidebar />
       <div className="student-board">
-        <h1>Welcome back !</h1>
+        <h1>Welcome back 👋🏻</h1>
 
         <div className="container">
           {/* Student Info Section */}

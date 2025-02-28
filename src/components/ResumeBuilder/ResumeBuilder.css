@@ -405,6 +405,7 @@
   
 .sideheading-title{
   font-size: 16px;
+  text-align: left;
 }
 .content-main {
   flex: 1;

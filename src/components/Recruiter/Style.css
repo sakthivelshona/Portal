@@ -1,3 +1,6 @@
+.centered-text{
+  padding: 30px;
+}
 .centered-text h1 {
   font-size: 2.5rem;
   color: #333;
@@ -34,11 +37,9 @@
 /* Center-align the button */
 .para-new-recruiter button {
   display: block;
-  /* Makes the button a block-level element */
   margin: 0 auto;
-  /* Centers the button horizontally */
   padding: 12px 25px;
-  background-color: #2d20a1;
+  background-color: #3674B5;
   color: white;
   border: none;
   border-radius: 5px;
@@ -48,7 +49,7 @@
 }
 
 .para-new-recruiter button:hover {
-  background-color: #6f84e1;
+  background-color: #2661a1;
 }
 
 /* Box for the image */
@@ -126,7 +127,7 @@ h1 {
 
 .skills-input-container button {
   padding: 10px;
-  background-color: #3529bb;
+  background-color: #3674B5;
   color: white;
   border: none;
   cursor: pointer;
@@ -134,7 +135,7 @@ h1 {
 }
 
 .skills-input-container button:hover {
-  background-color: #5a5ee7;
+  background-color: #3674B5;
 }
 
 /* Skills list */
@@ -168,7 +169,7 @@ h1 {
 /* Post Button */
 .post-button {
   padding: 12px 20px;
-  background-color: #323bdb;
+  background-color: #3674B5;
   color: white;
   border: none;
   border-radius: 5px;
@@ -180,24 +181,10 @@ h1 {
 .post-button:hover {
   background-color: #6a73ef;
 }
-
-.feedback {
-  display: flex;
-  gap: 30px;
-  margin: 20px;
-}
-
 input {
-  width: 600px;
   padding: 20px;
 }
-.skills-filter{
-  margin-left: 350px;
-}
 
-.recruiter-application-container{
-padding: 30px;  
-}
 /* SuccessPage.css */
 
 /* General container for the success message */
@@ -257,17 +244,13 @@ padding: 30px;
 /* Styling for 'Recently Posted Jobs' and 'Already Posted Jobs' */
 .recently-posted {
   background-color: #e0f7fa;
-  /* Light Cyan for recently posted */
   border-left: 5px solid #00bcd4;
-  /* Teal border */
   padding-left: 10px;
 }
 
 .already-posted {
   background-color: #fff3e0;
-  /* Light Orange for already posted */
   border-left: 5px solid #ff9800;
-  /* Orange border */
   padding-left: 10px;
 }
 
@@ -342,6 +325,169 @@ button {
   cursor: pointer;
 }
 
+
+
+
+/* General styles */
+.recruiter-application-container {
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Table styles */
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.jobs-table th, .jobs-table td {
+  padding: 12px;
+  text-align: left;
+  border-right: 1px solid #ddd;
+  text-align: center;
+
+}
+
+.jobs-table th {
+  background-color: #3674B5;
+  color: white;
+}
+
+.jobs-table tr {
+  background-color: #f1f1f1;
+}
+
+/* Input filter */
+.skills-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.skills-filter input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 30%;
+}
+
+/* Buttons */
+.view-button, .approve-button, .decline-button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.view-button {
+  background-color: #3674B5;
+  color: white;
+}
+
+.decline-button {
+  background-color: white;
+  color: #3674B5;
+  border: 1px solid  #3674B5;
+
+}
+
+.approve-button {
+  background-color:  #3674B5;
+  color: white;
+}
+
+.decline-button:hover {
+  background-color: white;
+  color: #3674B5;
+  border: 1px solid  #3674B5;
+
+}
+
+.approve-button:hover {
+  background-color:  #3674B5;
+  color: white;
+}
+
+.view-button:hover{
+  background-color: #3674B5;
+}
+
+.close-button:hover{
+  background: white;
+}
+
+
+.view-button:hover, .approve-button:hover, .decline-button:hover {
+  opacity: 0.8;
+}
+
+/* Popup styles */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  border: 1px solid black;
+
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.popup-content p {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+}
+
+/* Ensure these styles override any unwanted ones */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black ;
+  border: none;
+  padding: 5px 10px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
 
 
 /* Responsive design for smaller screens */

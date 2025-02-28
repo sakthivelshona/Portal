@@ -58,10 +58,10 @@ body {
 
 
 .student-board{
-  padding: 20px;
+  padding: 30px;
 }
 .student-board h1{
-  color: #3674B5;
+  color: black;
 
 }
 
@@ -354,7 +354,7 @@ body {
 text-align: center;
 color: #3674B5;
 font-size: 18px;
-padding-top: 20px;
+padding-top: 10px;
 }
 
 .second-container {

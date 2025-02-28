@@ -145,9 +145,12 @@
     position: relative;
     margin-top: 20px;  /* Add some space between the chart and the rest of the content */
   }
-  
 
   
+.filter-container input{
+  width: 300px;
+  padding: 10px;
+}
 
 .event{
     display: flex;
@@ -264,7 +267,7 @@ color: white;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #f4f4f4; /* Added a soft background color */
+    background-color: white;
 }
 
 h3 {
@@ -274,19 +277,6 @@ h3 {
     text-align: center;
 }
 
-.job-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    background-color: #ffffff; /* White background for job items */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 100%; /* Full width of the container */
-    margin: 10px auto; /* Center the job cards */
-}
 
 
 .job-container p {
@@ -299,85 +289,107 @@ h3 {
     color: black; /* Color for labels like "Name", "Email", etc. */
 }
 
-.delete-button-student-appli {
-    padding: 10px 15px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    align-self: flex-end; /* Align the delete button to the right */
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.delete-button-student-appli:hover {
-    background-color: #d32f2f; /* Darken the button color on hover */
-}
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  border: 1px solid black;
 
-/* Add spacing between buttons if needed */
-.delete-button-container {
-    display: flex;
-    justify-content: flex-end; /* Ensure buttons align to the right */
-    width: 100%; /* Full width */
-    margin-top: 15px;
-}
-
-/* No student data available message */
-.application-staff-container p {
-    text-align: center;
-    font-size: 18px;
-    color: #666; /* Light gray color for empty state */
 }
 
 
-/* Overall container for the Filter and Student Section */
-.filter-and-student-section {
-    padding: 20px;
-    background-color: #ffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: 1px solid rgb(198, 196, 196); 
-    padding: 30px;
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.popup-content p {
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: black;
 
-  }
-  
-  /* Title */
-  .filter-and-student-section h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #3674B5;
-    text-align: left;
-  }
-  
-  /* Filter Container */
-  .filter-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .filter-container label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .filter-container input {
-    padding: 8px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    width: 300px;
-    box-sizing: border-box;
-  }
-  
-  .filter-container input:focus {
-    border-color: #42a5f5;
-    outline: none;
-  }
-  
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black ;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+}
+
+
+.approve-button, .decline-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
+}
+
+
+.decline-button {
+  background-color: white;
+  color: #3674B5;
+  border: 1px solid  #3674B5;
+
+}
+
+.approve-button {
+  background-color:  #3674B5;
+  color: white;
+}
+
+.decline-button:hover {
+  background-color: white;
+  color: #3674B5;
+  border: 1px solid  #3674B5;
+
+}
+
+.approve-button:hover {
+  background-color:  #3674B5;
+  color: white;
+}
+
+
   /* Student Details Table Container */
   .student-details-container {
     margin-top: 20px;
@@ -418,10 +430,7 @@ h3 {
   
   /* Mobile Responsiveness */
   @media (max-width: 768px) {
-    .filter-container input {
-      width: 200px; /* Reduce the width of the filter input */
-    }
-  
+
     .student-details-table {
       font-size: 14px;
     }
@@ -438,9 +447,6 @@ h3 {
         flex-direction: column;
     }
 
-    .filter-container input {
-        width: 90%;
-    }
 
     .circle-box {
         flex-direction: column;

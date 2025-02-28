@@ -28,7 +28,7 @@
 }
 
 .job-details-card button {
-  background-color: #007bff;
+  background-color: #3674B5;
   color: white;
   padding: 10px;
   border: none;
@@ -72,7 +72,6 @@ label {
   gap: 10px;
   margin-bottom: 20px;
   padding: 10px 0;
-  border-bottom: 2px solid #eee;
 }
 
 .filters input {
@@ -96,6 +95,9 @@ label {
 .job-detail-page {
   padding: 40px;
   background-color: #f5f5f5;
+}
+h4{
+  text-align: center;
 }
 
 h1 {
