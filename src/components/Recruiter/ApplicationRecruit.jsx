@@ -45,7 +45,6 @@ function ApplicationRecruit() {
       <div className="recruiter-application-container">
         <h3>Student Applied Jobs</h3>
         <div className="skills-filter">
-          <label htmlFor="skillsFilter">Filter by Skills:</label>
           <input
             type="text"
             id="skillsFilter"
@@ -63,7 +62,7 @@ function ApplicationRecruit() {
                 <th>Email</th>
                 <th>Skills</th>
                 <th>Resume</th>
-                <th>Action</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +82,7 @@ function ApplicationRecruit() {
                     </a>
                   </td>
                   <td>
-                    <button className="view-button" onClick={() => setSelectedJob(job)}> Status </button>
+                    <button className="view-button" onClick={() => setSelectedJob(job)}> Incomplete </button>
                   </td>
                 </tr>
               ))}

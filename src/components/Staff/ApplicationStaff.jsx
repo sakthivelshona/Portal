@@ -95,7 +95,7 @@ function ApplicationStaff() {
                 <th>Email</th>
                 <th>Skills</th>
                 <th>Resume</th>
-                <th>Action</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@ function ApplicationStaff() {
                   </td>
                   <td>
                     <button className="view-button" onClick={() => setSelectedJob(job)}>
-                      Status
+                      Incomplete
                     </button>
                   </td>
                 </tr>

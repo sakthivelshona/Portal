@@ -172,10 +172,13 @@ h1 {
   background-color: #3674B5;
   color: white;
   border: none;
+  align-items: right;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
   margin-top: 20px;
+  margin-left: auto;
+
 }
 
 .post-button:hover {
@@ -288,6 +291,11 @@ input {
 .job-details-card h4 {
   font-size: 1.25rem;
   color: #555;
+}
+
+.side-heading{
+  text-align: left;
+
 }
 
 .job-details-card p {

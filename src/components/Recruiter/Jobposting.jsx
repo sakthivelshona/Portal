@@ -84,15 +84,25 @@ function Jobposting() {
 
       <div className="main-content">
         <h1 className="centered-text">Post Job</h1>
-
         <div className="form-container">
           {/* Job Title, Company, Workplace Type */}
+          <h4 className='side-heading'>Job Detail</h4>
+
           <div className="form-group">
             <div className="formn-new-change">
+
+              <input
+                type="text"
+                id="jobTitle"
+                placeholder="Job Title"
+                value={formData.jobTitle}
+                onChange={handleChange}
+                required
+              />
               <input
                 type="text"
                 id="company"
-                placeholder="Enter Company Name"
+                placeholder="Company"
                 value={formData.company}
                 onChange={handleChange}
                 required
@@ -100,19 +110,8 @@ function Jobposting() {
 
               <input
                 type="text"
-                id="jobTitle"
-                placeholder="Enter Job Title"
-                value={formData.jobTitle}
-                onChange={handleChange}
-                required
-              />
-
-
-
-              <input
-                type="text"
                 id="location"
-                placeholder="Enter Job Location"
+                placeholder="Job Location"
                 value={formData.location}
                 onChange={handleChange}
                 required
@@ -120,7 +119,7 @@ function Jobposting() {
               <input
                 type="text"
                 id="website"
-                placeholder="Enter Website URL"
+                placeholder="Website"
                 value={formData.website}
                 onChange={handleChange}
                 required
@@ -128,7 +127,7 @@ function Jobposting() {
               <input
                 type="number"
                 id="ctc"
-                placeholder="Enter CTC"
+                placeholder="CTC"
                 value={formData.ctc}
                 onChange={handleChange}
                 required
@@ -140,18 +139,20 @@ function Jobposting() {
             <textarea
               id="jobDescription"
               rows="4"
-              placeholder="Enter Job Description"
+              placeholder="Job Description"
               value={formData.jobDescription}
               onChange={handleChange}
               required
             ></textarea>
           </div>
+
           {/* Job Responsibilities */}
+          <h4 className='side-heading'>Job Responsibilities</h4>
+
           <div className="form-group">
             <textarea
               id="jobResponsibility"
               rows="4"
-              placeholder="Enter Job Responsibilities"
               value={formData.jobResponsibility}
               onChange={handleChange}
               required
@@ -159,11 +160,11 @@ function Jobposting() {
           </div>
 
           {/* Job Requirements */}
+          <h4 className='side-heading'>Job Requirements</h4>
           <div className="form-group">
             <textarea
               id="jobRequirement"
               rows="4"
-              placeholder="Enter Job Requirements"
               value={formData.jobRequirement}
               onChange={handleChange}
               required
@@ -172,6 +173,7 @@ function Jobposting() {
 
 
           {/* Skills */}
+          <h4 className='side-heading'>Skills</h4>
           <div className="form-group">
             <div className="skills-input-container">
               <input
@@ -192,6 +194,8 @@ function Jobposting() {
                 </div>
               ))}
             </div>
+
+            <h4 className='side-heading'>Deadline</h4>
             <input
               type="date"
               id="deadline"
