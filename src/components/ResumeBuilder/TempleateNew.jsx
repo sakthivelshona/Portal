@@ -4,9 +4,12 @@ import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { TbBrandLeetcode } from "react-icons/tb";
 import html2pdf from 'html2pdf.js';
+import { useNavigate } from 'react-router-dom';
 
 
 const TempleateNew = () => {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("SHONA S");
   const [contact, setContact] = useState("+91 9894931446");
   const [email, setEmail] = useState("shona.ad21@bitsathy.ac.in");
@@ -113,7 +116,7 @@ const TempleateNew = () => {
   const [skillList, setSkillList] = useState(["C++", "Python", "React", "Javascript", "MongoDB"]);
   const [interestList, setInterestList] = useState(["Web Designing", "Crafting", "Binge watching"]);
   const [eventList, setEventList] = useState(["Participated in BITHACKS 2023, presented our Handwritten Text Recognition Application Organized by BIT College", "Participated in BITHACKS 2023, presented our Handwritten Text Recognition Application Organized by BIT College"]);
-  const [certificationList, setCertificationList] = useState(["Fundamentals of Deep Learning for Computer Vision , NVIDIA", ]);
+  const [certificationList, setCertificationList] = useState(["Fundamentals of Deep Learning for Computer Vision , NVIDIA",]);
   const [toolsList, setToolsList] = useState(["VS Code", "Figma", "Postman", "MongoDB Compass"]);
   const [hobbiesList, setHobbiesList] = useState(["Journaling", "Developing Websites", "Binge Watching"]);
 
@@ -142,24 +145,26 @@ const TempleateNew = () => {
   };
 
 
- 
+
   // Download PDF
   const downloadPDF = () => {
     const resume = document.getElementById("resume-preview");
-  
+
     const options = {
-      filename:     "resume.pdf",
-      image:        { type: "png", quality: 1 },
-      html2canvas:  { scale: 2 },
-      jsPDF:        { unit: "mm", format: "a4", orientation: "portrait" },
-      pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Prevents content from breaking awkwardly
+      filename: "resume.pdf",
+      image: { type: "png", quality: 1 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Prevents content from breaking awkwardly
     };
-  
+
     html2pdf().from(resume).set(options).save();
   };
 
   return (
     <div className="whole-container">
+      <button className="back-arrow-button" onClick={() => navigate(-1)}>   ᐸ <span>Back</span></button>
+
       <h1 className="main-top-heading">Resume Builder</h1>
       {/* <Listcustom/> */}
       <div className="container-side-pages">
@@ -710,7 +715,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Projects</h3>
               {projectList.map((project, index) => (
                 <div key={index}>
-                   <h4 className="sideheading-title">{project.title}</h4>
+                  <h4 className="sideheading-title">{project.title}</h4>
                   <p>{project.description}</p>
                 </div>
               ))}
@@ -718,7 +723,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Achievements</h3>
               {achievementList.map((achievement, index) => (
                 <div key={index}>
-                   <h4 className="sideheading-title">{achievement.title}</h4>
+                  <h4 className="sideheading-title">{achievement.title}</h4>
                   <p>{achievement.description}</p>
                 </div>
               ))}
@@ -726,7 +731,7 @@ const TempleateNew = () => {
               <h3 className="section-title-new underline">Internship</h3>
               {internshipList.map((internship, index) => (
                 <div key={index}>
-                   <h4 className="sideheading-title">{internship.title}</h4>
+                  <h4 className="sideheading-title">{internship.title}</h4>
                   <p>{internship.description}</p>
                   <p>- From {formatDate(internship.startDate)} to {formatDate(internship.endDate)}</p>
                 </div>
@@ -737,9 +742,9 @@ const TempleateNew = () => {
 
             <div>
               <h3 className="section-title-new underline">Volunteer Activity</h3>
-               {volunteerList.map((volunteer, index) => (
+              {volunteerList.map((volunteer, index) => (
                 <div key={index}>
-                   <h4 className="sideheading-title">{volunteer.title}</h4>
+                  <h4 className="sideheading-title">{volunteer.title}</h4>
                   <p>{volunteer.description}</p>
                 </div>
               ))}

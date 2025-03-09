@@ -1,6 +1,6 @@
-// Sidebar.jsx
 import React from 'react';
-import { Link,NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { FaHome, FaBriefcase, FaClipboardList, FaUserCircle } from 'react-icons/fa';
 
 const Sidebar = () => {
   return (
@@ -9,10 +9,26 @@ const Sidebar = () => {
         <img src="logo.png" alt="Logo" />
       </div>
       <div className="sections-side">
-        <p><NavLink to="/staff" className={({ isActive }) => (isActive ? 'active-link' : '')}>Home</NavLink></p> 
-        <p><NavLink to="/receivedjobs" className={({ isActive }) => (isActive ? 'active-link' : '')}>All Jobs</NavLink></p> 
-        <p><NavLink to="/studentApplicationStaff" className={({ isActive }) => (isActive ? 'active-link' : '')}>Applications</NavLink></p> 
-        <p><NavLink to="/useraccount" className={({ isActive }) => (isActive ? 'active-link' : '')}>Account</NavLink></p> 
+        <p>
+          <NavLink to="/staff" className={({ isActive }) => (isActive ? 'active-link' : '')}>
+            <FaHome /> Home
+          </NavLink>
+        </p>
+        <p>
+          <NavLink to="/receivedjobs" className={({ isActive }) => (isActive ? 'active-link' : '')}>
+            <FaBriefcase /> All Jobs
+          </NavLink>
+        </p>
+        <p>
+          <NavLink to="/studentApplicationStaff" className={({ isActive }) => (isActive ? 'active-link' : '')}>
+            <FaClipboardList /> Applications
+          </NavLink>
+        </p>
+        <p>
+          <NavLink to="/useraccount" className={({ isActive }) => (isActive ? 'active-link' : '')}>
+            <FaUserCircle /> Account
+          </NavLink>
+        </p>
       </div>
     </div>
   );

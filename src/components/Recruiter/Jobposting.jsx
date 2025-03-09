@@ -10,6 +10,7 @@ function Jobposting() {
     company: "",
     jobTitle: "",
     location: "",
+    jobtype: "",
     website: "",
     ctc: "",
     jobResponsibility: "",
@@ -39,15 +40,35 @@ function Jobposting() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
+
+    // If the field is CTC, append 5 zeros to the entered number
+    if (id === "ctc" && value) {
+      setFormData({ ...formData, [id]: value + "00000" }); // Add 5 zeros to CTC
+    } else {
+      setFormData({ ...formData, [id]: value });
+    }
   };
 
   const handlePostJob = () => {
+    // Check if all fields are filled before posting
+    const requiredFields = [
+      'company',
+      'jobTitle',
+      'location',
+      'jobtype',
+      'website',
+      'ctc',
+      'jobResponsibility',
+      'jobRequirement',
+      'jobDescription',
+      'deadline'
+    ];
 
     const jobData = {
       ...formData,
       skills,  // Include the skills array
     };
+
     console.log('Job Data:', jobData); // Log the job data before posting
 
     // Post data to the backend
@@ -83,7 +104,7 @@ function Jobposting() {
       <Sidebar />
 
       <div className="main-content">
-        <h1 className="centered-text">Post Job</h1>
+        <h1>Post Job</h1>
         <div className="form-container">
           {/* Job Title, Company, Workplace Type */}
           <h4 className='side-heading'>Job Detail</h4>
@@ -107,12 +128,19 @@ function Jobposting() {
                 onChange={handleChange}
                 required
               />
-
               <input
                 type="text"
                 id="location"
                 placeholder="Job Location"
                 value={formData.location}
+                onChange={handleChange}
+                required
+              />
+               <input
+                type="text"
+                id="jobtype"
+                placeholder="Job Type"
+                value={formData.jobtype}
                 onChange={handleChange}
                 required
               />
@@ -148,7 +176,6 @@ function Jobposting() {
 
           {/* Job Responsibilities */}
           <h4 className='side-heading'>Job Responsibilities</h4>
-
           <div className="form-group">
             <textarea
               id="jobResponsibility"
@@ -170,7 +197,6 @@ function Jobposting() {
               required
             ></textarea>
           </div>
-
 
           {/* Skills */}
           <h4 className='side-heading'>Skills</h4>
@@ -204,9 +230,7 @@ function Jobposting() {
               onChange={handleChange}
               required
             />
-
           </div>
-
 
           {/* Post Button */}
           <button

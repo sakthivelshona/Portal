@@ -43,7 +43,7 @@ function ApplicationRecruit() {
     <>
       <Sidebar />
       <div className="recruiter-application-container">
-        <h3>Student Applied Jobs</h3>
+        <h1>Student Applied Jobs</h1>
         <div className="skills-filter">
           <input
             type="text"

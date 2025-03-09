@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Import Link for routing
 import Sidebar from '../Student/Sidebar'; // Import Sidebar component
 function Mainpage() {
   return (
-    <div>
+  <div className='containers'>
       <Sidebar />
       <div className="content-main">
         <h1 className="heading-res-main">Resume Builder</h1>

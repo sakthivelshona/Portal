@@ -1,7 +1,6 @@
 /* Global Reset */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
   background: #f4f4f4; /* Light gray background for better contrast */
   color: #333; /* Dark text for better readability */
 }

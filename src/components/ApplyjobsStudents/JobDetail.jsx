@@ -12,6 +12,7 @@ const JobDetail = () => {
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
   const [resumeUrl, setResumeUrl] = useState(null); // New state variable for resume URL
+  const [atsChecked, setAtsChecked] = useState(false); // State for ATS button click
 
   useEffect(() => {
     setLoading(true);
@@ -91,6 +92,10 @@ const JobDetail = () => {
       });
   };
 
+  const handleAtsCheck = () => {
+    setAtsChecked(!atsChecked); // Toggle ATS check
+  };
+
   if (loading) {
     return <div className="loading-indicator">Loading...</div>;
   }
@@ -112,17 +117,48 @@ const JobDetail = () => {
     <>
       <Sidebar />
       <div className="job-detail-page">
-        <h1>Apply</h1>
-        <div className="job-info">
-          <h3>{job.company} - {job.jobTitle}</h3>
-          <p><strong>Description:</strong> {job.jobDescription}</p>
-          <p><strong>Requirements:</strong> {job.jobRequirement}</p>
-          <p><strong>Company Website:</strong> {job.website}</p>
-          <p><strong>Skills:</strong> {job.skills}</p>
-          <p><strong>CTC:</strong> {job.ctc}</p>
-          <p><strong>Responsibilities:</strong> {job.jobResponsibility}</p>
-          <p><strong>Location:</strong> {job.location}</p>
-          <p><strong>Deadline:</strong> {formatDate(job.deadline)}</p>
+        {/* Back Arrow Button */}
+        <button className="back-arrow-button" onClick={() => navigate(-1)}>   ᐸ <span>Back to Jobs</span></button>
+
+        <h2>{job.company} - {job.jobTitle}</h2>
+
+        <p className="ctc"> ₹{job.ctc}</p>
+        <p className="company-website">
+          <i>
+            <a href={job.website} target="_blank" rel="noopener noreferrer">
+              {job.website}
+            </a>
+          </i>
+        </p>
+
+        <div className="skills">
+          {Array.isArray(job.skills)
+            ? job.skills.map((skill, index) => (
+              <span key={index} className="skill">{skill}</span>
+            ))
+            : job.skills
+              .split(',')
+              .map((skill, index) => (
+                <span key={index} className="skill">{skill.trim()}</span>
+              ))}
+        </div>
+
+        <div className="job-details">
+          <h4><strong>Job Description</strong></h4>
+          <p>{job.jobDescription}</p>
+          <h4><strong>Job Requirements</strong> </h4>
+          <ul>
+            {job.jobRequirement.split('.').map((sentence, index) =>
+              sentence.trim() ? (
+                <li key={index}>{sentence.trim()}.</li>
+              ) : null
+            )}
+          </ul>
+          <h4><strong>Job Responsibilities</strong> </h4>
+          <p>{job.jobResponsibility}</p>
+          <h4><strong>Location:</strong> {job.location}</h4>
+
+          <h4><strong>Deadline:</strong> {formatDate(job.deadline)}</h4>
         </div>
 
         <h4>Upload your Resume</h4>
@@ -141,17 +177,17 @@ const JobDetail = () => {
           className="file-input"
         />
 
-        <div className="file-ats">
-          <button>ATS checker</button>
-          <input type="text" />
+        <div className="ats-section">
+          <button className="ats-button" onClick={handleAtsCheck}>Check ATS Score</button>
         </div>
 
-        {/* New "Download Report" Button */}
-        <div className="download-report">
-          <button className="download-report-button" >
-            Download Report
-          </button>
-        </div>
+        {/* Display only if ATS Score is checked */}
+        {atsChecked && (
+          <>
+            <textarea className="ats-textarea" placeholder="ATS Score here"></textarea>
+            <button className="generate-report-button">Generate Report</button>
+          </>
+        )}
 
         <div className="job-apply-student">
           <button onClick={handleApply}>Apply</button>

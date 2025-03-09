@@ -4,9 +4,12 @@ import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { TbBrandLeetcode } from "react-icons/tb";
 import html2pdf from 'html2pdf.js';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const ResumeBuilder = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("SHONA S");
   const [contact, setContact] = useState("+91 9894931446");
   const [email, setEmail] = useState("shona.ad21@bitsathy.ac.in");
@@ -163,7 +166,10 @@ const ResumeBuilder = () => {
 
   return (
     <div className="whole-container">
+
+      <button className="back-arrow-button" onClick={() => navigate(-1)}>   ᐸ <span>Back</span></button>
       <h1 className="main-top-heading">Resume Builder</h1>
+
       {/* <Listcustom/> */}
       <div className="container-side-pages">
         <div className="form-section">
@@ -671,7 +677,7 @@ const ResumeBuilder = () => {
 
         <div className="resume-preview" id="resume-preview">
           <div className="heading-preview">
-            <h1 className="resume-name">{name}</h1>
+            <h2 className="resume-name">{name}</h2>
             <p className="branch-name">{branch}</p>
             <p className="resume-contact">
               <MdEmail className="contact-icon" />{email}

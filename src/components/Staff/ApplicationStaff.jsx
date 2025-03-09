@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import './Style.css';
 
+
 function ApplicationStaff() {
   const [studentAppliedJobs, setStudentAppliedJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
@@ -65,17 +66,17 @@ function ApplicationStaff() {
         {/* Filter options */}
         <div className="filters">
           <div>
-            <label htmlFor="skillsFilter">Filter by Skills:</label>
+
             <input
               id="skillsFilter"
               type="text"
               value={skillsFilter}
               onChange={(e) => setSkillsFilter(e.target.value)}
-              placeholder="Search Skills"
+              placeholder=" 🔍 Search Skills"
             />
           </div>
           <div>
-            <label htmlFor="roleFilter">Filter by Role:</label>
+            
             <input
               id="roleFilter"
               type="text"

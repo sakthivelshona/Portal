@@ -1,0 +1,87 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+  }
+  
+  /* Main container */
+  .containers {
+    display: flex;
+  }
+  
+  /* Sidebar styles */
+  .sidebars {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebars ul {
+    list-style-type: none;
+  }
+  
+  .sidebars li {
+    padding: 10px 0;
+  }
+  
+  .sidebars li:hover {
+    background-color: #555;
+    cursor: pointer;
+  }
+  
+  /* Main content area */
+  .main-contents {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .main-contents h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .main-contents p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .main-contents img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Media query for screens smaller than 768px */
+  @media screen and (max-width: 768px) {
+    .containers {
+      flex-direction: column; /* Stack the sidebar and content */
+    }
+  
+    .sidebars {
+      width: 100%; /* Make sidebar take full width */
+      padding: 10px; /* Adjust padding */
+    }
+  
+    .main-contents {
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+  
+    .main-contents h1 {
+      font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+  
+    .main-contents p {
+      font-size: 1rem; /* Adjust paragraph font size */
+    }
+  
+    .sidebars li {
+      padding: 8px 0; /* Reduce padding for smaller screens */
+    }
+  }
+  

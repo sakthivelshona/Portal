@@ -1,148 +1,291 @@
-.job-application-card {
-  background: #fff;
+/* Styles for view button */
+.view-btn {
+  background-color: #3674B5;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  float: right; /* Right align the view button */
+}
+.whole-job-des{
+  padding: 30px;
+  background-color: white;
+}
+
+.view-btn:hover {
+  background-color:#3674B5;
+}
+
+.job-cards {
+  flex: 3;
+  margin-right: 20px;
   padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .job-details-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.job-details-card h3 {
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.job-details-card h4 {
-  font-size: 1.25rem;
-  color: #555;
-}
-
-.job-details-card p {
-  font-size: 1rem;
-  margin: 8px 0;
-  color: #666;
-}
-
-.job-details-card button {
-  background-color: #3674B5;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.job-details-card button:hover {
-  background-color: #0056b3;
-}
-
-.loading-indicator {
-  font-size: 1.5rem;
-  text-align: center;
-  color: #333;
-}
-
-/* Button styling */
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px; /* Added rounded corners */
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #45a049; /* Darker shade of green for hover */
-}
-
-label {
-  margin-top: 15px;
-  padding-right: 10px;
-}
-
-.filters {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
   margin-bottom: 20px;
-  padding: 10px 0;
 }
 
-.filters input {
+.job-card {
+  border: 2px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 8px;
+  position: relative; /* Required for positioning the bookmark */
+}
+
+.job-card .bookmark:hover {
+  color: gold;
+}
+
+.rupee p {
+  background-color: #398B43;
+}
+
+.skills-deadline {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.skills span {
+  color: #266E79;
+  background-color: #5CCEE099;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.deadline {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-icon-new {
+  margin-right: 5px;
+  color: rgb(167, 167, 167);
+  padding: -10px;
+  margin-left: 10px;
+}
+
+/* Content wrapper to avoid overlap */
+.content-wrapper {
+  margin-left: 250px; /* Space for the sidebar */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  display: flex; /* Enable flexbox */
+  justify-content: space-between; /* Spread items out, with job cards on the left and filters on the right */ 
+}
+
+
+/* Filters container */
+.filters-app {
+  flex: 1;
+  padding: 30px;
+  position: -webkit-sticky; /* For Safari */
+  position: sticky; /* Sticky positioning */
+  top: 2px; /* Sticks to the top when scrolling */
+  z-index: 1; /* Ensures it stays above other content */
+  background-color: white; /* Keeps background consistent */
+  overflow-y: auto; /* Allows scrolling within the filter section */
+  max-height: calc(100vh - 50px); /* Optional: Adjust this if you want to limit the height of the filter */
+}
+
+/* Heading for the filters */
+.filters-app h2 {
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+/* Style for the filter inputs */
+.filters-app input {
+  width: 100%;
   padding: 10px;
-  font-size: 14px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 250px;
+  box-sizing: border-box;
 }
 
-.filters input::placeholder {
-  color: #888;
-}
-
-.filters input:focus {
-  border-color: #007BFF;
+/* Focused input styling */
+.filters-app input:focus {
   outline: none;
+  border-color: #2980b9;
 }
 
-/* Job detail page container */
-.job-detail-page {
-  padding: 40px;
-  background-color: #f5f5f5;
-}
-h4{
-  text-align: center;
+/* Optional: For mobile responsiveness, adjust padding and font sizes */
+@media (max-width: 768px) {
+  .filters-app {
+    padding: 20px;
+  }
+
+  .filters-app h2 {
+    font-size: 24px;
+  }
+
+  .filters-app input {
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+  .content-wrapper {
+    margin-left: 0; /* No sidebar margin for small screens */
+  }
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 20px;
-}
 
-/* Job info section */
-.job-info {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-}
 
-.job-info h3 {
-  font-size: 22px;
-  color: #34495e;
-  margin-bottom: 15px;
-}
 
-.job-info p {
-  font-size: 16px;
-  color: #7f8c8d;
-  margin-bottom: 10px;
-}
-
-.job-info strong {
-  color: #2c3e50;
-}
 
 /* File upload section */
-h4 {
-  font-size: 18px;
-  color: #2c3e50;
-  margin-bottom: 10px;
+.job-detail-page {
+  padding: 20px;
+  margin-left: 250px
 }
+
+.back-arrow-button {
+  display: inline-block;
+  padding: 5px;
+  background-color: white; /* White background */
+  color: rgb(100, 99, 99); /* Black arrow color */
+  font-size: 13px; /* Font size for the arrow button */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+}
+
+.back-arrow-button:hover {
+  background-color: white; /* No hover background change */
+  color: black; /* No hover color change */
+}
+
+.back-arrow-button span{
+  color: #2973B2;
+  font-size: 12px; /* Font size for the arrow button */
+  margin-left: 5px;
+
+}
+.job-detail-page h2 {
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.ctc {
+  font-size: 1.2rem;
+  margin-top: 30px;
+  color: #398B43;
+
+}
+
+.company-website {
+  font-style: italic;
+  margin-top: 10px;
+  color: blue;
+}
+
+.skills {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skill {
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+
+.job-details ul {
+  list-style-type: disc; /* Default bullet points */
+  padding-left: 20px; /* Indentation for bullet points */
+  margin-bottom: 20px; /* Space below the list */
+}
+
+.job-details ul li {
+  margin-bottom: 10px; /* Space between list items */
+  font-size: 16px; /* Adjust text size */
+  line-height: 1.6; /* Add spacing between lines for readability */
+  color: #636262; /* Lighter text color for paragraphs */
+}
+
+.job-details ul li::before {
+  content: "\2022"; /* Unicode for bullet symbol */
+  font-size: 20px; /* Bullet size */
+}
+
+
+ h4 {
+  font-size: 18px;
+  margin-top: 30px; /* Space below the heading */
+}
+
+.job-details p {
+  font-size: 16px;
+  color: #636262; /* Lighter text color for paragraphs */
+}
+
+.ats-section {
+  margin-top: 20px;
+}
+
+.ats-button {
+  background-color:#3674B5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.ats-textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.generate-report-button {
+  background-color:#3674B5;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  float: right;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.job-apply-student {
+  margin-top: 30px;
+}
+
+.job-apply-student button {
+  padding: 12px 20px;
+  background-color:#3674B5;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.job-apply-student button:hover {
+  background-color:#2C5A8A;
+}
+
+
+
+.resume-url {
+  margin-top: 20px;
+}
+
+.resume-url a {
+  color: #398B43;
+}
+
 
 .file-upload {
   background-color: #ecf0f1;
   border: 2px dashed #bdc3c7;
   padding: 20px;
+  margin: 20px;
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
@@ -151,12 +294,14 @@ h4 {
 }
 
 .file-upload:hover {
-  background-color: #d5dbdb;
+  background-color: #eef5fb;
 }
 
 .file-upload p {
   font-size: 16px;
   color: #7f8c8d;
+  margin: 0;
+
 }
 
 .file-input {
@@ -171,7 +316,7 @@ h4 {
 
 .file-ats button {
   padding: 12px 20px;
-  background-color: #2980b9;
+  background-color: #3674B5;
   color: white;
   border: none;
   border-radius: 5px;
@@ -181,7 +326,7 @@ h4 {
 }
 
 .file-ats button:hover {
-  background-color: #3498db;
+  background-color:#3674B5;
 }
 
 /* */
@@ -198,46 +343,7 @@ h4 {
   border-color: #2980b9;
 }
 
-/* New 'Download Report' button styles */
-.download-report-button {
-  padding: 12px 20px;
-  background-color: #e67e22; /* Orange color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 15px;
-  text-align: center;
-}
 
-.download-report-button:hover {
-  background-color: #f39c12;
-}
-
-/* Apply button styles */
-.job-apply-student {
-  border-radius: 5px;
-  display: flex;
-  justify-content: flex-end;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.job-apply-student button {
-  background-color: #007bff;
-  padding: 12px 20px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.job-apply-student button:hover {
-  background-color: #0056b3;
-}
 
 /* Application Success Screen */
 .application-success {
@@ -299,10 +405,7 @@ h4 {
     text-align: center;
   }
 
-  .download-report-button {
-    width: 100%;
-    text-align: center;
-  }
+
 }
 
 /* Responsive design for smaller screens */

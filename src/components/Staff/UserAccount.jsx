@@ -61,6 +61,8 @@ function UserAccount() {
   return (
     <div>
       <Sidebar />
+      <div className="acc">
+        <h1>Account</h1>
       <div className="addnewusers">
         <div className="column-add-acc">
           <label htmlFor="email">Email: </label>
@@ -109,6 +111,8 @@ function UserAccount() {
           Create Account
         </button>
       </div>
+            </div>
+
     </div>
   );
 }

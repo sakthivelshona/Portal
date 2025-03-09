@@ -1,10 +1,11 @@
-/* General Container */
-* {
-    font-family: 'Poppins', sans-serif;
-  }
-  
+
   .main-top-heading {
     margin: 20px;
+    text-align: left;
+  }
+  .whole-container{
+    padding: 10px;
+    background-color: white;
   }
   
   .container-side-pages {
@@ -50,7 +51,7 @@
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: auto;
-    max-height: 150vh;
+    max-height: 170vh;
     /* You can adjust this depending on your layout */
   
   }
@@ -72,7 +73,7 @@
   }
   
   p {
-    margin-top: 7px;
+    text-align: justify;
   }
   
   .input-label {
@@ -93,11 +94,6 @@
     padding: 10px;
     height: 90px
   }
-  
-  p {
-    text-align: justify;
-  }
-  
   .input-field-name {
     width: 40%;
     border: 1px solid #e5e7eb;
@@ -128,7 +124,7 @@
   .resume-preview {
     width: 100%; /* Take up full available width */
     background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
@@ -196,9 +192,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-  .section-grid h3{
+  .section-grid h3, .section-grid-template h3 {
     text-align: justify;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #200e7b;
+    text-decoration: underline;
+    padding-top: 8px;
   }
+  
   .section-title {
     font-size: 16px;
     font-weight: bold;
@@ -212,9 +214,7 @@
     color:#201979;
 
   }
-  .resume-name-newone h1{
-    color: black;
-  }
+
   /* Input Group Add */
   .input-group-add {
     display: flex;
@@ -332,15 +332,11 @@
     position: relative;
     text-align: justify;
     padding-left: 25px;
-    /* Add space for icon */
   }
   
   ul li::before {
     content: "\f0da";
-    /* FontAwesome arrow icon */
-    /* Ensure FontAwesome is used */
-    font-weight: 900;
-    /* For solid icons */
+    font-weight: 600;
     position: absolute;
     left: 0;
     top: 50%;
@@ -379,13 +375,9 @@
     color: black;
     text-align: center;
   }
-  
-  h3 {
-    text-transform: uppercase;
-    color: #200e7b;
-    text-decoration: underline;
-    padding-top: 10px;
-  
+
+  .resume-name-newone{
+    font-size: 30px;
   }
   
   
@@ -393,12 +385,6 @@
     display: flex;
     width: 98%;
   }
-  
- .section-title h4 {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
   p, ul {
     font-size: 0.9rem;
   }
@@ -411,19 +397,20 @@
   flex: 1;
   border-radius: 8px;
   padding: 20px;
+  background-color: white;
+  margin-left: 250px;
 }
 
-.heading-res-main {
+h1 {
   font-size: 32px;
-  color: #333;
   margin-bottom: 20px;
-  padding-top: 30px;
 }
 
 .description {
   font-size: 18px;
   color: #555;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 /* Template selection container */
@@ -432,7 +419,6 @@
   justify-content: space-evenly;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 30px;
 }
 
 /* Template item styling */
@@ -495,6 +481,7 @@
 
   .content-main {
     width: 100%;
+    margin-left: 0px;
     padding: 15px;
   }
 

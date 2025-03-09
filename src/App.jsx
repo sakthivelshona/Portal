@@ -19,6 +19,7 @@ import Resumeuploaded from './components/ApplyjobsStudents/Resumeuploaded';
 import ApplicationStaff from './components/Staff/ApplicationStaff';
 import ApplicationRecruit from './components/Recruiter/ApplicationRecruit';
 import './App.css';
+import Sample from './components/Attendance/Sample';
 
 const App = () => {
   return (
@@ -32,6 +33,9 @@ const App = () => {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/applyjobs" element={<JobApplication />} />
         <Route path="/job/:job_id" element={<JobDetail />} />
+        <Route path="/sample" element={<Sample />} />
+
+        
         <Route path="/resume" element={<Mainpage />} />
         <Route path="/template1" element={<ResumeBuilder />} />
         <Route path="/template2" element={<TempleateNew />} />

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Style.css'; // Extracted CSS for the sidebar
 import Sidebar from './Sidebar';
 import { FaCalendarAlt } from 'react-icons/fa'; // For Calendar icons
-import { Line } from 'react-chartjs-2'; // Importing line chart
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import LineChartComponent from './LineChartComponent';
 
