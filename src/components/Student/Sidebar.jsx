@@ -34,11 +34,7 @@ const Sidebar = () => {
             <FaUserCircle /> Account
           </NavLink>
         </p>
-        <p>
-          <NavLink to="/sample" className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            <FaUserCircle /> Sample
-          </NavLink>
-        </p>
+        
       </div>
     </div>
   );

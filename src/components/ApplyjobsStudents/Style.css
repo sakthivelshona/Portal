@@ -29,7 +29,7 @@
 }
 
 .job-card {
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: white;
@@ -84,7 +84,8 @@
 /* Filters container */
 .filters-app {
   flex: 1;
-  padding: 30px;
+  padding: 0 30px;
+  margin-top: -20px;
   position: -webkit-sticky; /* For Safari */
   position: sticky; /* Sticky positioning */
   top: 2px; /* Sticks to the top when scrolling */
@@ -96,8 +97,8 @@
 
 /* Heading for the filters */
 .filters-app h2 {
-  font-size: 30px;
-  padding-bottom: 20px;
+  font-size: 25px;
+  text-decoration: underline;
 }
 
 /* Style for the filter inputs */
