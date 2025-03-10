@@ -40,7 +40,7 @@ function ApplicationRecruit() {
   };
 
   return (
-    <>
+    <div className='containers'>
       <Sidebar />
       <div className="recruiter-application-container">
         <h1>Student Applied Jobs</h1>
@@ -124,7 +124,7 @@ function ApplicationRecruit() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

@@ -3,6 +3,8 @@ import Sidebar from './Sidebar';
 import './Style.css'; // Ensure the CSS is correctly linked
 import { useNavigate } from 'react-router-dom';
 import SuccessPage from './SuccessPage'
+
+
 function HomePage() {
   const navigate = useNavigate();
 
@@ -44,9 +46,9 @@ function HomePage() {
       </div>
 
       {/* Job Posted Details */}
-      {/* <div className="job-posted-details">
+      <div className="job-posted-details">
         <SuccessPage />
-      </div> */}
+      </div>
     </>
   );
 }

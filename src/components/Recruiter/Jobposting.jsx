@@ -100,10 +100,9 @@ function Jobposting() {
   };
 
   return (
-    <div>
+    <div className='containers'>
       <Sidebar />
-
-      <div className="main-content">
+      <div className="main-content-recruit">
         <h1>Post Job</h1>
         <div className="form-container">
           {/* Job Title, Company, Workplace Type */}
