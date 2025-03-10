@@ -12,6 +12,7 @@
 .whole-job-des{
   padding: 30px;
   background-color: white;
+  width: 100%;
 }
 
 .view-btn:hover {
@@ -21,7 +22,6 @@
 .job-cards {
   flex: 3;
   margin-right: 20px;
-  padding: 20px;
 }
 
 .job-details-card {
@@ -142,7 +142,9 @@
 /* File upload section */
 .job-detail-page {
   padding: 20px;
-  margin-left: 250px
+  margin-left: 250px;
+  background-color: white; /* White background */
+
 }
 
 .back-arrow-button {
@@ -155,8 +157,8 @@
 }
 
 .back-arrow-button:hover {
-  background-color: white; /* No hover background change */
-  color: black; /* No hover color change */
+  background-color: white;
+  color: black; 
 }
 
 .back-arrow-button span{
@@ -219,6 +221,8 @@
  h4 {
   font-size: 18px;
   margin-top: 30px; /* Space below the heading */
+    margin-bottom: 10px;
+
 }
 
 .job-details p {

@@ -25,7 +25,7 @@ const Student = () => {
       <div className="container">
 
 <div className="subcontainer">
-  <h2>PROFILE</h2>
+  <h2>Profile</h2>
 
   <div className="student-info">
     <div className="student-pic-container">
