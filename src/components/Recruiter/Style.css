@@ -187,7 +187,7 @@ input {
   padding: 20px;
 }
 
-.main-content-recruit{
+.main-content{
   margin-left: 250px;
   width: 100%;
   padding: 30px;
@@ -447,7 +447,7 @@ h3 {
   .posted-jobs-container {
     width: 90%;
   }
-  .centered-text ,.job-posted-details,.main-content-recruit,.recruiter-application-container{
+  .centered-text ,.job-posted-details,.main-content,.recruiter-application-container{
     margin-left: 0px;
   }
   .job-item {
