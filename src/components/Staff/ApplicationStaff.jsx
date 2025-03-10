@@ -58,11 +58,10 @@ function ApplicationStaff() {
   };
 
   return (
-    <>
+    <div className='containers'>
       <Sidebar />
       <div className="application-staff-container">
-        <h3>Student Applied Jobs</h3>
-
+        <h1>Student Applied Jobs</h1>
         {/* Filter options */}
         <div className="filters">
           <div>
@@ -160,7 +159,7 @@ function ApplicationStaff() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

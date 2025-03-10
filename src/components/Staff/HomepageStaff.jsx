@@ -29,7 +29,7 @@ const HomepageStaff = () => {
   });
 
   return (
-    <>
+    <div className='containers'>
       <Sidebar />
       <div className="main-content">
         <h1>Welcome to the Job Portal</h1>
@@ -94,7 +94,6 @@ const HomepageStaff = () => {
         <div className="filter-and-student-section">
           <h1>Student Detail</h1>
           <div className="filter-container">
-            <label htmlFor="skills-filter">Filter by Skills: </label>
             <input
               type="text"
               id="skills-filter"
@@ -140,7 +139,7 @@ const HomepageStaff = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

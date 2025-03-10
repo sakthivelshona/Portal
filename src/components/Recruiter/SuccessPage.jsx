@@ -28,7 +28,6 @@ function SuccessPage() {
     <div className="success-container">
       <h1 className="success-title">Job Posted Successfully!</h1>
 
-      <div className="posted-jobs-container">
         <h2>All Posted Jobs:</h2>
         {sortedJobs.length === 0 ? (
           <p className="empty-state">No jobs posted yet.</p>
@@ -47,7 +46,6 @@ function SuccessPage() {
             </div>
           ))
         )}
-      </div>
     </div>
   );
 }

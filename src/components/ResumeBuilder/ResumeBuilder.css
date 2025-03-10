@@ -107,7 +107,7 @@
   .download-button {
     width: 100%;
     padding: 12px;
-    background-color: #1d1671;
+    background-color:  #3674B5;
     color: white;
     font-weight: 600;
     border-radius: 8px;
@@ -116,7 +116,7 @@
   }
   
   .download-button:hover {
-    background-color: #2e22b1;
+    background-color:  #1e4e81;
   }
   
   /* Resume Preview */
@@ -383,7 +383,12 @@
   
   .date-section {
     display: flex;
-    width: 98%;
+    max-width: 152px;
+    gap: 7px;
+  }
+
+  .date-section input{
+    font-size: 14px;
   }
   p, ul {
     font-size: 0.9rem;
@@ -396,7 +401,7 @@
 .content-main {
   flex: 1;
   border-radius: 8px;
-  padding: 20px;
+  padding: 30px;
   background-color: white;
   margin-left: 250px;
 }
@@ -410,7 +415,6 @@ h1 {
   font-size: 18px;
   color: #555;
   margin-bottom: 40px;
-  text-align: center;
 }
 
 /* Template selection container */
@@ -453,9 +457,9 @@ h1 {
 }
 
 .template-caption a {
-  color: #007bff;
   text-decoration: none;
   font-size: 18px;
+  color: black;
 }
 
 .template-caption a:hover {

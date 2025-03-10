@@ -1,61 +1,61 @@
-.centered-text{
-  padding: 30px;
+.centered-text {
+  flex: 1;
+  padding: 20px;
   margin-left: 250px;
 }
 
+.recruiter-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
 
-/* Page container */
+.recruit-box {
+  width: 22%;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+}
+
+.recruit-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: white;
+  font-weight: bold;
+
+
+}
+.recruit-box p {
+  font-size: 1rem;
+  text-align: center;
+}
+
 .page-recruiter {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding-top: 90px;
+  margin-top: 40px;
 }
 
-/* Box for the text and button */
-.para-new-recruiter {
-  width: 50%;
-  max-width: 550px;
-  text-align: left;
-  padding: 20px;
-  border-radius: 8px;
-}
 
-/* Justified paragraph text */
-.para-new-recruiter p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 20px;
-  text-align: justify;
-  /* This will justify the paragraph text */
-}
-
-/* Center-align the button */
-.para-new-recruiter button {
-  display: block;
-  margin: 0 auto;
-  padding: 12px 25px;
-  background-color: #3674B5;
+button {
+  background-color: #4CAF50;
   color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
-.para-new-recruiter button:hover {
-  background-color: #2661a1;
+button:hover {
+  background-color: #45a049;
 }
 
-/* Box for the image */
-.page-recruiter img {
-  width: 45%;
-  max-width: 500px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-}
+
+
 
 /* Responsive design for smaller screens */
 @media screen and (max-width: 768px) {
@@ -77,7 +77,6 @@
 
 h1 {
   font-size: 40px;
-  text-align: center;
 }
 
 /* Style for the form container */
@@ -193,40 +192,37 @@ input {
 
 /* SuccessPage.css */
 
-/* General container for the success message */
 .success-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f4f4f9;
+  padding: 30px;
+  background-color: #ffff;
   min-height: 100vh;
+  border-radius: 10px;
+
 }
 
 .success-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #4CAF50;
-  /* Green color for success */
-  margin-bottom: 20px;
+  font-size: 2rem;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Container for the posted jobs section */
-.posted-jobs-container {
-  width: 80%;
-  max-width: 1200px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.posted-jobs-container h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #333;
+.search-input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4CAF50;
 }
 
 .job-item {
@@ -247,78 +243,6 @@ input {
   color: #333;
 }
 
-/* Styling for 'Recently Posted Jobs' and 'Already Posted Jobs' */
-.recently-posted {
-  background-color: #e0f7fa;
-  border-left: 5px solid #00bcd4;
-  padding-left: 10px;
-}
-
-.already-posted {
-  background-color: #fff3e0;
-  border-left: 5px solid #ff9800;
-  padding-left: 10px;
-}
-
-/* Styles for empty state */
-.empty-state {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #777;
-  margin-top: 50px;
-}
-
-.empty-state p {
-  color: #777;
-  font-size: 1.2rem;
-}
-
-.job-application-card {
-  background: #fff;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.job-details-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.job-details-card h3 {
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.job-details-card h4 {
-  font-size: 1.25rem;
-  color: #555;
-}
-
-.side-heading{
-  text-align: left;
-
-}
-
-.job-details-card p {
-  font-size: 1rem;
-  margin: 8px 0;
-  color: #666;
-}
-
-.job-details-card button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.job-details-card button:hover {
-  background-color: #0056b3;
-}
 
 .loading-indicator {
   font-size: 1.5rem;
@@ -505,7 +429,9 @@ h3 {
   .posted-jobs-container {
     width: 90%;
   }
-
+  .centered-text ,.job-posted-details{
+    margin-left: 0px;
+  }
   .job-item {
     padding: 10px;
   }

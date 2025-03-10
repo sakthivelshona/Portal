@@ -59,7 +59,7 @@ function UserAccount() {
   };
 
   return (
-    <div>
+    <div className='containers'>
       <Sidebar />
       <div className="acc">
         <h1>Account</h1>

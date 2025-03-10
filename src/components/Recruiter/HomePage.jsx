@@ -1,34 +1,53 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import './Style.css';  // Make sure to import the new CSS file
+import './Style.css'; // Ensure the CSS is correctly linked
 import { useNavigate } from 'react-router-dom';
-
-
-
+import SuccessPage from './SuccessPage'
 function HomePage() {
   const navigate = useNavigate();
 
   function postbtn() {
-    navigate('/jobpost')
+    navigate('/jobpost');
   }
+
   return (
-    <div className="app-container">
+    <>
+    <div className="containers">
       {/* Sidebar */}
       <Sidebar />
-
+      
       <div className="centered-text">
         <h1>Welcome to the Job Portal</h1>
-        <div className="page-recruiter">
-          <div className='para-new-recruiter'>
-            <p>Welcome to our job portal! Here, we connect job seekers with the best opportunities available in various industries. Whether you're looking for a full-time position, a part-time gig, or a remote opportunity, we offer a variety of listings that can match your skills and interests. Browse through our platform, find your ideal job, and start your journey toward career success today!
-            </p>
-            <button onClick={postbtn}>Post Job</button>
-          </div>
-          <img src="front.jpg" alt="" />
-        </div>
 
+        <div className="recruiter-section">
+          <div className="recruit-box" style={{ backgroundColor: '#68AD5D' }}>
+            <h3>Job Posted</h3>
+            <p>10</p>
+          </div>
+
+          <div className="recruit-box" style={{ backgroundColor: '#4FB6CA' }}>
+            <h3>Active Job Posts</h3>
+            <p>6</p>
+          </div>
+
+          <div className="recruit-box" style={{ backgroundColor: '#E69F50' }}>
+            <h3>Application Received</h3>
+            <p>3</p>
+          </div>
+
+          <div className="recruit-box" style={{ backgroundColor: '#8748B1' }}>
+            <h3>Pending Approvals</h3>
+            <p>9</p>
+          </div>
+        </div>
       </div>
-    </div>
+      </div>
+
+      {/* Job Posted Details */}
+      {/* <div className="job-posted-details">
+        <SuccessPage />
+      </div> */}
+    </>
   );
 }
 
