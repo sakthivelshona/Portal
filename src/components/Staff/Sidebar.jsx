@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="logo">
-        <img src="logo.png" alt="Logo" />
+        <img src="/logo.png" alt="Logo" />
       </div>
       <div className="sections-side">
         <p>

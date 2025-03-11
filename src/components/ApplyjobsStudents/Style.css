@@ -9,17 +9,14 @@
 
 
 .job-cards {
-  display: flex;
-  flex-wrap: wrap;
   gap: 20px;
   flex: 3;
 }
 
-
 .job-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensures content inside job card is spaced properly */
+  justify-content: space-between;
   background-color: white;
   border-radius: 5px;
   padding: 20px;
@@ -27,15 +24,22 @@
   width: 100%;
   position: relative;
 }
+
+.job-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid rgb(217, 216, 216);
+  margin: 10px;
+  width: 100%;
+}
 .job-card h2{
   font-size: 22px;
-  margin-bottom: 20px;
 }
 
 .rupee {
-  padding: 5px 10px;
   border-radius: 4px;
   color: #398B43;
+  margin: 20px 0 10px;
 }
 
 .skills {
@@ -73,7 +77,6 @@
   display: flex;
   justify-content: space-between; /* Distribute space between the job cards and filters */
   gap: 20px; /* Adds space between job cards and filters */
-  padding: 20px 0;
 }
 
 .view-btn {
@@ -95,7 +98,6 @@
 .filters-app {
   flex: 1;
   padding: 0 30px;
-  margin-top: -20px;
   position: -webkit-sticky; /* For Safari */
   position: sticky; /* Sticky positioning */
   top: 2px; /* Sticks to the top when scrolling */
@@ -228,17 +230,19 @@
   font-size: 20px; /* Bullet size */
 }
 
-
  h4 {
   font-size: 18px;
   margin-top: 30px; /* Space below the heading */
-    margin-bottom: 10px;
+  margin-bottom: 10px;
+  color:  #2f49D1;
+ }
 
-}
-
-.job-details p {
+.job-details p ,.new-detail{
   font-size: 16px;
   color: #636262; /* Lighter text color for paragraphs */
+}
+.new-detail{
+  padding-left: 10px;
 }
 
 .ats-section {

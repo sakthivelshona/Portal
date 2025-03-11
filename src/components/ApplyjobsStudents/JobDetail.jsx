@@ -13,16 +13,22 @@ const JobDetail = () => {
   const [file, setFile] = useState(null);
   const [resumeUrl, setResumeUrl] = useState(null); // New state variable for resume URL
   const [atsChecked, setAtsChecked] = useState(false); // State for ATS button click
+  const [isApplied, setIsApplied] = useState(false); // State to track if the job has been applied for
 
   useEffect(() => {
     setLoading(true);
-
     fetch('http://localhost:3000/getjobs')
       .then(response => response.json())
       .then(data => {
         const jobDetails = data.find(job => job.job_id === Number(job_id));
         if (jobDetails) {
           setJob(jobDetails);
+          // Check if this job is already applied (You can check this condition based on your application's logic)
+          // For now, we assume it's saved in localStorage as an example.
+          const appliedJobs = JSON.parse(localStorage.getItem('appliedJobs') || '[]');
+          if (appliedJobs.includes(job_id)) {
+            setIsApplied(true);
+          }
         } else {
           setError('Job not found');
         }
@@ -72,6 +78,8 @@ const JobDetail = () => {
     formData.append('resume', file);
     formData.append('studentName', studentData.name);
     formData.append('studentEmail', studentData.email);
+    formData.append('studentlinkedin', studentData.linkedin);
+    formData.append('studentgithub', studentData.github);
     formData.append('studentskills', studentData.skills);
 
     fetch('http://localhost:3000/applyJob', {
@@ -81,9 +89,15 @@ const JobDetail = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Application submitted:', data);
-
+        
         setResumeUrl(data.data.resume); // Set the resume URL state
+        
+        // Mark the job as applied
+        const appliedJobs = JSON.parse(localStorage.getItem('appliedJobs') || '[]');
+        appliedJobs.push(job_id);
+        localStorage.setItem('appliedJobs', JSON.stringify(appliedJobs));
 
+        setIsApplied(true); // Update state to reflect that the job has been applied for
         navigate('/application-success');
       })
       .catch((error) => {
@@ -146,6 +160,8 @@ const JobDetail = () => {
         <div className="job-details">
           <h4><strong>Job Description</strong></h4>
           <p>{job.jobDescription}</p>
+          <h4><strong>Job Type:</strong><span className='new-detail'>{job.jobtype}</span></h4>
+
           <h4><strong>Job Requirements</strong> </h4>
           <ul>
             {job.jobRequirement.split('.').map((sentence, index) =>
@@ -156,9 +172,8 @@ const JobDetail = () => {
           </ul>
           <h4><strong>Job Responsibilities</strong> </h4>
           <p>{job.jobResponsibility}</p>
-          <h4><strong>Location:</strong> {job.location}</h4>
-
-          <h4><strong>Deadline:</strong> {formatDate(job.deadline)}</h4>
+          <h4><strong>Location:</strong><span className='new-detail'>{job.location}</span></h4>
+          <h4><strong>Deadline:</strong><span className='new-detail'> {formatDate(job.deadline)}</span></h4>
         </div>
 
         <h4>Upload your Resume</h4>
@@ -190,7 +205,12 @@ const JobDetail = () => {
         )}
 
         <div className="job-apply-student">
-          <button onClick={handleApply}>Apply</button>
+          {/* Apply button or "Applied" message */}
+          {isApplied ? (
+            <span className="applied-message">You have already applied for this job.</span>
+          ) : (
+            <button onClick={handleApply}>Apply</button>
+          )}
         </div>
 
         {/* Conditionally render the resume URL */}

@@ -15,13 +15,13 @@ const Sidebar = () => {
           </NavLink>
         </p>
         <p>
-          <NavLink to="/recruiterApplication" className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            <FaClipboardList /> Applications
+          <NavLink to="/jobpost" className={({ isActive }) => (isActive ? 'active-link' : '')}>
+            <FaBullhorn /> Post Jobs
           </NavLink>
         </p>
         <p>
-          <NavLink to="/jobpost" className={({ isActive }) => (isActive ? 'active-link' : '')}>
-            <FaBullhorn /> Post Jobs
+          <NavLink to="/recruiterApplication" className={({ isActive }) => (isActive ? 'active-link' : '')}>
+            <FaClipboardList /> Applications
           </NavLink>
         </p>
         <p>

@@ -4,6 +4,10 @@
   margin-left: 250px;
 }
 
+h1 {
+  text-align: left;
+}
+
 .recruiter-section {
   display: flex;
   justify-content: space-between;
@@ -26,6 +30,7 @@
 
 
 }
+
 .recruit-box p {
   font-size: 1rem;
   text-align: center;
@@ -37,23 +42,6 @@
   align-items: center;
   margin-top: 40px;
 }
-
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
 
 
 
@@ -75,12 +63,15 @@ button:hover {
   }
 }
 
-h1 {
-  font-size: 40px;
-}
-
 
 /* Style for the form container */
+
+.other-jobs{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -103,8 +94,10 @@ h1 {
   border-radius: 4px;
   width: 100%;
 }
-.side-heading{
+
+.side-heading {
   margin: 0;
+  color: #2f49D1;
 }
 
 .form-group textarea {
@@ -126,7 +119,7 @@ h1 {
 
 .skills-input-container button {
   padding: 10px;
-  background-color: #3674B5;
+  background-color:#2f49D1;
   color: white;
   margin: 5px;
   border: none;
@@ -166,10 +159,11 @@ h1 {
 .skill-item button:hover {
   background-color: darkred;
 }
+
 /* Post Button */
 .post-button {
   padding: 12px 20px;
-  background-color: #3674B5;
+  background-color: #2f49D1;
   color: white;
   border: none;
   align-items: right;
@@ -180,21 +174,21 @@ h1 {
 }
 
 .post-button:hover {
-  background-color:#2C5A8A;
+  background-color: #2C5A8A;
 }
 
 input {
   padding: 20px;
 }
 
-.main-content{
+.main-content {
   margin-left: 250px;
   width: 100%;
   padding: 30px;
 }
 
 /* SuccessPage.css */
-.job-posted-details{
+.job-posted-details {
   margin-left: 250px;
   padding: 30px;
   margin-top: -50px;
@@ -209,7 +203,7 @@ input {
 
 .success-title {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .job-details-card {
@@ -223,11 +217,13 @@ input {
   border-radius: 10px;
   border: 1px solid rgb(217, 216, 216);
   margin: 10px;
+  width: 100%;
 }
 
-.edit-job-btn{
-  float: right;
-  background-color:#3674B5 ;
+.other-jobs-btns{
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
 }
 
 
@@ -269,21 +265,11 @@ input {
 }
 
 
-/* Button styling */
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-}
-
-
 /* General styles */
 .recruiter-application-container {
-  margin: auto;
   padding: 30px;
   border-radius: 8px;
+  width: 100%;
   background-color: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   margin-left: 250px;
@@ -300,11 +286,11 @@ h3 {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  border-radius: 8px;
   overflow: hidden;
 }
 
-.jobs-table th, .jobs-table td {
+.jobs-table th,
+.jobs-table td {
   padding: 12px;
   text-align: left;
   border-right: 1px solid #ddd;
@@ -313,7 +299,7 @@ h3 {
 }
 
 .jobs-table th {
-  background-color: #3674B5;
+  background-color:#2f49D1;
   color: white;
 }
 
@@ -336,54 +322,51 @@ h3 {
 }
 
 /* Buttons */
-.view-button, .approve-button, .decline-button {
+.view-button {
   padding: 8px 12px;
   margin: 5px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  background-color:#2f49D1;
+  color: white;
   transition: background 0.3s;
 }
 
-.view-button {
-  background-color: #3674B5;
-  color: white;
+
+.popup-buttons {
+  gap: 20px;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .decline-button {
   background-color: white;
-  color: #3674B5;
-  border: 1px solid  #3674B5;
-
+  color:#2f49D1;
+  border: 1px solid #2f49D1;
 }
 
 .approve-button {
-  background-color:  #3674B5;
+  background-color: #2f49D1;
   color: white;
+  padding: 8px 12px;
 }
 
 .decline-button:hover {
   background-color: white;
-  color: #3674B5;
-  border: 1px solid  #3674B5;
+  color:#2f49D1;
+  border: 1px solid #2f49D1;
 
 }
 
-.approve-button:hover {
-  background-color:  #3674B5;
-  color: white;
-}
-
-.view-button:hover{
-  background-color: #3674B5;
-}
-
-.close-button:hover{
+.close-button:hover {
   background: white;
 }
 
 
-.view-button:hover, .approve-button:hover, .decline-button:hover {
+.view-button:hover,
+.approve-button:hover,
+.decline-button:hover {
   opacity: 0.8;
 }
 
@@ -416,24 +399,20 @@ h3 {
   flex-direction: column;
   gap: 10px;
 }
+
 .popup-content p {
   background: #f4f4f4;
   padding: 10px;
   border-radius: 5px;
 }
 
-.popup-buttons {
-  display: flex;
-  justify-content: center;
-  margin-left: 200px;
-}
 
 /* Ensure these styles override any unwanted ones */
 .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  color: black ;
+  color: black;
   border: none;
   padding: 5px 10px;
   background: white;
@@ -447,9 +426,14 @@ h3 {
   .posted-jobs-container {
     width: 90%;
   }
-  .centered-text ,.job-posted-details,.main-content,.recruiter-application-container{
+
+  .centered-text,
+  .job-posted-details,
+  .main-content,
+  .recruiter-application-container,.popup-overlay  {
     margin-left: 0px;
   }
+
   .job-item {
     padding: 10px;
   }

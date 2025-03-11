@@ -397,6 +397,7 @@
 .sideheading-title{
   font-size: 16px;
   text-align: left;
+  color: black;
 }
 .content-main {
   flex: 1;

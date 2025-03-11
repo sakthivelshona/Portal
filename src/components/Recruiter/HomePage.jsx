@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import './Style.css'; // Ensure the CSS is correctly linked
 import { useNavigate } from 'react-router-dom';
-import SuccessPage from './SuccessPage'
+import HomeApplications from './HomeApplications';
 
 
 function HomePage() {
@@ -47,7 +47,7 @@ function HomePage() {
 
       {/* Job Posted Details */}
       <div className="job-posted-details">
-        <SuccessPage />
+        <HomeApplications />
       </div>
     </>
   );

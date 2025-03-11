@@ -38,9 +38,14 @@ const ReceivedJobs = ({ job, deleteJob }) => {
           </div>
         </div>
         <p><strong>Description:</strong> {job.jobDescription}</p>
-        <button onClick={() => deleteJob(job.id)} className="delete-btn">
-          Delete Job
-        </button>
+
+        <div className="staff-job">
+          <button onClick={() => deleteJob(job.id)} className="delete-btn">
+            Delete Job
+          </button>
+          <Link to={`/staff/${job.job_id}`}>View</Link>
+        </div>
+
       </div>
     </div>
   );
@@ -150,7 +155,7 @@ const Applications = () => {
     <div className="containers">
       <Sidebar />
       <div className="whole-job-des">
-        <h1>Jobs</h1>
+        <h1>New Job Posts</h1>
         <div className="content-wrapper">
           {/* Job Application Cards */}
           <div className="job-cards">

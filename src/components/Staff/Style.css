@@ -270,9 +270,18 @@ h2 {
   padding: 30px;
 }
 
-.delete-btn {
+
+.staff-job{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  }
+
+.delete-btn{
   background-color: red;
   color: white;
+  padding: 8px;
+  margin: 0;
 }
 
 .delete-btn:hover {
@@ -313,8 +322,6 @@ h3 {
   border-radius: 4px;
 }
 
-
-
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -353,6 +360,10 @@ h3 {
   color: black;
 
 }
+.popup-content input{
+  padding: 10px;
+  border: 1px solid black;
+}
 
 .close-button {
   position: absolute;
@@ -368,13 +379,6 @@ h3 {
 
 
 
-.popup-buttons {
-  display: flex;
-  justify-content: center;
-  margin-left: 200px;
-}
-
-
 .approve-button,
 .decline-button {
   padding: 8px 15px;
@@ -383,13 +387,6 @@ h3 {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
-.popup-buttons {
-  display: flex;
-  justify-content: center;
-  margin-left: 200px;
-}
-
 
 .decline-button {
   background-color: white;

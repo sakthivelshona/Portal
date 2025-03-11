@@ -19,6 +19,7 @@ import Resumeuploaded from './components/ApplyjobsStudents/Resumeuploaded';
 import ApplicationStaff from './components/Staff/ApplicationStaff';
 import ApplicationRecruit from './components/Recruiter/ApplicationRecruit';
 import './App.css';
+import JobView from './components/Staff/JobView';
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
 
         <Route path="/staff" element={<HomepageStaff />} />
         <Route path="/receivedjobs" element={<ReceivedJobs />} />
+        <Route path="/staff/:job_id" element={<JobView />} />
         <Route path="/useraccount" element={<UserAccount />} />
         <Route path="/studentApplicationStaff" element={<ApplicationStaff />} />
 

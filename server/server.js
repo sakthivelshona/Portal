@@ -53,7 +53,7 @@ app.post('/applyJob', upload.single('resume'), (req, res) => {
   console.log('Request Body:', req.body);
   console.log('Uploaded File:', req.file);
 
-  const { jobTitle, jobName, job_id, studentName, studentEmail, studentskills } = req.body;
+  const { jobTitle, jobName, job_id, studentName, studentEmail,studentgithub, studentlinkedin,studentskills } = req.body;
 
   // Construct the resume URL based on the filename in the uploads directory
   const resumeUrl = `http://localhost:3000/uploads/${req.file.filename}`;
@@ -75,6 +75,8 @@ app.post('/applyJob', upload.single('resume'), (req, res) => {
     studentName,
     studentEmail,
     studentskills,
+    studentgithub,
+    studentlinkedin,
     resume: resumeUrl,
     timestamp : timestamp
   });
@@ -92,7 +94,9 @@ app.post('/applyJob', upload.single('resume'), (req, res) => {
       studentEmail: studentEmail,
       studentskills: studentskills,
       resume: resumeUrl,  
-      timestamp : timestamp
+      timestamp : timestamp,
+      studentgithub :studentgithub,
+      studentlinkedin :studentlinkedin
 
     },
   });
@@ -100,7 +104,9 @@ app.post('/applyJob', upload.single('resume'), (req, res) => {
 
 app.get('/getStudentApplications', (req, res) => {
   console.log('GET /getStudentApplications hit');
+  console.log(applications)
   res.json({ applications });
+
 });
 
 
@@ -159,6 +165,7 @@ app.post('/createAccount', (req, res) => {
     DataAccount,
   });
 });
+
 
 
 

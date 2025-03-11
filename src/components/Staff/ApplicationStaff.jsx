@@ -31,31 +31,41 @@ function ApplicationStaff() {
     setFilteredJobs(filtered);
   }, [skillsFilter, roleFilter, studentAppliedJobs]);
 
-  const handleDelete = (job_id) => {
-    if (!job_id) {
-      console.error('No job_id provided');
-      return;
-    }
-
-    const updatedJobs = filteredJobs.filter(job => job.job_id !== job_id);
-    setFilteredJobs(updatedJobs);
-
-    alert(`Job with id ${job_id} is deleted`);
-
-    fetch(`http://localhost:3000/deleteApplication/${job_id}`, { method: 'DELETE' })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error deleting application on server');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log('Successfully deleted on server:', data);
-      })
-      .catch(error => {
-        console.error('Error deleting application:', error);
-      });
-  };
+  // const handleDeclineWithFeedback = (job_id) => {
+  //   if (!job_id || !feedback) {
+  //     console.error('No job_id or feedback provided');
+  //     return;
+  //   }
+  
+  //   // Send feedback and update status to "declined" to the server
+  //   fetch(`http://localhost:3000/updateApplicationStatus`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ job_id, feedback, status: 'declined' }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.success) {
+  //         console.log('Feedback and status updated successfully');
+          
+  //         // Update the job status in the frontend
+  //         const updatedJobs = filteredJobs.map((job) =>
+  //           job.job_id === job_id ? { ...job, status: 'declined' } : job
+  //         );
+  //         setFilteredJobs(updatedJobs);
+  
+  //         alert(`Job with id ${job_id} is declined`);
+  //       } else {
+  //         console.error('Error updating feedback and status');
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error saving feedback and updating status:', error);
+  //     });
+  // };
+  
 
   return (
     <div className='containers'>
@@ -75,7 +85,7 @@ function ApplicationStaff() {
             />
           </div>
           <div>
-            
+
             <input
               id="roleFilter"
               type="text"
@@ -94,6 +104,8 @@ function ApplicationStaff() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Skills</th>
+                <th>Company</th>
+                <th>Role</th>
                 <th>Resume</th>
                 <th>Status</th>
               </tr>
@@ -105,6 +117,9 @@ function ApplicationStaff() {
                   <td>{job.studentName}</td>
                   <td>{job.studentEmail}</td>
                   <td>{job.studentskills}</td>
+                  <td>{job.jobName}</td>
+                  <td>{job.jobTitle}</td>
+
                   <td>
                     <a
                       href={job.resume.startsWith("http") ? job.resume : `http://localhost:3000/uploads/${job.resume}`}
@@ -133,26 +148,25 @@ function ApplicationStaff() {
             <div className="popup">
               <div className="popup-content">
                 <h4></h4>
+                <button className="close-button" onClick={() => setSelectedJob(null)}>✕</button>
                 <p><strong>Name:</strong> {selectedJob.studentName}</p>
                 <p><strong>Email:</strong> {selectedJob.studentEmail}</p>
                 <p><strong>Skills:</strong> {selectedJob.studentskills}</p>
                 <p>
-                  <strong>Resume: </strong> 
+                  <strong>Resume: </strong>
                   <a
                     href={selectedJob.resume.startsWith("http") ? selectedJob.resume : `http://localhost:3000/uploads/${selectedJob.resume}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                     View Resume
+                    View Resume
                   </a>
                 </p>
                 <label>Feedback:</label>
-                <input type="text" placeholder="Enter feedback" required/>
+                <input type="text" placeholder="Enter feedback" required />
 
                 <div className="popup-buttons">
-                <button className="decline-button" onClick={() => handleDelete(job.job_id)}>Decline</button>
-                  <button className="approve-button">Approve</button>
-                  <button className="close-button" onClick={() => setSelectedJob(null)}>✕</button>
+                <button className="decline-button">Decline</button>
                 </div>
               </div>
             </div>

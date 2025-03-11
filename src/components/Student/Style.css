@@ -10,7 +10,7 @@
 }
 
 h1 {
-  color:   #3674B5;
+  color:  #2f49D1;
   margin-bottom: 20px;
 }
 
@@ -46,18 +46,20 @@ h1 {
 
 .sections-side p {
   font-size: 1.2rem;
-  color: white;
   display: flex;
+  background-color: white;
   align-items: center;
   padding: 10px;
   border-radius: 5px;
 }
+
 .sections-side p svg {
   margin-right: 10px; /* Space between the icon and text */
 }
+
 .sections-side p a {
   text-decoration: none;
-  color: white;
+  color: black;
   width: 100%;
   display: flex;
   align-items: center;
@@ -66,8 +68,8 @@ h1 {
 .sections-side p a.active-link {
   font-weight: bold;
   font-size: 1.3rem;
-  background-color: #1A2B82;
-  padding: 10px;
+  padding: 5px;
+  color: #2f49D1;
 }
 
 
@@ -116,7 +118,7 @@ h1 {
 }
 
 .student-pic {
-  width: 100%;
+  width: 90%;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
@@ -177,8 +179,25 @@ h1 {
   flex-wrap: wrap;
 }
 
+.third-container {
+  padding: 20px;
+}
 
+.feedback-list{
+  border: 1px solid black;
+  margin: 20px;
+}
 
+.feedback-item {
+  padding: 15px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+}
+.feedback-item span{
+  color: #2f49D1;
+  font-weight: bolder;
+}
 
 /* FAQ container styles */
 .faq-container {

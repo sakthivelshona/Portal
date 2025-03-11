@@ -103,7 +103,10 @@ function Jobposting() {
     <div className='containers'>
       <Sidebar />
       <div className="main-content">
-        <h1>Post Job</h1>
+        <div className="other-jobs">
+          <h1>Post Job</h1>
+          <a href="/success">All Posted Jobs</a>
+        </div>
         <div className="form-container">
           {/* Job Title, Company, Workplace Type */}
           <h4 className='side-heading'>Job Detail</h4>
@@ -135,7 +138,7 @@ function Jobposting() {
                 onChange={handleChange}
                 required
               />
-               <input
+              <input
                 type="text"
                 id="jobtype"
                 placeholder="Job Type"

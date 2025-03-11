@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Style.css';
 import { IoLocationSharp } from 'react-icons/io5'; // Location icon
 import { FaCalendarAlt } from 'react-icons/fa'; // Calendar icon
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
-function SuccessPage() {
-  const navigate  = useNavigate();
+function HomeApplications() {
   const [allJobs, setAllJobs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -47,9 +46,7 @@ function SuccessPage() {
   return (
     
     <div className="success-container">
-    <button className="back-arrow-button" onClick={() => navigate(-1)}>   ᐸ <span>Back to Jobs</span></button>
-
-    <h1 className="success-title">All Posted Jobs</h1>
+<h3 style={{ textAlign: 'left' }}>Active Posted Jobs</h3>
 
       {/* Search bar */}
       <div className="search-container">
@@ -86,11 +83,6 @@ function SuccessPage() {
               </div>
 
               <p><strong>Description:</strong> {job.jobDescription}</p>
-              <div className="other-jobs-btns">
-              <Link><button>Edit</button></Link>
-              <Link><button >Delete</button></Link>
-              </div>
-
             </div>
           </div>
         ))
@@ -99,4 +91,4 @@ function SuccessPage() {
   );
 }
 
-export default SuccessPage;
+export default HomeApplications;
