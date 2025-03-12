@@ -86,7 +86,7 @@ h2 {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
-  color: #3674B5;
+  color:#3674B5;
 }
 
 .event {
@@ -104,7 +104,7 @@ h2 {
 .calendar-icon {
   margin-right: 15px;
   font-size: 24px;
-  color: #477eb8;
+  color:#3674B5;
 }
 
 
@@ -194,7 +194,7 @@ h2 {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(191, 131, 131, 0.1);
+  box-shadow: 2px 4px 6px 3px rgba(0, 0, 0, 0.1);
   border: 1pz;
 }
 
@@ -242,7 +242,7 @@ h2 {
 
 .new-account-create {
   padding: 12px 20px;
-  background-color: #0066cc;
+  background-color:#3674B5;
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -434,7 +434,7 @@ h3 {
 }
 
 .student-details-table th {
-  background-color: #3674B5;
+  background-color:#3674B5;
   color: white;
   font-weight: bold;
   font-size: 16px;
@@ -471,7 +471,7 @@ h3 {
     height: 300px;
   }
 
-  .posted-jobs-container,.application-staff-container,.main-content,.acc {
+  .posted-jobs-container,.application-staff-container,.main-content,.acc,.whole-job-des {
     margin-left: 0px;
   }
 }

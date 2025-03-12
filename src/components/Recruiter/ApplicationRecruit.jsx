@@ -10,6 +10,7 @@ function ApplicationRecruit() {
   const [selectedJob, setSelectedJob] = useState(null);
   const [feedback, setFeedback] = useState(''); // Declare feedback state
 
+  // Fetch student applications from the server
   useEffect(() => {
     fetch('http://localhost:3000/getStudentApplications')
       .then((response) => response.json())
@@ -22,12 +23,68 @@ function ApplicationRecruit() {
       });
   }, []);
 
+  // Handle Approve action
+  const handleApprove = (jobId) => {
+    fetch('http://localhost:3000/updateJobStatus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ jobId, status: 'Approved' }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setStudentAppliedJobs(prevJobs =>
+          prevJobs.map(job =>
+            job.id === jobId ? { ...job, status: 'Approved' } : job
+          )
+        );
+        setFilteredJobs(prevJobs =>
+          prevJobs.map(job =>
+            job.id === jobId ? { ...job, status: 'Approved' } : job
+          )
+        );
+        setSelectedJob(null); // Close the popup
+      })
+      .catch((error) => {
+        console.error('Error updating status:', error);
+      });
+  };
+
+  // Handle Decline action
+  const handleDecline = (jobId) => {
+    fetch('http://localhost:3000/updateJobStatus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ jobId, status: 'Declined' }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setStudentAppliedJobs(prevJobs =>
+          prevJobs.map(job =>
+            job.id === jobId ? { ...job, status: 'Declined' } : job
+          )
+        );
+        setFilteredJobs(prevJobs =>
+          prevJobs.map(job =>
+            job.id === jobId ? { ...job, status: 'Declined' } : job
+          )
+        );
+        setSelectedJob(null); // Close the popup
+      })
+      .catch((error) => {
+        console.error('Error updating status:', error);
+      });
+  };
 
   return (
     <div className='containers'>
       <Sidebar />
       <div className="application-staff-container">
         <h1>Student Applied Jobs</h1>
+
         {/* Filter options */}
         <div className="filters">
           <div>
@@ -81,9 +138,15 @@ function ApplicationRecruit() {
                     </a>
                   </td>
                   <td>
-                    <button className="view-button" onClick={() => setSelectedJob(job)}>
-                      View
-                    </button>
+                    {job.status ? (
+                      <span className={job.status === 'Approved' ? 'approved' : 'declined'}>
+                        {job.status}
+                      </span>
+                    ) : (
+                      <button className="view-button" onClick={() => setSelectedJob(job)}>
+                        View
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -116,6 +179,7 @@ function ApplicationRecruit() {
                     View Resume
                   </a>
                 </p>
+
                 <label>Feedback:</label>
                 <input
                   type="text"
@@ -126,8 +190,12 @@ function ApplicationRecruit() {
                 />
 
                 <div className="popup-buttons">
-                  <button className="decline-button">Decline</button>
-                  <button className='approve-button'>Approve</button>
+                  <button className="decline-button" onClick={() => handleDecline(selectedJob.id)}>
+                    Decline
+                  </button>
+                  <button className="approve-button" onClick={() => handleApprove(selectedJob.id)}>
+                    Approve
+                  </button>
                 </div>
               </div>
             </div>

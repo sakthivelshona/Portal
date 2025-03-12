@@ -64,7 +64,7 @@ const HomepageStaff = () => {
             <div className="event">
               <FaCalendarAlt className="calendar-icon" />
               <div className="event-detail">
-                <h4>Solution</h4>
+                <h4>Soliton</h4>
                 <p>Offline</p>
               </div>
             </div>

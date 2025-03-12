@@ -107,7 +107,7 @@
   .download-button {
     width: 100%;
     padding: 12px;
-    background-color:  #3674B5;
+    background-color: #1d1671;
     color: white;
     font-weight: 600;
     border-radius: 8px;
@@ -115,9 +115,7 @@
     cursor: pointer;
   }
   
-  .download-button:hover {
-    background-color:  #1e4e81;
-  }
+
   
   /* Resume Preview */
   /* Resume Preview Styling */

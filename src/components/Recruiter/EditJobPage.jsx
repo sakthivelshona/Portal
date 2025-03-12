@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import './Style.css';
 
-function Jobposting() {
-  const [skills, setSkills] = useState([]);
-  const [skillInput, setSkillInput] = useState("");
-  const [formData, setFormData] = useState({
-    company: "",
-    jobTitle: "",
-    location: "",
-    jobtype: "",
-    website: "",
-    ctc: "",
-    jobResponsibility: "",
-    jobRequirement: "",
-    jobDescription: "",
-    deadline: ""
-  });
-  const [isFormValid, setIsFormValid] = useState(false);
+function EditJobPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { job } = location.state;  // Extract the job details passed from SuccessPage
+
+  const [formData, setFormData] = useState(job);  // Initialize formData with job details
+  const [skills, setSkills] = useState(job.skills || []);
+  const [skillInput, setSkillInput] = useState("");
+  const [isFormValid, setIsFormValid] = useState(true);
 
   // Check if all form fields are filled
   useEffect(() => {
-    const isValid = Object.values(formData).every(field => field.trim() !== "") && skills.length > 0;
+    const isValid = Object.values(formData).every(field => 
+      typeof field === 'string' ? field.trim() !== "" : field !== ""
+    ) && skills.length > 0;
     setIsFormValid(isValid);
   }, [formData, skills]);
+  
 
   const addSkill = () => {
     if (skillInput && !skills.includes(skillInput)) {
@@ -40,48 +35,29 @@ function Jobposting() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-
-    // If the field is CTC, append 5 zeros to the entered number
-    if (id === "ctc" && value) {
-      setFormData({ ...formData, [id]: value + "00000" }); // Add 5 zeros to CTC
-    } else {
-      setFormData({ ...formData, [id]: value });
-    }
+    setFormData({ ...formData, [id]: value });
   };
 
-  const handlePostJob = () => {
-    // Prepare job data with skills array included
-    const jobData = {
+  const handleUpdateJob = () => {
+    const updatedJob = {
       ...formData,
       skills,
     };
 
-    console.log('Job Data:', jobData); // Log the job data before posting
-
-    // Post data to the backend
-    fetch('http://localhost:3000/jobpost', {
-      method: 'POST',
+    fetch(`http://localhost:3000/update-job/${job.job_id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(jobData),
+      body: JSON.stringify(updatedJob),
     })
       .then(response => response.json())
-      .then((data) => {
-        console.log('Job posted successfully:', data);  // Log the entire response
-        if (data && data.jobData && data.jobData.job_id) {
-          alert('Job posted successfully!');
-          console.log('Received Job ID:', data.jobData.job_id);
-
-          // Navigate to success page with job data (including the ID)
-          navigate('/success', { state: { jobData: data.jobData } });
-        } else {
-          console.error('No Job ID received from the backend.');
-        }
+      .then(data => {
+        console.log('Job updated successfully:', data);
+        navigate('/success'); // Redirect to the success page after update
       })
       .catch(error => {
-        console.error('Error posting job:', error);
-        alert('Error posting job');
+        console.error('Error updating job:', error);
       });
   };
 
@@ -89,14 +65,13 @@ function Jobposting() {
     <div className='containers'>
       <Sidebar />
       <div className="main-content">
-        <div className="other-jobs">
-          <h1>Post Job</h1>
-          <a href="/success">All Posted Jobs</a>
-        </div>
+          <h1>Edit Job Details</h1>
         <div className="form-container">
           <h4 className='side-heading'>Job Detail</h4>
+
           <div className="form-group">
             <div className="formn-new-change">
+
               <input
                 type="text"
                 id="jobTitle"
@@ -148,6 +123,7 @@ function Jobposting() {
             </div>
           </div>
 
+          {/* Job Description */}
           <div className="form-group">
             <textarea
               id="jobDescription"
@@ -159,6 +135,7 @@ function Jobposting() {
             ></textarea>
           </div>
 
+          {/* Job Responsibilities */}
           <h4 className='side-heading'>Job Responsibilities</h4>
           <div className="form-group">
             <textarea
@@ -170,6 +147,7 @@ function Jobposting() {
             ></textarea>
           </div>
 
+          {/* Job Requirements */}
           <h4 className='side-heading'>Job Requirements</h4>
           <div className="form-group">
             <textarea
@@ -181,6 +159,7 @@ function Jobposting() {
             ></textarea>
           </div>
 
+          {/* Skills */}
           <h4 className='side-heading'>Skills</h4>
           <div className="form-group">
             <div className="skills-input-container">
@@ -202,24 +181,26 @@ function Jobposting() {
                 </div>
               ))}
             </div>
+
+            <h4 className='side-heading'>Deadline</h4>
+            <input
+              type="date"
+              id="deadline"
+              placeholder="Enter Deadline date"
+              value={formData.deadline}
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <h4 className='side-heading'>Deadline</h4>
-          <input
-            type="date"
-            id="deadline"
-            value={formData.deadline}
-            onChange={handleChange}
-            required
-          />
-
+          {/* Update Button */}
           <button
             className="post-button"
             type="button"
-            onClick={handlePostJob}
+            onClick={handleUpdateJob}
             disabled={!isFormValid}
           >
-            Post Job
+            Update Job
           </button>
         </div>
       </div>
@@ -227,4 +208,4 @@ function Jobposting() {
   );
 }
 
-export default Jobposting;
+export default EditJobPage;

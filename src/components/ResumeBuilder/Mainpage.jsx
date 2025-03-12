@@ -6,7 +6,7 @@ function Mainpage() {
   <div className='containers'>
       <Sidebar />
       <div className="content-main">
-        <h1 className="heading-res-main">Resume Builder</h1>
+        <h1>Resume Builder</h1>
         <p className="description">Choose a template to select/customize your resume</p>
         <div className="template-container-res">
           <div className="template">
@@ -21,6 +21,7 @@ function Mainpage() {
               <Link to="/template2">Template 2</Link>
             </p>
           </div>
+          
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import Mainpage from './components/ResumeBuilder/Mainpage';
 import ResumeBuilder from './components/ResumeBuilder/ResumeBuider';
 import HomePage from './components/Recruiter/HomePage';
 import Jobposting from './components/Recruiter/Jobposting';
-import JobPosted from './components/Recruiter/SuccessPage';
+import SuccessPage from './components/Recruiter/SuccessPage';
 import FAQ from './components/Student/FAQ';
 import HomepageStaff from './components/Staff/HomepageStaff';
 import JobDetail from './components/ApplyjobsStudents/JobDetail';
@@ -20,6 +20,7 @@ import ApplicationStaff from './components/Staff/ApplicationStaff';
 import ApplicationRecruit from './components/Recruiter/ApplicationRecruit';
 import './App.css';
 import JobView from './components/Staff/JobView';
+import EditJobPage from './components/Recruiter/EditJobPage';
 
 const App = () => {
   return (
@@ -44,9 +45,9 @@ const App = () => {
 
         <Route path="/recruiter" element={<HomePage />} />
         <Route path="/jobpost" element={<Jobposting />} />
-        <Route path="/success" element={<JobPosted />} />
+        <Route path="/success" element={<SuccessPage />} />
         <Route path="/recruiterApplication" element={<ApplicationRecruit/>} />
-
+        <Route path="/edit-job" element={<EditJobPage/>} />
 
 
         <Route path="/staff" element={<HomepageStaff />} />

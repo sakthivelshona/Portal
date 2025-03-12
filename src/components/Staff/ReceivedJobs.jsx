@@ -107,47 +107,23 @@ const Applications = () => {
   };
 
   // Function to handle delete job (only removes from frontend and stores in deleted jobs list)
+
   const deleteJob = (jobId) => {
-    if (jobId) {
-      alert('Do you want to delete the posted job?');
-      const jobIdStr = String(jobId);  // Ensure jobId is a string for comparison with the backend
-
-      console.log('Deleting job with ID:', jobIdStr);
-
-      // Send the job data to a 'deleted jobs' database (simulating here with a POST request)
-      const jobToDelete = jobApplications.find((job) => String(job.id) === jobIdStr);
-
-      if (jobToDelete) {
-        fetch('http://localhost:3000/deletedjobs', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(jobToDelete),  // Send the job details to the deleted jobs DB
+    // Confirm delete action
+    if (window.confirm('Are you sure you want to delete this job?')) {
+      fetch(`http://localhost:3000/delete-job-staff/${jobId}`, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Failed to delete job');
+          }
+          // Remove the deleted job from the state
+          setAllJobs(allJobs.filter((job) => job.id !== jobId));
         })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error('Failed to store job in deleted jobs DB');
-            }
-            console.log('Job details moved to deleted jobs DB');
-          })
-          .catch((error) => {
-            console.error('Error storing job in deleted jobs DB:', error);
-          });
-
-        // Store deleted job ID in localStorage to persist deletion across page reloads
-        const deletedJobIds = JSON.parse(localStorage.getItem('deletedJobs')) || [];
-        if (!deletedJobIds.includes(jobIdStr)) {
-          deletedJobIds.push(jobIdStr);
-          localStorage.setItem('deletedJobs', JSON.stringify(deletedJobIds));
-        }
-
-        // Remove the job from the frontend
-        setJobApplications(jobApplications.filter((job) => String(job.id) !== jobIdStr));
-        console.log('Job removed from frontend');
-      }
-    } else {
-      console.error('Job ID is undefined');
+        .catch((error) => {
+          console.error('Error deleting job:', error);
+        });
     }
   };
 

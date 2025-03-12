@@ -4,9 +4,8 @@ import { IoLocationSharp } from 'react-icons/io5'; // Location icon
 import { FaCalendarAlt } from 'react-icons/fa'; // Calendar icon
 import { Link, useNavigate } from 'react-router-dom';
 
-
 function SuccessPage() {
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
   const [allJobs, setAllJobs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -44,22 +43,43 @@ function SuccessPage() {
     return job.jobTitle.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  return (
-    
-    <div className="success-container">
-    <button className="back-arrow-button" onClick={() => navigate(-1)}>   ᐸ <span>Back to Jobs</span></button>
+  // Handle delete action
+  const handleDelete = (jobId) => {
+    // Confirm delete action
+    if (window.confirm('Are you sure you want to delete this job?')) {
+      fetch(`http://localhost:3000/delete-job/${jobId}`, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Failed to delete job');
+          }
+          // Remove the deleted job from the state
+          setAllJobs(allJobs.filter((job) => job.id !== jobId));
+        })
+        .catch((error) => {
+          console.error('Error deleting job:', error);
+        });
+    }
+  };
 
-    <h1 className="success-title">All Posted Jobs</h1>
+  return (
+    <div className="success-container1">
+      <button className="back-arrow-button" onClick={() => navigate('/jobpost')}>
+        ᐸ <span>Back to Jobs</span>
+      </button>
+
+      <h1 className="success-title">All Posted Jobs</h1>
 
       {/* Search bar */}
       <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search by Job Title"
-            className="search-input"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+        <input
+          type="text"
+          placeholder="Search by Job Title"
+          className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       {filteredJobs.length === 0 ? (
@@ -79,18 +99,20 @@ function SuccessPage() {
                   ))}
                 </div>
                 <div className="deadline">
-                <FaCalendarAlt className="calendar-icon-new" />
-                <p>Deadline:</p>
+                  <FaCalendarAlt className="calendar-icon-new" />
+                  <p>Deadline:</p>
                   <span>{formatDate(job.deadline)}</span>
                 </div>
               </div>
 
               <p><strong>Description:</strong> {job.jobDescription}</p>
               <div className="other-jobs-btns">
-              <Link><button>Edit</button></Link>
-              <Link><button >Delete</button></Link>
+                {/* Passing job details to the Edit Job page */}
+                <Link to="/edit-job" state={{ job: job }}><button> Edit</button> </Link>
+                
+                {/* Delete button */}
+                <button className='job-dele'onClick={() => handleDelete(job.id)}>Delete</button>
               </div>
-
             </div>
           </div>
         ))
