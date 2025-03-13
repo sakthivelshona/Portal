@@ -9,15 +9,6 @@ function SuccessPage() {
   const [allJobs, setAllJobs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/recruiter');  
-    }, 2000); 
-
-    // Cleanup timer on component unmount
-    return () => clearTimeout(timer);
-  }, [navigate]);
-
 
   useEffect(() => {
     fetch('http://localhost:3000/getjobs')
