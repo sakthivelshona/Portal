@@ -108,10 +108,10 @@ const Applications = () => {
 
   // Function to handle delete job (only removes from frontend and stores in deleted jobs list)
 
-  const deleteJob = (jobId) => {
+  const deleteJob = (job_id) => {
     // Confirm delete action
     if (window.confirm('Are you sure you want to delete this job?')) {
-      fetch(`http://localhost:3000/delete-job-staff/${jobId}`, {
+      fetch(`http://localhost:3000/delete-job-staff/${job_id}`, {
         method: 'DELETE',
       })
         .then((response) => {
@@ -119,7 +119,7 @@ const Applications = () => {
             throw new Error('Failed to delete job');
           }
           // Remove the deleted job from the state
-          setAllJobs(allJobs.filter((job) => job.id !== jobId));
+          setAllJobs(allJobs.filter((job) => job.id !== job_id));
         })
         .catch((error) => {
           console.error('Error deleting job:', error);

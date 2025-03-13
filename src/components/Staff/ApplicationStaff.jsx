@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import './Style.css';
 
-
 function ApplicationStaff() {
   const [studentAppliedJobs, setStudentAppliedJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [skillsFilter, setSkillsFilter] = useState('');
   const [roleFilter, setRoleFilter] = useState('');
   const [selectedJob, setSelectedJob] = useState(null); // For pop-up
+  const [feedbackStaff, setFeedbackStaff] = useState(''); // Declare feedback state
+  const [jobStatus, setJobStatus] = useState({}); // Store status for jobs
+
+  // Load job status from localStorage when the component is mounted
+  useEffect(() => {
+    const savedJobStatus = JSON.parse(localStorage.getItem('jobStatus')) || {};
+    setJobStatus(savedJobStatus);
+  }, []);
 
   useEffect(() => {
     fetch('http://localhost:3000/getStudentApplications')
@@ -31,41 +38,45 @@ function ApplicationStaff() {
     setFilteredJobs(filtered);
   }, [skillsFilter, roleFilter, studentAppliedJobs]);
 
-  // const handleDeclineWithFeedback = (job_id) => {
-  //   if (!job_id || !feedback) {
-  //     console.error('No job_id or feedback provided');
-  //     return;
-  //   }
-  
-  //   // Send feedback and update status to "declined" to the server
-  //   fetch(`http://localhost:3000/updateApplicationStatus`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ job_id, feedback, status: 'declined' }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         console.log('Feedback and status updated successfully');
-          
-  //         // Update the job status in the frontend
-  //         const updatedJobs = filteredJobs.map((job) =>
-  //           job.job_id === job_id ? { ...job, status: 'declined' } : job
-  //         );
-  //         setFilteredJobs(updatedJobs);
-  
-  //         alert(`Job with id ${job_id} is declined`);
-  //       } else {
-  //         console.error('Error updating feedback and status');
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error saving feedback and updating status:', error);
-  //     });
-  // };
-  
+  // Handle Decline action
+  const handleDecline = (job_id) => {
+    if (feedbackStaff === '') {
+      alert('Fill the Feedback form');
+    } else {
+      // Sending feedback to backend
+      fetch('http://localhost:3000/feedbackSubmit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          feedbackStaff: feedbackStaff,
+          job_id: job_id,
+          studentEmail: selectedJob.studentEmail,
+          status: 'declined',
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert('Feedback submitted successfully!');
+            // Update job status in state
+            const updatedStatus = { ...jobStatus, [job_id]: 'declined' };
+            setJobStatus(updatedStatus);
+
+            // Save updated status to localStorage
+            localStorage.setItem('jobStatus', JSON.stringify(updatedStatus));
+
+            setSelectedJob(null); // Close the popup
+          } else {
+            alert('Error submitting feedback');
+          }
+        })
+        .catch((error) => {
+          console.error('Error submitting feedback:', error);
+        });
+    }
+  };
 
   return (
     <div className='containers'>
@@ -75,7 +86,6 @@ function ApplicationStaff() {
         {/* Filter options */}
         <div className="filters">
           <div>
-
             <input
               id="skillsFilter"
               type="text"
@@ -85,7 +95,6 @@ function ApplicationStaff() {
             />
           </div>
           <div>
-
             <input
               id="roleFilter"
               type="text"
@@ -129,10 +138,16 @@ function ApplicationStaff() {
                       Link
                     </a>
                   </td>
+
                   <td>
-                    <button className="view-button" onClick={() => setSelectedJob(job)}>
-                      Incomplete
-                    </button>
+                    {/* Status displayed here */}
+                    {jobStatus[job.job_id] === 'declined' ? (
+                      <span style={{ color: 'red', fontWeight: 'bold' }}>Rejected</span>
+                    ) : (
+                      <button className="view-button" onClick={() => setSelectedJob(job)}>
+                        Incomplete
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
@@ -162,11 +177,22 @@ function ApplicationStaff() {
                     View Resume
                   </a>
                 </p>
+                <p><strong>Status:</strong> 
+                  {jobStatus[selectedJob.job_id] === 'declined' ? (
+                    <span style={{ color: 'red', fontWeight: 'bold' }}>Rejected</span>
+                  ) : (
+                    'Incomplete'
+                  )}
+                </p>
+
                 <label>Feedback:</label>
-                <input type="text" placeholder="Enter feedback" required />
+                <input type="text" placeholder="Enter feedback" 
+                value={feedbackStaff} 
+                onChange={(e) => setFeedbackStaff(e.target.value)} // Update feedback state
+                required />
 
                 <div className="popup-buttons">
-                <button className="decline-button">Decline</button>
+                  <button className="decline-button" onClick={() => handleDecline(selectedJob.job_id)} >Decline</button>
                 </div>
               </div>
             </div>

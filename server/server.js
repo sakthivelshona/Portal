@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
 import url from 'url';
-import { CgLogIn } from 'react-icons/cg';
 
 // Create an Express app
 const app = express();
@@ -46,6 +45,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // In-memory applications and jobs arrays
 let applications = []; // Student Applications
 let jobs = []; // Job Posts
+
+
 
 // Route to apply for a job
 app.post('/applyJob', upload.single('resume'), (req, res) => {
@@ -98,6 +99,7 @@ app.post('/applyJob', upload.single('resume'), (req, res) => {
   });
 });
 
+
 // Route to get all student applications
 app.get('/getStudentApplications', (req, res) => {
   console.log('GET /getStudentApplications hit');
@@ -106,7 +108,8 @@ app.get('/getStudentApplications', (req, res) => {
 });
 
 
-// Route to handle job posts
+
+// Route to Post the jobs 
 app.post('/jobpost', (req, res) => {
   const jobData = req.body;
 
@@ -119,11 +122,14 @@ app.post('/jobpost', (req, res) => {
   console.log("Generated Job ID:", jobData.job_id);
 });
 
+
 // Route to get all job posts
 app.get('/getjobs', (req, res) => {
   console.log('GET /getjobs route hit');
   res.status(200).json(jobs); // Send the array as JSON
 });
+
+
 
 // Route to create user accounts
 let userdata = [];
@@ -144,37 +150,62 @@ app.put('/test', (req, res) => {
 
 
 // Edit Posted Job
-app.put('/update-job/:jobId', (req, res) => {
-  const jobId = parseInt(req.params.jobId); // Convert jobId to integer
+app.put('/update-job/:job_id', (req, res) => {
+  const job_id = parseInt(req.params.job_id); 
   const updatedJob = req.body;
 
   // Find the job in the jobs array by job_id
-  const jobIndex = jobs.findIndex(job => job.job_id === jobId);
+  const jobIndex = jobs.findIndex(job => job.job_id === job_id);
 
   if (jobIndex !== -1) {
     // If the job is found, update its details
     jobs[jobIndex] = { ...jobs[jobIndex], ...updatedJob }; // Merge old job data with updated data
 
-    // Return the updated job details as a response
     res.json({
       message: 'Job updated successfully!',
       updatedJob: jobs[jobIndex],
     });
-  } else {
-    // If the job is not found, send an error response
-    res.status(404).json({ error: `Job with job_id ${jobId} not found.` });
+  } 
+  
+  else {
+    res.status(404).json({ error: `Job with job_id ${job_id} not found.` });
   }
 });
 
+
+
 // Delete Posted Job
+app.delete('/delete-job/:job_id', (req, res) => {
+  const job_id = req.params.job_id;
 
-app.delete('/delete-job/:jobId', (req, res) => {
-  const jobId = req.params.jobId;
-
-  jobs = jobs.filter(job => job.id !== jobId);
-
+  jobs = jobs.filter(job => job.id !== job_id);
   res.status(200).send('Job deleted successfully');
   console.log('Job deleted successfully');
+});
+
+
+//Submit Feedback
+app.post('/feedbackSubmit', (req, res) => {
+  const { feedback ,studentEmail,feedbackStaff,jobTitle,company,status} = req.body;
+
+  if (!feedbackStaff) {
+    console.log(`Declining feedback from student: ${studentEmail}. Feedback: "${feedback}" by recruiter for the role: ${jobTitle} at company: ${company}`);
+  } else {
+    console.log(`Declining feedback from student: ${studentEmail}. Staff feedback: "${feedbackStaff}"`);
+  }
+  res.status(200).json({ success: true, message: 'Feedback submitted successfully' });
+});
+
+
+// Route to handle approval feedback submission
+app.post('/approveApplication', (req, res) => {
+  const { job_id, instruction, status, studentEmail, jobTitle, company } = req.body;
+
+
+  console.log(`Approval feedback for Job ID: ${job_id}, Student Email: ${studentEmail}, Instruction: "${instruction}", Job Title: ${jobTitle}, Company: ${company}`);
+  
+  // Send a response to confirm that the feedback was successfully submitted
+  res.status(200).json({ success: true, message: 'Approval feedback submitted successfully' });
 });
 
 

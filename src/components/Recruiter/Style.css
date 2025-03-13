@@ -423,14 +423,69 @@ h3 {
 /* Ensure these styles override any unwanted ones */
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
   color: black;
-  border: none;
-  padding: 5px 10px;
   background: white;
   cursor: pointer;
-  border-radius: 50%;
+}
+
+.approval-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup Container */
+.approval-popup {
+  position: relative; /* Makes the close button position relative to the popup */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Popup Content Styles */
+.popup-content h4 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.send-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #45a049;
+}
+
+.popup-buttons {
+  text-align: center;
 }
 
 

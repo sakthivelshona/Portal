@@ -10,6 +10,16 @@ function SuccessPage() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/recruiter');  
+    }, 2000); 
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
+
+  useEffect(() => {
     fetch('http://localhost:3000/getjobs')
       .then((response) => {
         if (!response.ok) {
@@ -44,10 +54,10 @@ function SuccessPage() {
   });
 
   // Handle delete action
-  const handleDelete = (jobId) => {
+  const handleDelete = (job_id) => {
     // Confirm delete action
     if (window.confirm('Are you sure you want to delete this job?')) {
-      fetch(`http://localhost:3000/delete-job/${jobId}`, {
+      fetch(`http://localhost:3000/delete-job/${job_id}`, {
         method: 'DELETE',
       })
         .then((response) => {
@@ -55,7 +65,7 @@ function SuccessPage() {
             throw new Error('Failed to delete job');
           }
           // Remove the deleted job from the state
-          setAllJobs(allJobs.filter((job) => job.id !== jobId));
+          setAllJobs(allJobs.filter((job) => job.id !== job_id));
         })
         .catch((error) => {
           console.error('Error deleting job:', error);
