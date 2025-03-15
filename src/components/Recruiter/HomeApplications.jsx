@@ -44,19 +44,19 @@ function HomeApplications() {
   });
 
   return (
-    
+
     <div className="success-container">
-<h3 style={{ textAlign: 'left' }}>Active Posted Jobs</h3>
+      <h3 style={{ textAlign: 'left' }}>Active Posted Jobs</h3>
 
       {/* Search bar */}
       <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search by Job Title"
-            className="search-input"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+        <input
+          type="text"
+          placeholder="Search by Job Title"
+          className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       {filteredJobs.length === 0 ? (
@@ -76,13 +76,20 @@ function HomeApplications() {
                   ))}
                 </div>
                 <div className="deadline">
-                <FaCalendarAlt className="calendar-icon-new" />
-                <p>Deadline:</p>
+                  <FaCalendarAlt className="calendar-icon-new" />
+                  <p>Deadline:</p>
                   <span>{formatDate(job.deadline)}</span>
                 </div>
               </div>
 
               <p><strong>Description:</strong> {job.jobDescription}</p>
+              <div className="other-jobs-btns">
+                {/* Passing job details to the Edit Job page */}
+                <Link to="/edit-job" state={{ job: job }}><button> Edit</button> </Link>
+                
+                {/* Delete button */}
+                <button className='job-dele'onClick={() => handleDelete(job.id)}>Delete</button>
+              </div>
             </div>
           </div>
         ))

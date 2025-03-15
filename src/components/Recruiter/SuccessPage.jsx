@@ -91,6 +91,11 @@ function SuccessPage() {
             <div className="job-card">
               <h2>{job.company} - {job.jobTitle}</h2>
               <p className="rupee"><strong>₹ {job.ctc}</strong></p>
+              <p className="company-website"> URL :
+                <a href={job.website} target="_blank" rel="noopener noreferrer">
+                  {job.website}
+                </a>
+              </p>
               <p><IoLocationSharp />{job.location}</p>
 
               <div className="skills-deadline">
@@ -105,15 +110,19 @@ function SuccessPage() {
                   <span>{formatDate(job.deadline)}</span>
                 </div>
               </div>
+              <div className="detail-style-change">
+                <p><strong><span>Description :</span></strong> {job.jobDescription}</p>
+                <p><strong><span>Responsibility :</span></strong> {job.jobResponsibility}</p>
+                <p><strong><span>Requirement :</span></strong> {job.jobRequirement}</p>
+                <p><strong><span>Deadline:</span></strong> {formatDate(job.deadline)}</p>
 
-              <p><strong>Description:</strong> {job.jobDescription}</p>
-              <div className="other-jobs-btns">
-                {/* Passing job details to the Edit Job page */}
-                <Link to="/edit-job" state={{ job: job }}><button> Edit</button> </Link>
-                
-                {/* Delete button */}
-                <button className='job-dele'onClick={() => handleDelete(job.id)}>Delete</button>
               </div>
+
+
+              {/* <div className="other-jobs-btns">
+                <Link to="/edit-job" state={{ job: job }}><button> Edit</button> </Link>
+                <button className='job-dele'onClick={() => handleDelete(job.id)}>Delete</button>
+              </div> */}
             </div>
           </div>
         ))

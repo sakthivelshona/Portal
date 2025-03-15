@@ -66,7 +66,7 @@ h1 {
 
 /* Style for the form container */
 
-.other-jobs{
+.other-jobs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -97,7 +97,7 @@ h1 {
 
 .side-heading {
   margin: 0;
-  color:  #3674B5;
+  color: #3674B5;
 }
 
 .form-group textarea {
@@ -226,16 +226,25 @@ input {
   width: 100%;
 }
 
-.other-jobs-btns{
+.detail-style-change span {
+  font-size: 18px;
+  color: #3674B5;
+}
+.detail-style-change p{
+padding-bottom: 20px;
+}
+
+.other-jobs-btns {
   display: flex;
   justify-content: flex-end;
   gap: 30px;
 }
 
-.job-dele{
+.job-dele {
   background-color: red;
 }
-.job-dele:hover{
+
+.job-dele:hover {
   background-color: rgb(246, 110, 110);
 }
 
@@ -368,7 +377,7 @@ h3 {
 .decline-button:hover {
   background-color: white;
   color: #3674B5;
-  border: 1px solid  #3674B5;
+  border: 1px solid #3674B5;
 
 }
 
@@ -443,7 +452,8 @@ h3 {
 
 /* Popup Container */
 .approval-popup {
-  position: relative; /* Makes the close button position relative to the popup */
+  position: relative;
+  /* Makes the close button position relative to the popup */
   background-color: white;
   padding: 20px;
   border-radius: 8px;
@@ -498,7 +508,8 @@ input[type="text"] {
   .centered-text,
   .job-posted-details,
   .main-content,
-  .recruiter-application-container,.popup-overlay  {
+  .recruiter-application-container,
+  .popup-overlay {
     margin-left: 0px;
   }
 
